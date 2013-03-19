@@ -1,10 +1,10 @@
-module org.eclipse.xtext.tutorial.GenerateMyQuestionnaire
+module org.eclipse.xtext.tutorial.myquestionnaire.GenerateMyQuestionnaire
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/eclipse/xtext/tutorial/MyQuestionnaire.xtext"
+var grammarURI = "classpath:/org/eclipse/xtext/tutorial/myquestionnaire/MyQuestionnaire.xtext"
 var fileExtensions = "questionnaire"
 var projectName = "org.eclipse.xtext.tutorial.myquestionnaire"
 var runtimeProject = "../${projectName}"
@@ -14,9 +14,6 @@ Workflow {
     bean = StandaloneSetup {
     	scanClassPath = true
     	platformUri = "${runtimeProject}/.."
-    	// The following two lines can be removed, if Xbase is not used.
-    	registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
-    	registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
     }
     
     component = DirectoryCleaner {
@@ -84,20 +81,30 @@ Workflow {
     		fragment = generator.GeneratorFragment auto-inject {}
     
     		// formatter API
-    		fragment = formatting.FormatterFragment auto-inject {}
+    		fragment = formatting.FormatterFragment auto-inject {
+    			generateStub = false
+    		}
     
     		// labeling API
-    		fragment = labeling.LabelProviderFragment auto-inject {}
+    		fragment = labeling.LabelProviderFragment auto-inject {
+    			generateStub = false
+    		}
     
     		// outline API
-    		fragment = outline.OutlineTreeProviderFragment auto-inject {}
+    		fragment = outline.OutlineTreeProviderFragment auto-inject {
+    			generateStub = false
+    		}
     		fragment = outline.QuickOutlineFragment auto-inject {}
     
     		// quickfix API
-    		fragment = quickfix.QuickfixProviderFragment auto-inject {}
+    		fragment = quickfix.QuickfixProviderFragment auto-inject {
+    			generateStub = false
+    		}
     
     		// content assist API
-    		fragment = contentAssist.ContentAssistFragment auto-inject {}
+    		fragment = contentAssist.ContentAssistFragment auto-inject {
+    			generateStub = false
+    		}
     
     		// generates a more lightweight Antlr parser and lexer tailored for content assist
     		fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {}
@@ -115,9 +122,6 @@ Workflow {
     
     		// provides the necessary bindings for java types integration
     		fragment = types.TypesGeneratorFragment auto-inject {}
-    
-    		// generates the required bindings only if the grammar inherits from Xbase
-    		fragment = xbase.XbaseGeneratorFragment auto-inject {}
     
     		// provides a preference page for template proposals
     		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}

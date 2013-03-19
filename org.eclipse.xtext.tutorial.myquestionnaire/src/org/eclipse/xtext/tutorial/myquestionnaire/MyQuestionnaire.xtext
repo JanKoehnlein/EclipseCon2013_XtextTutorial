@@ -1,6 +1,6 @@
-grammar org.eclipse.xtext.tutorial.MyQuestionnaire with org.eclipse.xtext.common.Terminals
+grammar org.eclipse.xtext.tutorial.myquestionnaire.MyQuestionnaire with org.eclipse.xtext.common.Terminals
 
-generate myQuestionnaire "http://www.eclipse.org/xtext/tutorial/MyQuestionnaire"
+generate myQuestionnaire "http://www.eclipse.org/xtext/tutorial/myquestionnaire/MyQuestionnaire"
 
 Questionnaire:
 	'questionnaire' 
