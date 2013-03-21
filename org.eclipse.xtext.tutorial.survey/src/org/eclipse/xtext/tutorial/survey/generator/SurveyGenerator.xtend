@@ -176,11 +176,11 @@ class SurveyGenerator implements IGenerator {
 	'''
 
 	def protected getPageFlowClassName() {
-		'org.eclipse.xtext.tutorial.example.PageFlow'
+		'main.PageFlow'
 	}
 
 	def protected getStartServerClassName() {
-		'org.eclipse.xtext.tutorial.example.StartServer'
+		'main.StartServer'
 	}
 	
 	def getJavaFilePath(String className) {

@@ -552,11 +552,11 @@ public class SurveyGenerator implements IGenerator {
   }
   
   protected String getPageFlowClassName() {
-    return "org.eclipse.xtext.tutorial.example.PageFlow";
+    return "main.PageFlow";
   }
   
   protected String getStartServerClassName() {
-    return "org.eclipse.xtext.tutorial.example.StartServer";
+    return "main.StartServer";
   }
   
   public String getJavaFilePath(final String className) {
