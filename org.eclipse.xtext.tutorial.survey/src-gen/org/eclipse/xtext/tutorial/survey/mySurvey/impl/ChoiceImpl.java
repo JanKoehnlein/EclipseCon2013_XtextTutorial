@@ -19,6 +19,7 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.ChoiceImpl#isFreetext <em>Freetext</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.ChoiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.ChoiceImpl#getText <em>Text</em>}</li>
  * </ul>
@@ -28,6 +29,26 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
  */
 public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
 {
+  /**
+   * The default value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FREETEXT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected boolean freetext = FREETEXT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +115,29 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isFreetext()
+  {
+    return freetext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFreetext(boolean newFreetext)
+  {
+    boolean oldFreetext = freetext;
+    freetext = newFreetext;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.CHOICE__FREETEXT, oldFreetext, freetext));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -145,6 +189,8 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case MySurveyPackage.CHOICE__FREETEXT:
+        return isFreetext();
       case MySurveyPackage.CHOICE__NAME:
         return getName();
       case MySurveyPackage.CHOICE__TEXT:
@@ -163,6 +209,9 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case MySurveyPackage.CHOICE__FREETEXT:
+        setFreetext((Boolean)newValue);
+        return;
       case MySurveyPackage.CHOICE__NAME:
         setName((String)newValue);
         return;
@@ -183,6 +232,9 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case MySurveyPackage.CHOICE__FREETEXT:
+        setFreetext(FREETEXT_EDEFAULT);
+        return;
       case MySurveyPackage.CHOICE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -203,6 +255,8 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case MySurveyPackage.CHOICE__FREETEXT:
+        return freetext != FREETEXT_EDEFAULT;
       case MySurveyPackage.CHOICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MySurveyPackage.CHOICE__TEXT:
@@ -222,7 +276,9 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (freetext: ");
+    result.append(freetext);
+    result.append(", name: ");
     result.append(name);
     result.append(", text: ");
     result.append(text);

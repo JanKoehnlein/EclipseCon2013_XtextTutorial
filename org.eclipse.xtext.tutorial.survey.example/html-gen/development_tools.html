@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="development_tools"/>
+					
+					<div class="control-group">
+						<label class="control-label">What is the <i>primary</i> source code management system you typically use?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_0"/>BitBucket
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_1"/>CVS
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_2"/>CollabNet TeamForge
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_3"/>Git
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_4"/>GitHub
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_5"/>IBM Rational ClearCase
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_6"/>IBM Rational Team Concert
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_7"/>Mercurial
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_8"/>Microsoft Team Foundation Server
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_9"/>Microsoft Visual SourceSafe
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_10"/>Perforce
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_11"/>Subversion
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_12"/>None - I don't use a source code management system
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_13"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="scm" value="answer_14"/>Other (please specify)
+									&nbsp;<input type="text" name="scm">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What build and release management products do you typically use? (Select all that apply.)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_0"/>Apache Ivy
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_1"/>Ant
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_2"/>Anthill Professional
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_3"/>Atlassian Bamboo
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_4"/>Artifactory
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_5"/>Buckminster
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_6"/>CMake
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_7"/>CruiseControl
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_8"/>Electric Cloud
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_9"/>Gradle
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_10"/>Hudson
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_11"/>Jenkins
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_12"/>IBM Build Forge
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_13"/>Make
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_14"/>Maven
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_15"/>Microsoft Team Foundation Server (TFS)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_16"/>PDE Build
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_17"/>Pulse
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_18"/>Sonatype Nexus
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_19"/>TeamCity
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_20"/>Custom/in-house
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_21"/>None - I don't use a build and release management product
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_22"/>Don't know
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="release_mgmt" value="answer_23"/>Other (please specify)
+									&nbsp;<input type="text" name="release_mgmt">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

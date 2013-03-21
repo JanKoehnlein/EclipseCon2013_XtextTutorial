@@ -67,18 +67,15 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cQuestionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cQuestionsQuestionParserRuleCall_3_0 = (RuleCall)cQuestionsAssignment_3.eContents().get(0);
-		private final Assignment cNextAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cNextPageCrossReference_4_0 = (CrossReference)cNextAssignment_4.eContents().get(0);
-		private final RuleCall cNextPageIDTerminalRuleCall_4_0_1 = (RuleCall)cNextPageCrossReference_4_0.eContents().get(1);
+		private final Assignment cFollowUpsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFollowUpsFollowUpParserRuleCall_4_0 = (RuleCall)cFollowUpsAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Page:
-		//	"page" name=ID "(" questions+=Question* next=[Page] //		followUps+=FollowUp*
-		//	")";
+		//	"page" name=ID "(" questions+=Question* followUps+=FollowUp* ")";
 		public ParserRule getRule() { return rule; }
 
-		//"page" name=ID "(" questions+=Question* next=[Page] //		followUps+=FollowUp*
-		//")"
+		//"page" name=ID "(" questions+=Question* followUps+=FollowUp* ")"
 		public Group getGroup() { return cGroup; }
 
 		//"page"
@@ -99,18 +96,122 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		//Question
 		public RuleCall getQuestionsQuestionParserRuleCall_3_0() { return cQuestionsQuestionParserRuleCall_3_0; }
 
-		//next=[Page]
-		public Assignment getNextAssignment_4() { return cNextAssignment_4; }
+		//followUps+=FollowUp*
+		public Assignment getFollowUpsAssignment_4() { return cFollowUpsAssignment_4; }
 
-		//[Page]
-		public CrossReference getNextPageCrossReference_4_0() { return cNextPageCrossReference_4_0; }
+		//FollowUp
+		public RuleCall getFollowUpsFollowUpParserRuleCall_4_0() { return cFollowUpsFollowUpParserRuleCall_4_0; }
 
-		//ID
-		public RuleCall getNextPageIDTerminalRuleCall_4_0_1() { return cNextPageIDTerminalRuleCall_4_0_1; }
-
-		////		followUps+=FollowUp*
 		//")"
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
+
+	public class FollowUpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FollowUp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cGuardAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cGuardGuardParserRuleCall_0_0 = (RuleCall)cGuardAssignment_0.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNextAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cNextPageCrossReference_2_0 = (CrossReference)cNextAssignment_2.eContents().get(0);
+		private final RuleCall cNextPageIDTerminalRuleCall_2_0_1 = (RuleCall)cNextPageCrossReference_2_0.eContents().get(1);
+		
+		//FollowUp:
+		//	guard=Guard? "->" next=[Page];
+		public ParserRule getRule() { return rule; }
+
+		//guard=Guard? "->" next=[Page]
+		public Group getGroup() { return cGroup; }
+
+		//guard=Guard?
+		public Assignment getGuardAssignment_0() { return cGuardAssignment_0; }
+
+		//Guard
+		public RuleCall getGuardGuardParserRuleCall_0_0() { return cGuardGuardParserRuleCall_0_0; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
+
+		//next=[Page]
+		public Assignment getNextAssignment_2() { return cNextAssignment_2; }
+
+		//[Page]
+		public CrossReference getNextPageCrossReference_2_0() { return cNextPageCrossReference_2_0; }
+
+		//ID
+		public RuleCall getNextPageIDTerminalRuleCall_2_0_1() { return cNextPageIDTerminalRuleCall_2_0_1; }
+	}
+
+	public class GuardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Guard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cQuestionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cQuestionChoiceQuestionCrossReference_1_0 = (CrossReference)cQuestionAssignment_1.eContents().get(0);
+		private final RuleCall cQuestionChoiceQuestionQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cQuestionChoiceQuestionCrossReference_1_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cAnswerAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cAnswerChoiceCrossReference_3_0 = (CrossReference)cAnswerAssignment_3.eContents().get(0);
+		private final RuleCall cAnswerChoiceQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cAnswerChoiceCrossReference_3_0.eContents().get(1);
+		
+		//Guard:
+		//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName];
+		public ParserRule getRule() { return rule; }
+
+		//"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName]
+		public Group getGroup() { return cGroup; }
+
+		//"if"
+		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
+
+		//question=[ChoiceQuestion|QualifiedName]
+		public Assignment getQuestionAssignment_1() { return cQuestionAssignment_1; }
+
+		//[ChoiceQuestion|QualifiedName]
+		public CrossReference getQuestionChoiceQuestionCrossReference_1_0() { return cQuestionChoiceQuestionCrossReference_1_0; }
+
+		//QualifiedName
+		public RuleCall getQuestionChoiceQuestionQualifiedNameParserRuleCall_1_0_1() { return cQuestionChoiceQuestionQualifiedNameParserRuleCall_1_0_1; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//answer=[Choice|QualifiedName]
+		public Assignment getAnswerAssignment_3() { return cAnswerAssignment_3; }
+
+		//[Choice|QualifiedName]
+		public CrossReference getAnswerChoiceCrossReference_3_0() { return cAnswerChoiceCrossReference_3_0; }
+
+		//QualifiedName
+		public RuleCall getAnswerChoiceQualifiedNameParserRuleCall_3_0_1() { return cAnswerChoiceQualifiedNameParserRuleCall_3_0_1; }
+	}
+
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 
 	public class QuestionElements extends AbstractParserRuleElementFinder {
@@ -119,17 +220,6 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFreeTextQuestionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cChoiceQuestionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		////FollowUp:
-		////	guard=Guard? '->' next=[Page];
-		////
-		////Guard:
-		////	'if'
-		////	question=[ChoiceQuestion|QualifiedName]
-		////	'='
-		////	answer=[Choice|QualifiedName];
-		////
-		////QualifiedName:
-		////	ID ('.' ID)*;
 		//Question:
 		//	FreeTextQuestion | ChoiceQuestion;
 		public ParserRule getRule() { return rule; }
@@ -235,34 +325,45 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 	public class ChoiceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Choice");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextSTRINGTerminalRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
+		private final Assignment cFreetextAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cFreetextTextKeyword_0_0 = (Keyword)cFreetextAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
 		
 		//Choice:
-		//	name=ID text=STRING;
+		//	freetext?="text"? name=ID? text=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID text=STRING
+		//freetext?="text"? name=ID? text=STRING
 		public Group getGroup() { return cGroup; }
 
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//freetext?="text"?
+		public Assignment getFreetextAssignment_0() { return cFreetextAssignment_0; }
+
+		//"text"
+		public Keyword getFreetextTextKeyword_0_0() { return cFreetextTextKeyword_0_0; }
+
+		//name=ID?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//text=STRING
-		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
+		public Assignment getTextAssignment_2() { return cTextAssignment_2; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_1_0() { return cTextSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getTextSTRINGTerminalRuleCall_2_0() { return cTextSTRINGTerminalRuleCall_2_0; }
 	}
 	
 	
 	private SurveyElements pSurvey;
 	private PageElements pPage;
+	private FollowUpElements pFollowUp;
+	private GuardElements pGuard;
+	private QualifiedNameElements pQualifiedName;
 	private QuestionElements pQuestion;
 	private FreeTextQuestionElements pFreeTextQuestion;
 	private ChoiceQuestionElements pChoiceQuestion;
@@ -317,8 +418,7 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Page:
-	//	"page" name=ID "(" questions+=Question* next=[Page] //		followUps+=FollowUp*
-	//	")";
+	//	"page" name=ID "(" questions+=Question* followUps+=FollowUp* ")";
 	public PageElements getPageAccess() {
 		return (pPage != null) ? pPage : (pPage = new PageElements());
 	}
@@ -327,17 +427,36 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		return getPageAccess().getRule();
 	}
 
-	////FollowUp:
-	////	guard=Guard? '->' next=[Page];
-	////
-	////Guard:
-	////	'if'
-	////	question=[ChoiceQuestion|QualifiedName]
-	////	'='
-	////	answer=[Choice|QualifiedName];
-	////
-	////QualifiedName:
-	////	ID ('.' ID)*;
+	//FollowUp:
+	//	guard=Guard? "->" next=[Page];
+	public FollowUpElements getFollowUpAccess() {
+		return (pFollowUp != null) ? pFollowUp : (pFollowUp = new FollowUpElements());
+	}
+	
+	public ParserRule getFollowUpRule() {
+		return getFollowUpAccess().getRule();
+	}
+
+	//Guard:
+	//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName];
+	public GuardElements getGuardAccess() {
+		return (pGuard != null) ? pGuard : (pGuard = new GuardElements());
+	}
+	
+	public ParserRule getGuardRule() {
+		return getGuardAccess().getRule();
+	}
+
+	//QualifiedName:
+	//	ID ("." ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+
 	//Question:
 	//	FreeTextQuestion | ChoiceQuestion;
 	public QuestionElements getQuestionAccess() {
@@ -369,7 +488,7 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Choice:
-	//	name=ID text=STRING;
+	//	freetext?="text"? name=ID? text=STRING;
 	public ChoiceElements getChoiceAccess() {
 		return (pChoice != null) ? pChoice : (pChoice = new ChoiceElements());
 	}

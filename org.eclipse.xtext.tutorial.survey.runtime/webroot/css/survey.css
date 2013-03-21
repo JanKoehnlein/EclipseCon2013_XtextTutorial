@@ -1,0 +1,19 @@
+body {
+	padding-bottom: 40px;
+}
+
+.form-horizontal .control-label {
+	width: 320px;
+}
+
+.form-horizontal .controls {
+	margin-left: 340px;
+}
+
+.navbar-inner {
+  background-image: -moz-linear-gradient(top, #eeeeee, #8888aa);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#8888aa));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #8888aa);
+  background-image: -o-linear-gradient(top, #eeeeee, #8888aa);
+  background-image: linear-gradient(to bottom, #eeeeeee, #8888aa);
+}

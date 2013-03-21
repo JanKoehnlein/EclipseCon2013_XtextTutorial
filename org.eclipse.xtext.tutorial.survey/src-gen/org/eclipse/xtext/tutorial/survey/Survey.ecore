@@ -12,7 +12,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="questions" upperBound="-1"
         eType="#//Question" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="followUps" upperBound="-1"
+        eType="#//FollowUp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FollowUp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//Guard"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Guard">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="question" eType="#//ChoiceQuestion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="answer" eType="#//Choice"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,6 +35,7 @@
         eType="#//Choice" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freetext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="operating_system"/>
+					
+					<div class="control-group">
+						<label class="control-label">What is your primary operating system for software <i>development</i>?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="development" value="answer_0"/>Linux - Debian
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_1"/>Linux - Fedora
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_2"/>Linux - RHEL
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_3"/>Linux - SUSE
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_4"/>Linux - Ubuntu
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_5"/>Linux - Other
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_6"/>Mac OSX
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_7"/>Microsoft Windows (any version of Server or Client)
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_8"/>Oracle Solaris
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_9"/>Unix (AIX, HP-UX)
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_10"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="development" value="answer_11"/>Other operating system platform  (specify)
+									&nbsp;<input type="text" name="development">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What are your primary operating systems for software <i>deployment</i>? (Based on importance, choose up to 5)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_0"/>Embedded OS (ex. Embedded Linux, QNX, VxWorks)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_1"/>Linux - Debian
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_2"/>Linux - Fedora
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_3"/>Linux - RHEL
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_4"/>Linux - SUSE
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_5"/>Linux - Ubuntu
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_6"/>Linux - Other
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_7"/>Mac OSX
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_8"/>Microsoft Windows (any version of Server or Client)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_9"/>Android
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_10"/>Apple iOS
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_11"/>Windows Phone
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_12"/>RIM Blackberry
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_13"/>Samsung Bada
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_14"/>Oracle Solaris
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_15"/>Unix (AIX, HP-UX)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_16"/>Don't know
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_17"/>Not Applicable
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="deployment" value="answer_18"/>Other (please specify)
+									&nbsp;<input type="text" name="deployment">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

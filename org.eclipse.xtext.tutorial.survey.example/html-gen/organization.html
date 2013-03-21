@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="organization"/>
+					
+					<div class="control-group">
+						<label class="control-label">Which of the following most closely describes your industry?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_0"/>Chemical and petroleum manufacturing
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_1"/>Construction and engineering
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_2"/>Consumer products manufacturing (consumer packaged goods, pharma/biotech)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_3"/>Financial services
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_4"/>Government (federal, state, local)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_5"/>High-tech products  (software, computer hardware, aerospace, industrial electronics)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_6"/>Industrial products manufacturing (automotive, machinery, equipment)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_7"/>Insurance
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_8"/>Media, entertainment and leisure (advertising, publishing, recreation)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_9"/>Primary products manufacturing (agriculture, metals)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_10"/>Professional services (consulting, outsourcing, legal)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_11"/>Public services (healthcare, nonprofit, private education)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_12"/>Retail (food and beverage, general merchandise)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_13"/>Telecom carriers
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_14"/>Transportation and logistics (shipping and transport, warehousing)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_15"/>Utilities (electricity, water and waste)
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_16"/>Wholesale
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_17"/>Individual - not affiliated with an industry
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_18"/>Researcher
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_19"/>Student
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_20"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="industry" value="answer_21"/>Other (please specify)
+									&nbsp;<input type="text" name="industry">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What is your best estimate of how many employees work at your organization?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="size" value="answer_0"/>Individual, not affiliated with an organization
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_1"/>Fewer than 100
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_2"/>100 to 999
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_3"/>1,000 to 4,999
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_4"/>5,000 to 19,999
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_5"/>20,000 or more
+								</label>
+								<label class="radio">
+									<input type="radio" name="size" value="answer_6"/>Don't know
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Which of these titles best fits your role in the organization?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="role" value="answer_0"/>Development manager
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_1"/>Product/marketing manager
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_2"/>Programmer/Developer
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_3"/>Software quality assurance person (including testers)
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_4"/>Systems architect
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_5"/>Mid-manager (Director, Senior Manager)
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_6"/>Executive manager (CEO, CFO, CMO, COO, CTO, Executive Vice President, Senior Vice President, Vice President)
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_7"/>Other line function (line function means you are directly involved in producing and selling your products/services)
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_8"/>Other staff function (staff function means you provide an internal support function to the line function employees)
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_9"/>Consultant
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_10"/>Individual, not affiliated with an organization
+								</label>
+								<label class="radio">
+									<input type="radio" name="role" value="answer_11"/>Student
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

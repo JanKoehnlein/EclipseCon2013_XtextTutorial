@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="mobile"/>
+					
+					<div class="control-group">
+						<label class="control-label">Are you or your organization planning to create applications for mobile devices (smartphones, tablets, etc.)</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="intent" value="internal"/>Yes, we have developed mobile application(s) for our internal users
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="external"/>Yes, we have developed mobile application(s) for external users
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="answer_2"/>Yes, we have developed mobile applications for internal and external users
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="answer_3"/>No, but we have plans to develop mobile applications in the next 6 months
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="answer_4"/>No, but we have plans to develop mobile applications in the next 7-18 months
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="no"/>No plans to develop mobile applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="intent" value="don_t_know"/>Don't know
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

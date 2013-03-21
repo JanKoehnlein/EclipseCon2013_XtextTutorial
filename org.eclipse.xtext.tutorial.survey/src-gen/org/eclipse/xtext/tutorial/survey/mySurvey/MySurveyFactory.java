@@ -41,6 +41,24 @@ public interface MySurveyFactory extends EFactory
   Page createPage();
 
   /**
+   * Returns a new object of class '<em>Follow Up</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Follow Up</em>'.
+   * @generated
+   */
+  FollowUp createFollowUp();
+
+  /**
+   * Returns a new object of class '<em>Guard</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Guard</em>'.
+   * @generated
+   */
+  Guard createGuard();
+
+  /**
    * Returns a new object of class '<em>Question</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

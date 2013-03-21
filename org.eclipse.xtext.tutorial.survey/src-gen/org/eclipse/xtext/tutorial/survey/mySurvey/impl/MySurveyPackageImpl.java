@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
 import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
 import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
 import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyFactory;
 import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
@@ -39,6 +41,20 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * @generated
    */
   private EClass pageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass followUpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass guardEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,9 +222,69 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPage_Next()
+  public EReference getPage_FollowUps()
   {
     return (EReference)pageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFollowUp()
+  {
+    return followUpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFollowUp_Guard()
+  {
+    return (EReference)followUpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFollowUp_Next()
+  {
+    return (EReference)followUpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGuard()
+  {
+    return guardEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGuard_Question()
+  {
+    return (EReference)guardEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGuard_Answer()
+  {
+    return (EReference)guardEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -296,7 +372,7 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getChoice_Name()
+  public EAttribute getChoice_Freetext()
   {
     return (EAttribute)choiceEClass.getEStructuralFeatures().get(0);
   }
@@ -306,9 +382,19 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getChoice_Text()
+  public EAttribute getChoice_Name()
   {
     return (EAttribute)choiceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getChoice_Text()
+  {
+    return (EAttribute)choiceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -349,7 +435,15 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
     pageEClass = createEClass(PAGE);
     createEAttribute(pageEClass, PAGE__NAME);
     createEReference(pageEClass, PAGE__QUESTIONS);
-    createEReference(pageEClass, PAGE__NEXT);
+    createEReference(pageEClass, PAGE__FOLLOW_UPS);
+
+    followUpEClass = createEClass(FOLLOW_UP);
+    createEReference(followUpEClass, FOLLOW_UP__GUARD);
+    createEReference(followUpEClass, FOLLOW_UP__NEXT);
+
+    guardEClass = createEClass(GUARD);
+    createEReference(guardEClass, GUARD__QUESTION);
+    createEReference(guardEClass, GUARD__ANSWER);
 
     questionEClass = createEClass(QUESTION);
     createEAttribute(questionEClass, QUESTION__NAME);
@@ -362,6 +456,7 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
     createEReference(choiceQuestionEClass, CHOICE_QUESTION__CHOICES);
 
     choiceEClass = createEClass(CHOICE);
+    createEAttribute(choiceEClass, CHOICE__FREETEXT);
     createEAttribute(choiceEClass, CHOICE__NAME);
     createEAttribute(choiceEClass, CHOICE__TEXT);
   }
@@ -407,7 +502,15 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
     initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPage_Questions(), this.getQuestion(), null, "questions", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPage_Next(), this.getPage(), null, "next", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPage_FollowUps(), this.getFollowUp(), null, "followUps", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(followUpEClass, FollowUp.class, "FollowUp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFollowUp_Guard(), this.getGuard(), null, "guard", null, 0, 1, FollowUp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFollowUp_Next(), this.getPage(), null, "next", null, 0, 1, FollowUp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(guardEClass, Guard.class, "Guard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGuard_Question(), this.getChoiceQuestion(), null, "question", null, 0, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGuard_Answer(), this.getChoice(), null, "answer", null, 0, 1, Guard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuestion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -420,6 +523,7 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
     initEReference(getChoiceQuestion_Choices(), this.getChoice(), null, "choices", null, 0, -1, ChoiceQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(choiceEClass, Choice.class, "Choice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getChoice_Freetext(), ecorePackage.getEBoolean(), "freetext", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChoice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChoice_Text(), ecorePackage.getEString(), "text", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

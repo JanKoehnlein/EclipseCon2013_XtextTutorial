@@ -21,23 +21,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSurveyParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'text'", "'single'", "'choice'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'->'", "'if'", "'='", "'.'", "'text'", "'single'", "'choice'"
     };
     public static final int RULE_ID=4;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int T__21=21;
+    public static final int T__20=20;
+    public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__19=19;
     public static final int RULE_STRING=5;
     public static final int T__16=16;
     public static final int T__15=15;
+    public static final int T__18=18;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_INT=6;
     public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -295,26 +299,27 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePage"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:155:1: rulePage returns [EObject current=null] : (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (otherlv_4= RULE_ID ) ) otherlv_5= ')' ) ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:155:1: rulePage returns [EObject current=null] : (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (lv_followUps_4_0= ruleFollowUp ) )* otherlv_5= ')' ) ;
     public final EObject rulePage() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Token otherlv_4=null;
         Token otherlv_5=null;
         EObject lv_questions_3_0 = null;
+
+        EObject lv_followUps_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:158:28: ( (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (otherlv_4= RULE_ID ) ) otherlv_5= ')' ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:1: (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (otherlv_4= RULE_ID ) ) otherlv_5= ')' )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:158:28: ( (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (lv_followUps_4_0= ruleFollowUp ) )* otherlv_5= ')' ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:1: (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (lv_followUps_4_0= ruleFollowUp ) )* otherlv_5= ')' )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:1: (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (otherlv_4= RULE_ID ) ) otherlv_5= ')' )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:3: otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (otherlv_4= RULE_ID ) ) otherlv_5= ')'
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:1: (otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (lv_followUps_4_0= ruleFollowUp ) )* otherlv_5= ')' )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:159:3: otherlv_0= 'page' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_questions_3_0= ruleQuestion ) )* ( (lv_followUps_4_0= ruleFollowUp ) )* otherlv_5= ')'
             {
             otherlv_0=(Token)match(input,12,FOLLOW_12_in_rulePage271); 
 
@@ -356,7 +361,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>=15 && LA2_0<=17)) ) {
+                if ( ((LA2_0>=19 && LA2_0<=21)) ) {
                     alt2=1;
                 }
 
@@ -399,28 +404,56 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:203:3: ( (otherlv_4= RULE_ID ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:204:1: (otherlv_4= RULE_ID )
-            {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:204:1: (otherlv_4= RULE_ID )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:205:3: otherlv_4= RULE_ID
-            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:203:3: ( (lv_followUps_4_0= ruleFollowUp ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-            			if (current==null) {
-            	            current = createModelElement(grammarAccess.getPageRule());
-            	        }
-                    
-            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePage347); 
-
-            		newLeafNode(otherlv_4, grammarAccess.getPageAccess().getNextPageCrossReference_4_0()); 
-            	
-
-            }
+                if ( ((LA3_0>=15 && LA3_0<=16)) ) {
+                    alt3=1;
+                }
 
 
-            }
+                switch (alt3) {
+            	case 1 :
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:204:1: (lv_followUps_4_0= ruleFollowUp )
+            	    {
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:204:1: (lv_followUps_4_0= ruleFollowUp )
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:205:3: lv_followUps_4_0= ruleFollowUp
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getPageAccess().getFollowUpsFollowUpParserRuleCall_4_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleFollowUp_in_rulePage348);
+            	    lv_followUps_4_0=ruleFollowUp();
 
-            otherlv_5=(Token)match(input,14,FOLLOW_14_in_rulePage359); 
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getPageRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"followUps",
+            	            		lv_followUps_4_0, 
+            	            		"FollowUp");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+            otherlv_5=(Token)match(input,14,FOLLOW_14_in_rulePage361); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getPageAccess().getRightParenthesisKeyword_5());
                 
@@ -444,8 +477,404 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePage"
 
 
+    // $ANTLR start "entryRuleFollowUp"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:233:1: entryRuleFollowUp returns [EObject current=null] : iv_ruleFollowUp= ruleFollowUp EOF ;
+    public final EObject entryRuleFollowUp() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleFollowUp = null;
+
+
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:234:2: (iv_ruleFollowUp= ruleFollowUp EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:235:2: iv_ruleFollowUp= ruleFollowUp EOF
+            {
+             newCompositeNode(grammarAccess.getFollowUpRule()); 
+            pushFollow(FOLLOW_ruleFollowUp_in_entryRuleFollowUp397);
+            iv_ruleFollowUp=ruleFollowUp();
+
+            state._fsp--;
+
+             current =iv_ruleFollowUp; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFollowUp407); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleFollowUp"
+
+
+    // $ANTLR start "ruleFollowUp"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:242:1: ruleFollowUp returns [EObject current=null] : ( ( (lv_guard_0_0= ruleGuard ) )? otherlv_1= '->' ( (otherlv_2= RULE_ID ) ) ) ;
+    public final EObject ruleFollowUp() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        EObject lv_guard_0_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:245:28: ( ( ( (lv_guard_0_0= ruleGuard ) )? otherlv_1= '->' ( (otherlv_2= RULE_ID ) ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:246:1: ( ( (lv_guard_0_0= ruleGuard ) )? otherlv_1= '->' ( (otherlv_2= RULE_ID ) ) )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:246:1: ( ( (lv_guard_0_0= ruleGuard ) )? otherlv_1= '->' ( (otherlv_2= RULE_ID ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:246:2: ( (lv_guard_0_0= ruleGuard ) )? otherlv_1= '->' ( (otherlv_2= RULE_ID ) )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:246:2: ( (lv_guard_0_0= ruleGuard ) )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==16) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:247:1: (lv_guard_0_0= ruleGuard )
+                    {
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:247:1: (lv_guard_0_0= ruleGuard )
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:248:3: lv_guard_0_0= ruleGuard
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getFollowUpAccess().getGuardGuardParserRuleCall_0_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleGuard_in_ruleFollowUp453);
+                    lv_guard_0_0=ruleGuard();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getFollowUpRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"guard",
+                            		lv_guard_0_0, 
+                            		"Guard");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleFollowUp466); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getFollowUpAccess().getHyphenMinusGreaterThanSignKeyword_1());
+                
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:268:1: ( (otherlv_2= RULE_ID ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:269:1: (otherlv_2= RULE_ID )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:269:1: (otherlv_2= RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:270:3: otherlv_2= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getFollowUpRule());
+            	        }
+                    
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFollowUp486); 
+
+            		newLeafNode(otherlv_2, grammarAccess.getFollowUpAccess().getNextPageCrossReference_2_0()); 
+            	
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleFollowUp"
+
+
+    // $ANTLR start "entryRuleGuard"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:289:1: entryRuleGuard returns [EObject current=null] : iv_ruleGuard= ruleGuard EOF ;
+    public final EObject entryRuleGuard() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleGuard = null;
+
+
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:290:2: (iv_ruleGuard= ruleGuard EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:291:2: iv_ruleGuard= ruleGuard EOF
+            {
+             newCompositeNode(grammarAccess.getGuardRule()); 
+            pushFollow(FOLLOW_ruleGuard_in_entryRuleGuard522);
+            iv_ruleGuard=ruleGuard();
+
+            state._fsp--;
+
+             current =iv_ruleGuard; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGuard532); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleGuard"
+
+
+    // $ANTLR start "ruleGuard"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:298:1: ruleGuard returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleQualifiedName ) ) otherlv_2= '=' ( ( ruleQualifiedName ) ) ) ;
+    public final EObject ruleGuard() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:301:28: ( (otherlv_0= 'if' ( ( ruleQualifiedName ) ) otherlv_2= '=' ( ( ruleQualifiedName ) ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:302:1: (otherlv_0= 'if' ( ( ruleQualifiedName ) ) otherlv_2= '=' ( ( ruleQualifiedName ) ) )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:302:1: (otherlv_0= 'if' ( ( ruleQualifiedName ) ) otherlv_2= '=' ( ( ruleQualifiedName ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:302:3: otherlv_0= 'if' ( ( ruleQualifiedName ) ) otherlv_2= '=' ( ( ruleQualifiedName ) )
+            {
+            otherlv_0=(Token)match(input,16,FOLLOW_16_in_ruleGuard569); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getGuardAccess().getIfKeyword_0());
+                
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:306:1: ( ( ruleQualifiedName ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:307:1: ( ruleQualifiedName )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:307:1: ( ruleQualifiedName )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:308:3: ruleQualifiedName
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getGuardRule());
+            	        }
+                    
+             
+            	        newCompositeNode(grammarAccess.getGuardAccess().getQuestionChoiceQuestionCrossReference_1_0()); 
+            	    
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleGuard592);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleGuard604); 
+
+                	newLeafNode(otherlv_2, grammarAccess.getGuardAccess().getEqualsSignKeyword_2());
+                
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:325:1: ( ( ruleQualifiedName ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:326:1: ( ruleQualifiedName )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:326:1: ( ruleQualifiedName )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:327:3: ruleQualifiedName
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getGuardRule());
+            	        }
+                    
+             
+            	        newCompositeNode(grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); 
+            	    
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleGuard627);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleGuard"
+
+
+    // $ANTLR start "entryRuleQualifiedName"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:348:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    public final String entryRuleQualifiedName() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
+
+
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:349:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:350:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            {
+             newCompositeNode(grammarAccess.getQualifiedNameRule()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName664);
+            iv_ruleQualifiedName=ruleQualifiedName();
+
+            state._fsp--;
+
+             current =iv_ruleQualifiedName.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName675); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleQualifiedName"
+
+
+    // $ANTLR start "ruleQualifiedName"
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:357:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_ID_0=null;
+        Token kw=null;
+        Token this_ID_2=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:360:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:361:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            {
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:361:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:361:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            {
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName715); 
+
+            		current.merge(this_ID_0);
+                
+             
+                newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+                
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:368:1: (kw= '.' this_ID_2= RULE_ID )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( (LA5_0==18) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:369:2: kw= '.' this_ID_2= RULE_ID
+            	    {
+            	    kw=(Token)match(input,18,FOLLOW_18_in_ruleQualifiedName734); 
+
+            	            current.merge(kw);
+            	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+            	        
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName749); 
+
+            	    		current.merge(this_ID_2);
+            	        
+            	     
+            	        newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleQualifiedName"
+
+
     // $ANTLR start "entryRuleQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:228:1: entryRuleQuestion returns [EObject current=null] : iv_ruleQuestion= ruleQuestion EOF ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:389:1: entryRuleQuestion returns [EObject current=null] : iv_ruleQuestion= ruleQuestion EOF ;
     public final EObject entryRuleQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -453,17 +882,17 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:229:2: (iv_ruleQuestion= ruleQuestion EOF )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:230:2: iv_ruleQuestion= ruleQuestion EOF
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:390:2: (iv_ruleQuestion= ruleQuestion EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:391:2: iv_ruleQuestion= ruleQuestion EOF
             {
              newCompositeNode(grammarAccess.getQuestionRule()); 
-            pushFollow(FOLLOW_ruleQuestion_in_entryRuleQuestion395);
+            pushFollow(FOLLOW_ruleQuestion_in_entryRuleQuestion796);
             iv_ruleQuestion=ruleQuestion();
 
             state._fsp--;
 
              current =iv_ruleQuestion; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQuestion405); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQuestion806); 
 
             }
 
@@ -481,7 +910,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:237:1: ruleQuestion returns [EObject current=null] : (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion ) ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:398:1: ruleQuestion returns [EObject current=null] : (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion ) ;
     public final EObject ruleQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -493,33 +922,33 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:240:28: ( (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:241:1: (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:401:28: ( (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:402:1: (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:241:1: (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:402:1: (this_FreeTextQuestion_0= ruleFreeTextQuestion | this_ChoiceQuestion_1= ruleChoiceQuestion )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA3_0==15) ) {
-                alt3=1;
+            if ( (LA6_0==19) ) {
+                alt6=1;
             }
-            else if ( ((LA3_0>=16 && LA3_0<=17)) ) {
-                alt3=2;
+            else if ( ((LA6_0>=20 && LA6_0<=21)) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt3) {
+            switch (alt6) {
                 case 1 :
-                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:242:5: this_FreeTextQuestion_0= ruleFreeTextQuestion
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:403:5: this_FreeTextQuestion_0= ruleFreeTextQuestion
                     {
                      
                             newCompositeNode(grammarAccess.getQuestionAccess().getFreeTextQuestionParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleFreeTextQuestion_in_ruleQuestion452);
+                    pushFollow(FOLLOW_ruleFreeTextQuestion_in_ruleQuestion853);
                     this_FreeTextQuestion_0=ruleFreeTextQuestion();
 
                     state._fsp--;
@@ -532,12 +961,12 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:252:5: this_ChoiceQuestion_1= ruleChoiceQuestion
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:413:5: this_ChoiceQuestion_1= ruleChoiceQuestion
                     {
                      
                             newCompositeNode(grammarAccess.getQuestionAccess().getChoiceQuestionParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleChoiceQuestion_in_ruleQuestion479);
+                    pushFollow(FOLLOW_ruleChoiceQuestion_in_ruleQuestion880);
                     this_ChoiceQuestion_1=ruleChoiceQuestion();
 
                     state._fsp--;
@@ -570,7 +999,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFreeTextQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:268:1: entryRuleFreeTextQuestion returns [EObject current=null] : iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:429:1: entryRuleFreeTextQuestion returns [EObject current=null] : iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF ;
     public final EObject entryRuleFreeTextQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -578,17 +1007,17 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:269:2: (iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:270:2: iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:430:2: (iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:431:2: iv_ruleFreeTextQuestion= ruleFreeTextQuestion EOF
             {
              newCompositeNode(grammarAccess.getFreeTextQuestionRule()); 
-            pushFollow(FOLLOW_ruleFreeTextQuestion_in_entryRuleFreeTextQuestion514);
+            pushFollow(FOLLOW_ruleFreeTextQuestion_in_entryRuleFreeTextQuestion915);
             iv_ruleFreeTextQuestion=ruleFreeTextQuestion();
 
             state._fsp--;
 
              current =iv_ruleFreeTextQuestion; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFreeTextQuestion524); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFreeTextQuestion925); 
 
             }
 
@@ -606,7 +1035,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFreeTextQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:277:1: ruleFreeTextQuestion returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) ) ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:438:1: ruleFreeTextQuestion returns [EObject current=null] : (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) ) ;
     public final EObject ruleFreeTextQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -617,23 +1046,23 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:280:28: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:281:1: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:441:28: ( (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:442:1: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:281:1: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:281:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:442:1: (otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:442:3: otherlv_0= 'text' ( (lv_name_1_0= RULE_ID ) ) ( (lv_text_2_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleFreeTextQuestion561); 
+            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleFreeTextQuestion962); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFreeTextQuestionAccess().getTextKeyword_0());
                 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:285:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:286:1: (lv_name_1_0= RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:446:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:447:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:286:1: (lv_name_1_0= RULE_ID )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:287:3: lv_name_1_0= RULE_ID
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:447:1: (lv_name_1_0= RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:448:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFreeTextQuestion578); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFreeTextQuestion979); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getFreeTextQuestionAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -653,13 +1082,13 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:303:2: ( (lv_text_2_0= RULE_STRING ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:304:1: (lv_text_2_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:464:2: ( (lv_text_2_0= RULE_STRING ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:465:1: (lv_text_2_0= RULE_STRING )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:304:1: (lv_text_2_0= RULE_STRING )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:305:3: lv_text_2_0= RULE_STRING
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:465:1: (lv_text_2_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:466:3: lv_text_2_0= RULE_STRING
             {
-            lv_text_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFreeTextQuestion600); 
+            lv_text_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleFreeTextQuestion1001); 
 
             			newLeafNode(lv_text_2_0, grammarAccess.getFreeTextQuestionAccess().getTextSTRINGTerminalRuleCall_2_0()); 
             		
@@ -700,7 +1129,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChoiceQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:329:1: entryRuleChoiceQuestion returns [EObject current=null] : iv_ruleChoiceQuestion= ruleChoiceQuestion EOF ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:490:1: entryRuleChoiceQuestion returns [EObject current=null] : iv_ruleChoiceQuestion= ruleChoiceQuestion EOF ;
     public final EObject entryRuleChoiceQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -708,17 +1137,17 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:330:2: (iv_ruleChoiceQuestion= ruleChoiceQuestion EOF )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:331:2: iv_ruleChoiceQuestion= ruleChoiceQuestion EOF
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:491:2: (iv_ruleChoiceQuestion= ruleChoiceQuestion EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:492:2: iv_ruleChoiceQuestion= ruleChoiceQuestion EOF
             {
              newCompositeNode(grammarAccess.getChoiceQuestionRule()); 
-            pushFollow(FOLLOW_ruleChoiceQuestion_in_entryRuleChoiceQuestion641);
+            pushFollow(FOLLOW_ruleChoiceQuestion_in_entryRuleChoiceQuestion1042);
             iv_ruleChoiceQuestion=ruleChoiceQuestion();
 
             state._fsp--;
 
              current =iv_ruleChoiceQuestion; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleChoiceQuestion651); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleChoiceQuestion1052); 
 
             }
 
@@ -736,7 +1165,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChoiceQuestion"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:338:1: ruleChoiceQuestion returns [EObject current=null] : ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' ) ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:499:1: ruleChoiceQuestion returns [EObject current=null] : ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' ) ;
     public final EObject ruleChoiceQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -752,27 +1181,27 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:341:28: ( ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:342:1: ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:502:28: ( ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:503:1: ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:342:1: ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:342:2: ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')'
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:503:1: ( ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')' )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:503:2: ( (lv_single_0_0= 'single' ) )? otherlv_1= 'choice' ( (lv_name_2_0= RULE_ID ) ) ( (lv_text_3_0= RULE_STRING ) ) otherlv_4= '(' ( (lv_choices_5_0= ruleChoice ) )+ otherlv_6= ')'
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:342:2: ( (lv_single_0_0= 'single' ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:503:2: ( (lv_single_0_0= 'single' ) )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA4_0==16) ) {
-                alt4=1;
+            if ( (LA7_0==20) ) {
+                alt7=1;
             }
-            switch (alt4) {
+            switch (alt7) {
                 case 1 :
-                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:343:1: (lv_single_0_0= 'single' )
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:504:1: (lv_single_0_0= 'single' )
                     {
-                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:343:1: (lv_single_0_0= 'single' )
-                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:344:3: lv_single_0_0= 'single'
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:504:1: (lv_single_0_0= 'single' )
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:505:3: lv_single_0_0= 'single'
                     {
-                    lv_single_0_0=(Token)match(input,16,FOLLOW_16_in_ruleChoiceQuestion694); 
+                    lv_single_0_0=(Token)match(input,20,FOLLOW_20_in_ruleChoiceQuestion1095); 
 
                             newLeafNode(lv_single_0_0, grammarAccess.getChoiceQuestionAccess().getSingleSingleKeyword_0_0());
                         
@@ -791,17 +1220,17 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleChoiceQuestion720); 
+            otherlv_1=(Token)match(input,21,FOLLOW_21_in_ruleChoiceQuestion1121); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getChoiceQuestionAccess().getChoiceKeyword_1());
                 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:361:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:362:1: (lv_name_2_0= RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:522:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:523:1: (lv_name_2_0= RULE_ID )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:362:1: (lv_name_2_0= RULE_ID )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:363:3: lv_name_2_0= RULE_ID
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:523:1: (lv_name_2_0= RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:524:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleChoiceQuestion737); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleChoiceQuestion1138); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getChoiceQuestionAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -821,13 +1250,13 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:379:2: ( (lv_text_3_0= RULE_STRING ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:380:1: (lv_text_3_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:540:2: ( (lv_text_3_0= RULE_STRING ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:541:1: (lv_text_3_0= RULE_STRING )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:380:1: (lv_text_3_0= RULE_STRING )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:381:3: lv_text_3_0= RULE_STRING
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:541:1: (lv_text_3_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:542:3: lv_text_3_0= RULE_STRING
             {
-            lv_text_3_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleChoiceQuestion759); 
+            lv_text_3_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleChoiceQuestion1160); 
 
             			newLeafNode(lv_text_3_0, grammarAccess.getChoiceQuestionAccess().getTextSTRINGTerminalRuleCall_3_0()); 
             		
@@ -847,33 +1276,33 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleChoiceQuestion776); 
+            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleChoiceQuestion1177); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getChoiceQuestionAccess().getLeftParenthesisKeyword_4());
                 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:401:1: ( (lv_choices_5_0= ruleChoice ) )+
-            int cnt5=0;
-            loop5:
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:562:1: ( (lv_choices_5_0= ruleChoice ) )+
+            int cnt8=0;
+            loop8:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA5_0==RULE_ID) ) {
-                    alt5=1;
+                if ( ((LA8_0>=RULE_ID && LA8_0<=RULE_STRING)||LA8_0==19) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt8) {
             	case 1 :
-            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:402:1: (lv_choices_5_0= ruleChoice )
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:563:1: (lv_choices_5_0= ruleChoice )
             	    {
-            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:402:1: (lv_choices_5_0= ruleChoice )
-            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:403:3: lv_choices_5_0= ruleChoice
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:563:1: (lv_choices_5_0= ruleChoice )
+            	    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:564:3: lv_choices_5_0= ruleChoice
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getChoiceQuestionAccess().getChoicesChoiceParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleChoice_in_ruleChoiceQuestion797);
+            	    pushFollow(FOLLOW_ruleChoice_in_ruleChoiceQuestion1198);
             	    lv_choices_5_0=ruleChoice();
 
             	    state._fsp--;
@@ -897,15 +1326,15 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt5 >= 1 ) break loop5;
+            	    if ( cnt8 >= 1 ) break loop8;
                         EarlyExitException eee =
-                            new EarlyExitException(5, input);
+                            new EarlyExitException(8, input);
                         throw eee;
                 }
-                cnt5++;
+                cnt8++;
             } while (true);
 
-            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleChoiceQuestion810); 
+            otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleChoiceQuestion1211); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getChoiceQuestionAccess().getRightParenthesisKeyword_6());
                 
@@ -930,7 +1359,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChoice"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:431:1: entryRuleChoice returns [EObject current=null] : iv_ruleChoice= ruleChoice EOF ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:592:1: entryRuleChoice returns [EObject current=null] : iv_ruleChoice= ruleChoice EOF ;
     public final EObject entryRuleChoice() throws RecognitionException {
         EObject current = null;
 
@@ -938,17 +1367,17 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:432:2: (iv_ruleChoice= ruleChoice EOF )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:433:2: iv_ruleChoice= ruleChoice EOF
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:593:2: (iv_ruleChoice= ruleChoice EOF )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:594:2: iv_ruleChoice= ruleChoice EOF
             {
              newCompositeNode(grammarAccess.getChoiceRule()); 
-            pushFollow(FOLLOW_ruleChoice_in_entryRuleChoice846);
+            pushFollow(FOLLOW_ruleChoice_in_entryRuleChoice1247);
             iv_ruleChoice=ruleChoice();
 
             state._fsp--;
 
              current =iv_ruleChoice; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleChoice856); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleChoice1257); 
 
             }
 
@@ -966,57 +1395,102 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChoice"
-    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:440:1: ruleChoice returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_text_1_0= RULE_STRING ) ) ) ;
+    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:601:1: ruleChoice returns [EObject current=null] : ( ( (lv_freetext_0_0= 'text' ) )? ( (lv_name_1_0= RULE_ID ) )? ( (lv_text_2_0= RULE_STRING ) ) ) ;
     public final EObject ruleChoice() throws RecognitionException {
         EObject current = null;
 
-        Token lv_name_0_0=null;
-        Token lv_text_1_0=null;
+        Token lv_freetext_0_0=null;
+        Token lv_name_1_0=null;
+        Token lv_text_2_0=null;
 
          enterRule(); 
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:443:28: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_text_1_0= RULE_STRING ) ) ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:444:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_text_1_0= RULE_STRING ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:604:28: ( ( ( (lv_freetext_0_0= 'text' ) )? ( (lv_name_1_0= RULE_ID ) )? ( (lv_text_2_0= RULE_STRING ) ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:605:1: ( ( (lv_freetext_0_0= 'text' ) )? ( (lv_name_1_0= RULE_ID ) )? ( (lv_text_2_0= RULE_STRING ) ) )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:444:1: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_text_1_0= RULE_STRING ) ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:444:2: ( (lv_name_0_0= RULE_ID ) ) ( (lv_text_1_0= RULE_STRING ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:605:1: ( ( (lv_freetext_0_0= 'text' ) )? ( (lv_name_1_0= RULE_ID ) )? ( (lv_text_2_0= RULE_STRING ) ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:605:2: ( (lv_freetext_0_0= 'text' ) )? ( (lv_name_1_0= RULE_ID ) )? ( (lv_text_2_0= RULE_STRING ) )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:444:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:445:1: (lv_name_0_0= RULE_ID )
-            {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:445:1: (lv_name_0_0= RULE_ID )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:446:3: lv_name_0_0= RULE_ID
-            {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleChoice898); 
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:605:2: ( (lv_freetext_0_0= 'text' ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            			newLeafNode(lv_name_0_0, grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_0_0()); 
-            		
+            if ( (LA9_0==19) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:606:1: (lv_freetext_0_0= 'text' )
+                    {
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:606:1: (lv_freetext_0_0= 'text' )
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:607:3: lv_freetext_0_0= 'text'
+                    {
+                    lv_freetext_0_0=(Token)match(input,19,FOLLOW_19_in_ruleChoice1300); 
 
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getChoiceRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_0_0, 
-                    		"ID");
-            	    
+                            newLeafNode(lv_freetext_0_0, grammarAccess.getChoiceAccess().getFreetextTextKeyword_0_0());
+                        
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getChoiceRule());
+                    	        }
+                           		setWithLastConsumed(current, "freetext", true, "text");
+                    	    
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:620:3: ( (lv_name_1_0= RULE_ID ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==RULE_ID) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:621:1: (lv_name_1_0= RULE_ID )
+                    {
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:621:1: (lv_name_1_0= RULE_ID )
+                    // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:622:3: lv_name_1_0= RULE_ID
+                    {
+                    lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleChoice1331); 
+
+                    			newLeafNode(lv_name_1_0, grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getChoiceRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"name",
+                            		lv_name_1_0, 
+                            		"ID");
+                    	    
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:462:2: ( (lv_text_1_0= RULE_STRING ) )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:463:1: (lv_text_1_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:638:3: ( (lv_text_2_0= RULE_STRING ) )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:639:1: (lv_text_2_0= RULE_STRING )
             {
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:463:1: (lv_text_1_0= RULE_STRING )
-            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:464:3: lv_text_1_0= RULE_STRING
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:639:1: (lv_text_2_0= RULE_STRING )
+            // ../org.eclipse.xtext.tutorial.survey/src-gen/org/eclipse/xtext/tutorial/survey/parser/antlr/internal/InternalSurvey.g:640:3: lv_text_2_0= RULE_STRING
             {
-            lv_text_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleChoice920); 
+            lv_text_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleChoice1354); 
 
-            			newLeafNode(lv_text_1_0, grammarAccess.getChoiceAccess().getTextSTRINGTerminalRuleCall_1_0()); 
+            			newLeafNode(lv_text_2_0, grammarAccess.getChoiceAccess().getTextSTRINGTerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -1025,7 +1499,7 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
                    		setWithLastConsumed(
                    			current, 
                    			"text",
-                    		lv_text_1_0, 
+                    		lv_text_2_0, 
                     		"STRING");
             	    
 
@@ -1068,31 +1542,48 @@ public class InternalSurveyParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRulePage234 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_12_in_rulePage271 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePage288 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_rulePage305 = new BitSet(new long[]{0x0000000000038010L});
-    public static final BitSet FOLLOW_ruleQuestion_in_rulePage326 = new BitSet(new long[]{0x0000000000038010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePage347 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_rulePage359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuestion_in_entryRuleQuestion395 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQuestion405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFreeTextQuestion_in_ruleQuestion452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChoiceQuestion_in_ruleQuestion479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFreeTextQuestion_in_entryRuleFreeTextQuestion514 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFreeTextQuestion524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_ruleFreeTextQuestion561 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFreeTextQuestion578 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleFreeTextQuestion600 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChoiceQuestion_in_entryRuleChoiceQuestion641 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleChoiceQuestion651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleChoiceQuestion694 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleChoiceQuestion720 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleChoiceQuestion737 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleChoiceQuestion759 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleChoiceQuestion776 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleChoice_in_ruleChoiceQuestion797 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleChoiceQuestion810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChoice_in_entryRuleChoice846 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleChoice856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleChoice898 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleChoice920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rulePage305 = new BitSet(new long[]{0x000000000039C000L});
+    public static final BitSet FOLLOW_ruleQuestion_in_rulePage326 = new BitSet(new long[]{0x000000000039C000L});
+    public static final BitSet FOLLOW_ruleFollowUp_in_rulePage348 = new BitSet(new long[]{0x000000000001C000L});
+    public static final BitSet FOLLOW_14_in_rulePage361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFollowUp_in_entryRuleFollowUp397 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFollowUp407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGuard_in_ruleFollowUp453 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleFollowUp466 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFollowUp486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGuard_in_entryRuleGuard522 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGuard532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_ruleGuard569 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleGuard592 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleGuard604 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleGuard627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName664 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName715 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_18_in_ruleQualifiedName734 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName749 = new BitSet(new long[]{0x0000000000040002L});
+    public static final BitSet FOLLOW_ruleQuestion_in_entryRuleQuestion796 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQuestion806 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFreeTextQuestion_in_ruleQuestion853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChoiceQuestion_in_ruleQuestion880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFreeTextQuestion_in_entryRuleFreeTextQuestion915 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFreeTextQuestion925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleFreeTextQuestion962 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFreeTextQuestion979 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleFreeTextQuestion1001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChoiceQuestion_in_entryRuleChoiceQuestion1042 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleChoiceQuestion1052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleChoiceQuestion1095 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleChoiceQuestion1121 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleChoiceQuestion1138 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleChoiceQuestion1160 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleChoiceQuestion1177 = new BitSet(new long[]{0x0000000000080030L});
+    public static final BitSet FOLLOW_ruleChoice_in_ruleChoiceQuestion1198 = new BitSet(new long[]{0x0000000000084030L});
+    public static final BitSet FOLLOW_14_in_ruleChoiceQuestion1211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChoice_in_entryRuleChoice1247 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleChoice1257 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleChoice1300 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleChoice1331 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleChoice1354 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -4,8 +4,13 @@
 package org.eclipse.xtext.tutorial.survey.generator
 
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IGenerator
+import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion
+import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion
+import org.eclipse.xtext.tutorial.survey.mySurvey.Page
+import org.eclipse.xtext.tutorial.survey.mySurvey.Survey
+import org.eclipse.xtext.tutorial.survey.mySurvey.Choice
 
 /**
  * Generates code from your model files on save.
@@ -15,10 +20,178 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 class SurveyGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		resource.allContents.filter(typeof(Page)).forEach[
+			fsa.generateFile(name + '.html', SurveyOutputConfigurationProvider::htmlOutputConfig, toHtml)
+		]
+		val survey = resource.contents.filter(typeof(Survey)).head
+		if(survey != null)
+			fsa.generateFile(pageFlowClassName.javaFilePath, survey.toPageFlow)
+		fsa.generateFile(startServerClassName.javaFilePath, genrateStartServer)
+	}
+	
+	protected def toHtml(Page it) '''
+		<html>
+			«header»
+			<body>
+				<script src="http://code.jquery.com/jquery.js"></script>
+				<script src="js/bootstrap.js"></script>
+				<div class="navbar">
+						<div class="navbar-inner">
+							<a class="brand" href="/">«survey.title»</a>
+							<ul class="nav pull-right">
+								<li><a href="/evaluate">Evaluate</a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="container">
+						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+							<input name="survey" type="hidden" value="«survey.name»"/>
+							<input name="page" type="hidden" value="«name»"/>
+							
+							«FOR question: questions»
+								«question.controlGroup»
+							«ENDFOR»
+							
+							«buttons»
+						</form>
+					</div>
+			</body>
+		</html>
+	'''
+	
+	protected def header(Page it) '''
+		<head>
+			<title>«survey.title»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
+	'''
+	
+	protected def dispatch controlGroup(FreeTextQuestion it) '''
+		<div class="control-group">
+			<label class="control-label">«text»</label>
+			<div class="controls">
+				<input type="text" name="«name»">
+			</div>
+		</div>
+	'''
+	
+	protected def dispatch controlGroup(ChoiceQuestion it) {
+		val buttonType = if(single) 'radio' else 'checkbox'
+		'''
+			<div class="control-group">
+				<label class="control-label">«text»</label>
+				<div class="controls">
+						«IF choices.size > 30»
+							<select name="«name»" «IF !single»multiple="multiple"«ENDIF»>
+								«FOR choice: choices»
+									<option vlaue="«choice.nameNotNull»">«choice.text»</option>
+								«ENDFOR»
+							</select>
+						«ELSE»
+							«FOR choice: choices»
+								<label class="«buttonType»">
+									<input type="«buttonType»" name="«name»" value="«choice.nameNotNull»"/>«choice.text»
+									«IF choice.freetext»
+										&nbsp;<input type="text" name="«name»">
+									«ENDIF»
+								</label>
+							«ENDFOR»
+						«ENDIF»
+				</div>
+			</div>
+		'''
+	}
+
+	protected def getNameNotNull(Choice choice) {
+		choice.name ?: 'answer_' + (choice.eContainer as ChoiceQuestion).choices.indexOf(choice) 
+	}
+	
+	protected def buttons() '''
+		<div class="control-group">
+			<div class="controls">
+				<input type="reset" class="btn" value="Reset">
+				<input type="submit" class="btn" value="Next">
+			</div>
+		</div>
+	'''
+	
+	protected def getSurvey(Page it) {
+		eContainer as Survey
+	}
+	
+	def toPageFlow(Survey it) '''
+		package «pageFlowClassName.javaPackageName»;
+		
+		import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
+		import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;
+		
+		public class «pageFlowClassName.simpleName» implements IPageFlow {
+			
+			public String getFirstPage() {
+				return "«pages.head.name»";
+			}
+			
+			public String getNextPage(IFormState formState) {
+				String currentPage = formState.getCurrentPage();
+				if(currentPage == null)
+					return getFirstPage();
+				«FOR page: pages.filter[!followUps.empty]»
+				if("«page.name»".equals(currentPage)) {
+					«FOR followUp : page.followUps»
+						«IF followUp.guard != null»
+							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+								return "«followUp.getNext().getName()»";
+							}
+						«ELSE»
+							return "«followUp.getNext().getName()»";
+						«ENDIF»
+					«ENDFOR»
+				}
+				«ENDFOR»
+				return null;
+			}
+		}
+	'''
+	
+	def genrateStartServer() '''
+		package «startServerClassName.javaPackageName»;
+		
+		import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;
+		
+		public class «startServerClassName.simpleName» {
+			
+			public static void main(final String... args) {
+				SurveyServer surveyServer = new SurveyServer();
+				surveyServer.setPort(8080);
+				surveyServer.setPageFlow(new PageFlow());
+				surveyServer.addWebroot("./html-gen");
+				surveyServer.addWebroot("../org.eclipse.xtext.tutorial.survey.runtime/webroot");
+				surveyServer.start();
+			}
+		}
+	'''
+
+	def protected getPageFlowClassName() {
+		'org.eclipse.xtext.tutorial.example.PageFlow'
+	}
+
+	def protected getStartServerClassName() {
+		'org.eclipse.xtext.tutorial.example.StartServer'
+	}
+	
+	def getJavaFilePath(String className) {
+		className.replace('.', '/') + '.java'
+	}
+	
+	def getJavaPackageName(String className) {
+		className.substring(0, pageFlowClassName.lastIndexOf('.'))
+	}
+	
+	def getSimpleName(String className) {
+		className.split('\\.').last
 	}
 }

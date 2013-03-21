@@ -86,6 +86,20 @@ public class MySurveySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MySurveyPackage.FOLLOW_UP:
+      {
+        FollowUp followUp = (FollowUp)theEObject;
+        T result = caseFollowUp(followUp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MySurveyPackage.GUARD:
+      {
+        Guard guard = (Guard)theEObject;
+        T result = caseGuard(guard);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MySurveyPackage.QUESTION:
       {
         Question question = (Question)theEObject;
@@ -148,6 +162,38 @@ public class MySurveySwitch<T> extends Switch<T>
    * @generated
    */
   public T casePage(Page object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Follow Up</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Follow Up</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFollowUp(FollowUp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Guard</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Guard</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGuard(Guard object)
   {
     return null;
   }

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getQuestions <em>Questions</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getNext <em>Next</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getFollowUps <em>Follow Ups</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,29 +69,19 @@ public interface Page extends EObject
   EList<Question> getQuestions();
 
   /**
-   * Returns the value of the '<em><b>Next</b></em>' reference.
+   * Returns the value of the '<em><b>Follow Ups</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Next</em>' reference isn't clear,
+   * If the meaning of the '<em>Follow Ups</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Next</em>' reference.
-   * @see #setNext(Page)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage_Next()
-   * @model
+   * @return the value of the '<em>Follow Ups</em>' containment reference list.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage_FollowUps()
+   * @model containment="true"
    * @generated
    */
-  Page getNext();
-
-  /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getNext <em>Next</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Next</em>' reference.
-   * @see #getNext()
-   * @generated
-   */
-  void setNext(Page value);
+  EList<FollowUp> getFollowUps();
 
 } // Page

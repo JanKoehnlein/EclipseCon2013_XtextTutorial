@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="hobby_2"/>
+					
+					<div class="control-group">
+						<label class="control-label">Why do you spend your own time developing software/applications? (Choose all that apply)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_0"/>To improve my own productivity at work.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_1"/>To improve the productivity of others I work with.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_2"/>As part of a personal hobby or pastime (e.g. home automation, robotics).
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_3"/>I want to get a job as a professional developer someday.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_4"/>I’m looking to keep my skills sharp by learning new technologies.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_5"/>I’m developing an idea that could result in starting my own company.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_6"/>I generally enjoy programming and learning about new technologies.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_7"/>I like the idea of creating an application, selling it, and making money on the side.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_8"/>I contribute my time and talent to a civic organization or charity.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_9"/>I contribute to open source projects.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_10"/>Other (please specify)
+									&nbsp;<input type="text" name="motivation">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

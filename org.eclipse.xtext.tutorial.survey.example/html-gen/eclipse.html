@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="eclipse"/>
+					
+					<div class="control-group">
+						<label class="control-label">What is the version of Eclipse you use most often?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="version" value="answer_0"/>Eclipse 3.4 (Ganymede)
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_1"/>Eclipse 3.5 (Galileo)
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_2"/>Eclipse 3.6 (Helios)
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_3"/>Eclipse 3.7 (Indigo)
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_4"/>Eclipse 4.2 (Juno Milestone Builds)
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_5"/>None - Don't use Eclipse
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_6"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="version" value="answer_7"/>Other (please specify)
+									&nbsp;<input type="text" name="version">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">In the last year, how have you participated in the Eclipse community? (Select all that apply.)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_0"/>I was an active committer on a project and submitted code
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_1"/>I entered at least one bug into Bugzilla
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_2"/>I entered at least one patch into Bugzilla
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_3"/>I responded to forum posts
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_4"/>I wrote an article or blog post about Eclipse
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_5"/>I made an Eclipse-oriented presentation at a conference
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_6"/>I wrote some documentation for an Eclipse project
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_7"/>I helped with testing/QA of an Eclipse project
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_8"/>I helped other Eclipse users via Facebook, IRC, LinkedIn, Twitter or other online networking site
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_9"/>I developed a plug-in for Eclipse
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_10"/>I used Eclipse but didn't actively participate in the community
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_11"/>I didn't use Eclipse
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="community" value="answer_12"/>Other (please specify)
+									&nbsp;<input type="text" name="community">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Where do you typically go to find Eclipse-related information? (Select all that apply.)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_0"/>Eclipse Live
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_1"/>Eclipse Marketplace
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_2"/>EclipseCon  (including EclipseCon Europe)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_3"/>Eclipse forums
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_4"/>Eclipse mailing lists
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_5"/>Eclipsepedia, the Eclipse wiki
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_6"/>Eclipse.org home page (including RSS feed)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_7"/>Google  (and other search engines)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_8"/>Online networks like Facebook, IRC, Twitter, LinkedIn and Xing
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_9"/>PlanetEclipse (including RSS feed)
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_10"/>Stack Overflow
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_11"/>I don't look for Eclipse information.
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="source_of_information" value="answer_12"/>Other conferences, portals or sources (specify)
+									&nbsp;<input type="text" name="source_of_information">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Overall, how satisfied are you with Eclipse?</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="satisfaction" value="answer_0"/>Very satisfied
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="satisfaction" value="answer_1"/>Satisified
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="satisfaction" value="answer_2"/>Neutral
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="satisfaction" value="answer_3"/>Unsatisfied
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="satisfaction" value="answer_4"/>Very Unsatisified
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Are you or the organization you work for a member of the Eclipse Foundation?</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="member" value="answer_0"/>Yes, the organization I work for is a member
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="member" value="answer_1"/>Yes, I'm an individual committer member
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="member" value="answer_2"/>No
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="member" value="answer_3"/>Don't know
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

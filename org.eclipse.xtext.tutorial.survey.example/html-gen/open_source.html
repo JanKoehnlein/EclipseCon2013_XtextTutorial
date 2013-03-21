@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="open_source"/>
+					
+					<div class="control-group">
+						<label class="control-label">What best describes your organization's policy towards the use of open source software?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_0"/>Does not allow the use of any open source software
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_1"/>Uses open source software, but does not interact with open source project communities in any way
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_2"/>Uses open source software and contributes back (through bug reports, code, resources) to at least one open source project community to help improve the quality of the projects we consume
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_3"/>Contributes significant development resources (contributors, committers and/or maintainers, project leaders) to at least one open source project community in order to help influence the evolution of the projects we consume
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_4"/>Has a business model that relies on open source software for its success
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_5"/>Individual, not affiliated with an organization
+								</label>
+								<label class="radio">
+									<input type="radio" name="policy" value="answer_6"/>Don't know
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Why do <strong>you</strong> contribute or participate in an open source project? NOTE: Contribute and participate means you have done something substantial for a project, like open bugs, answering a questions on a forum post, contributing a patch, helping with test, writing documentation or article, being a committer, etc. (Choose all that apply)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_0"/>I'm paid to contribute
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_1"/>It is important for my career development and resume
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_2"/>I like to give back and support  open source projects
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_3"/>I enjoy the interaction with my peers working on the open source project
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_4"/>It is a great way to learn about new technologies
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_5"/>I needed a feature or bug fix in an open source project, so I did it myself
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_6"/>A good way to promote my consulting services
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_7"/>I believe in the FOSS ethos/philosophy
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_8"/>I don't contribute to any open source projects
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="motivation" value="answer_9"/>Other (please specify)
+									&nbsp;<input type="text" name="motivation">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

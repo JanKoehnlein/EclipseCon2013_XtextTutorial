@@ -131,13 +131,13 @@ public interface MySurveyPackage extends EPackage
   int PAGE__QUESTIONS = 1;
 
   /**
-   * The feature id for the '<em><b>Next</b></em>' reference.
+   * The feature id for the '<em><b>Follow Ups</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAGE__NEXT = 2;
+  int PAGE__FOLLOW_UPS = 2;
 
   /**
    * The number of structural features of the '<em>Page</em>' class.
@@ -149,6 +149,80 @@ public interface MySurveyPackage extends EPackage
   int PAGE_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl <em>Follow Up</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getFollowUp()
+   * @generated
+   */
+  int FOLLOW_UP = 2;
+
+  /**
+   * The feature id for the '<em><b>Guard</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOLLOW_UP__GUARD = 0;
+
+  /**
+   * The feature id for the '<em><b>Next</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOLLOW_UP__NEXT = 1;
+
+  /**
+   * The number of structural features of the '<em>Follow Up</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOLLOW_UP_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl <em>Guard</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getGuard()
+   * @generated
+   */
+  int GUARD = 3;
+
+  /**
+   * The feature id for the '<em><b>Question</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARD__QUESTION = 0;
+
+  /**
+   * The feature id for the '<em><b>Answer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARD__ANSWER = 1;
+
+  /**
+   * The number of structural features of the '<em>Guard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GUARD_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.QuestionImpl <em>Question</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -156,7 +230,7 @@ public interface MySurveyPackage extends EPackage
    * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getQuestion()
    * @generated
    */
-  int QUESTION = 2;
+  int QUESTION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -193,7 +267,7 @@ public interface MySurveyPackage extends EPackage
    * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getFreeTextQuestion()
    * @generated
    */
-  int FREE_TEXT_QUESTION = 3;
+  int FREE_TEXT_QUESTION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -230,7 +304,7 @@ public interface MySurveyPackage extends EPackage
    * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getChoiceQuestion()
    * @generated
    */
-  int CHOICE_QUESTION = 4;
+  int CHOICE_QUESTION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -285,7 +359,16 @@ public interface MySurveyPackage extends EPackage
    * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getChoice()
    * @generated
    */
-  int CHOICE = 5;
+  int CHOICE = 7;
+
+  /**
+   * The feature id for the '<em><b>Freetext</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHOICE__FREETEXT = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -294,7 +377,7 @@ public interface MySurveyPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE__NAME = 0;
+  int CHOICE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -303,7 +386,7 @@ public interface MySurveyPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE__TEXT = 1;
+  int CHOICE__TEXT = 2;
 
   /**
    * The number of structural features of the '<em>Choice</em>' class.
@@ -312,7 +395,7 @@ public interface MySurveyPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE_FEATURE_COUNT = 2;
+  int CHOICE_FEATURE_COUNT = 3;
 
 
   /**
@@ -391,15 +474,79 @@ public interface MySurveyPackage extends EPackage
   EReference getPage_Questions();
 
   /**
-   * Returns the meta object for the reference '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getNext <em>Next</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getFollowUps <em>Follow Ups</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Next</em>'.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Page#getNext()
+   * @return the meta object for the containment reference list '<em>Follow Ups</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Page#getFollowUps()
    * @see #getPage()
    * @generated
    */
-  EReference getPage_Next();
+  EReference getPage_FollowUps();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp <em>Follow Up</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Follow Up</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp
+   * @generated
+   */
+  EClass getFollowUp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getGuard <em>Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guard</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getGuard()
+   * @see #getFollowUp()
+   * @generated
+   */
+  EReference getFollowUp_Guard();
+
+  /**
+   * Returns the meta object for the reference '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getNext <em>Next</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Next</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getNext()
+   * @see #getFollowUp()
+   * @generated
+   */
+  EReference getFollowUp_Next();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Guard <em>Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Guard</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Guard
+   * @generated
+   */
+  EClass getGuard();
+
+  /**
+   * Returns the meta object for the reference '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Guard#getQuestion <em>Question</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Question</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Guard#getQuestion()
+   * @see #getGuard()
+   * @generated
+   */
+  EReference getGuard_Question();
+
+  /**
+   * Returns the meta object for the reference '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Guard#getAnswer <em>Answer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Answer</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Guard#getAnswer()
+   * @see #getGuard()
+   * @generated
+   */
+  EReference getGuard_Answer();
 
   /**
    * Returns the meta object for class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Question <em>Question</em>}'.
@@ -484,6 +631,17 @@ public interface MySurveyPackage extends EPackage
    * @generated
    */
   EClass getChoice();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext <em>Freetext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Freetext</em>'.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext()
+   * @see #getChoice()
+   * @generated
+   */
+  EAttribute getChoice_Freetext();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getName <em>Name</em>}'.
@@ -591,12 +749,64 @@ public interface MySurveyPackage extends EPackage
     EReference PAGE__QUESTIONS = eINSTANCE.getPage_Questions();
 
     /**
+     * The meta object literal for the '<em><b>Follow Ups</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PAGE__FOLLOW_UPS = eINSTANCE.getPage_FollowUps();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl <em>Follow Up</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl
+     * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getFollowUp()
+     * @generated
+     */
+    EClass FOLLOW_UP = eINSTANCE.getFollowUp();
+
+    /**
+     * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOLLOW_UP__GUARD = eINSTANCE.getFollowUp_Guard();
+
+    /**
      * The meta object literal for the '<em><b>Next</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PAGE__NEXT = eINSTANCE.getPage_Next();
+    EReference FOLLOW_UP__NEXT = eINSTANCE.getFollowUp_Next();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl <em>Guard</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl
+     * @see org.eclipse.xtext.tutorial.survey.mySurvey.impl.MySurveyPackageImpl#getGuard()
+     * @generated
+     */
+    EClass GUARD = eINSTANCE.getGuard();
+
+    /**
+     * The meta object literal for the '<em><b>Question</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GUARD__QUESTION = eINSTANCE.getGuard_Question();
+
+    /**
+     * The meta object literal for the '<em><b>Answer</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GUARD__ANSWER = eINSTANCE.getGuard_Answer();
 
     /**
      * The meta object literal for the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.QuestionImpl <em>Question</em>}' class.
@@ -669,6 +879,14 @@ public interface MySurveyPackage extends EPackage
      * @generated
      */
     EClass CHOICE = eINSTANCE.getChoice();
+
+    /**
+     * The meta object literal for the '<em><b>Freetext</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHOICE__FREETEXT = eINSTANCE.getChoice_Freetext();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

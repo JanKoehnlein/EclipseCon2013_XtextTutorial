@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="mobile_2"/>
+					
+					<div class="control-group">
+						<label class="control-label">What platforms are your targeting for your mobile applications?  (Choose all that apply)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_0"/>Android
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_1"/>Apple iOS
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_2"/>HP Palm WebOS
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_3"/>MS Windows Phone
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_4"/>RIM Blackberry
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_5"/>Symbian
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_6"/>Samsung Bada
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="platforms" value="answer_7"/>We optimize our web site for mobile devices
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What mobile frameworks and platforms do you use? (Choose all that apply)</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_0"/>Appcelerator
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_1"/>Corona SDK
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_2"/>Dojo Mobile
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_3"/>jQuery Mobile
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_4"/>Marmalade
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_5"/>PhoneGap
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_6"/>Sencha Touch
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_7"/>Unity
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_8"/>Unreal Engine
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_9"/>None, only use the Mobile OS SDK
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="frameworks" value="answer_10"/>Other (please specify)
+									&nbsp;<input type="text" name="frameworks">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

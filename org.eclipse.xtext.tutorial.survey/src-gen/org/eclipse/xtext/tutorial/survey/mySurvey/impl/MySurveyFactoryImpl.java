@@ -66,6 +66,8 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
     {
       case MySurveyPackage.SURVEY: return createSurvey();
       case MySurveyPackage.PAGE: return createPage();
+      case MySurveyPackage.FOLLOW_UP: return createFollowUp();
+      case MySurveyPackage.GUARD: return createGuard();
       case MySurveyPackage.QUESTION: return createQuestion();
       case MySurveyPackage.FREE_TEXT_QUESTION: return createFreeTextQuestion();
       case MySurveyPackage.CHOICE_QUESTION: return createChoiceQuestion();
@@ -95,6 +97,28 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
   {
     PageImpl page = new PageImpl();
     return page;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FollowUp createFollowUp()
+  {
+    FollowUpImpl followUp = new FollowUpImpl();
+    return followUp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Guard createGuard()
+  {
+    GuardImpl guard = new GuardImpl();
+    return guard;
   }
 
   /**

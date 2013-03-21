@@ -15,7 +15,9 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
 import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
 import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
 import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
@@ -42,10 +44,22 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 					return; 
 				}
 				else break;
+			case MySurveyPackage.FOLLOW_UP:
+				if(context == grammarAccess.getFollowUpRule()) {
+					sequence_FollowUp(context, (FollowUp) semanticObject); 
+					return; 
+				}
+				else break;
 			case MySurveyPackage.FREE_TEXT_QUESTION:
 				if(context == grammarAccess.getFreeTextQuestionRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_FreeTextQuestion(context, (FreeTextQuestion) semanticObject); 
+					return; 
+				}
+				else break;
+			case MySurveyPackage.GUARD:
+				if(context == grammarAccess.getGuardRule()) {
+					sequence_Guard(context, (Guard) semanticObject); 
 					return; 
 				}
 				else break;
@@ -76,20 +90,19 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID text=STRING)
+	 *     (freetext?='text'? name=ID? text=STRING)
 	 */
 	protected void sequence_Choice(EObject context, Choice semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.CHOICE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.CHOICE__NAME));
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.CHOICE__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.CHOICE__TEXT));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getChoiceAccess().getTextSTRINGTerminalRuleCall_1_0(), semanticObject.getText());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (guard=Guard? next=[Page|ID])
+	 */
+	protected void sequence_FollowUp(EObject context, FollowUp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -114,7 +127,26 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (name=ID questions+=Question* next=[Page|ID])
+	 *     (question=[ChoiceQuestion|QualifiedName] answer=[Choice|QualifiedName])
+	 */
+	protected void sequence_Guard(EObject context, Guard semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.GUARD__QUESTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.GUARD__QUESTION));
+			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.GUARD__ANSWER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.GUARD__ANSWER));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getGuardAccess().getQuestionChoiceQuestionQualifiedNameParserRuleCall_1_0_1(), semanticObject.getQuestion());
+		feeder.accept(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1(), semanticObject.getAnswer());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID questions+=Question* followUps+=FollowUp*)
 	 */
 	protected void sequence_Page(EObject context, Page semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

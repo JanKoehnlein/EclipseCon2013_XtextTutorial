@@ -11,21 +11,20 @@ Survey:
 Page:
 	'page' name=ID '('
 		questions+=Question*
-		next=[Page]
-//		followUps+=FollowUp*
+		followUps+=FollowUp*
 	')';
 
-//FollowUp:
-//	guard=Guard? '->' next=[Page];
-//
-//Guard:
-//	'if'
-//	question=[ChoiceQuestion|QualifiedName]
-//	'='
-//	answer=[Choice|QualifiedName];
-//
-//QualifiedName:
-//	ID ('.' ID)*;
+FollowUp:
+	guard=Guard? '->' next=[Page];
+
+Guard:
+	'if'
+	question=[ChoiceQuestion|QualifiedName]
+	'='
+	answer=[Choice|QualifiedName];
+
+QualifiedName:
+	ID ('.' ID)*;
 
 Question:
 	FreeTextQuestion | ChoiceQuestion;
@@ -39,4 +38,4 @@ ChoiceQuestion:
 	')';	
 
 Choice:
-	name=ID text=STRING;
+	(freetext?='text')? (name=ID)? text=STRING;

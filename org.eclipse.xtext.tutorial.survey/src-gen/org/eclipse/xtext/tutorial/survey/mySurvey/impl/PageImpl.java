@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
 import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
 import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
@@ -31,7 +32,7 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
  * <ul>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getQuestions <em>Questions</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getNext <em>Next</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getFollowUps <em>Follow Ups</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,14 +71,14 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   protected EList<Question> questions;
 
   /**
-   * The cached value of the '{@link #getNext() <em>Next</em>}' reference.
+   * The cached value of the '{@link #getFollowUps() <em>Follow Ups</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNext()
+   * @see #getFollowUps()
    * @generated
    * @ordered
    */
-  protected Page next;
+  protected EList<FollowUp> followUps;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,42 +143,13 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public Page getNext()
+  public EList<FollowUp> getFollowUps()
   {
-    if (next != null && next.eIsProxy())
+    if (followUps == null)
     {
-      InternalEObject oldNext = (InternalEObject)next;
-      next = (Page)eResolveProxy(oldNext);
-      if (next != oldNext)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MySurveyPackage.PAGE__NEXT, oldNext, next));
-      }
+      followUps = new EObjectContainmentEList<FollowUp>(FollowUp.class, this, MySurveyPackage.PAGE__FOLLOW_UPS);
     }
-    return next;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Page basicGetNext()
-  {
-    return next;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNext(Page newNext)
-  {
-    Page oldNext = next;
-    next = newNext;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.PAGE__NEXT, oldNext, next));
+    return followUps;
   }
 
   /**
@@ -192,6 +164,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
     {
       case MySurveyPackage.PAGE__QUESTIONS:
         return ((InternalEList<?>)getQuestions()).basicRemove(otherEnd, msgs);
+      case MySurveyPackage.PAGE__FOLLOW_UPS:
+        return ((InternalEList<?>)getFollowUps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -210,9 +184,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return getName();
       case MySurveyPackage.PAGE__QUESTIONS:
         return getQuestions();
-      case MySurveyPackage.PAGE__NEXT:
-        if (resolve) return getNext();
-        return basicGetNext();
+      case MySurveyPackage.PAGE__FOLLOW_UPS:
+        return getFollowUps();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -235,8 +208,9 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         getQuestions().clear();
         getQuestions().addAll((Collection<? extends Question>)newValue);
         return;
-      case MySurveyPackage.PAGE__NEXT:
-        setNext((Page)newValue);
+      case MySurveyPackage.PAGE__FOLLOW_UPS:
+        getFollowUps().clear();
+        getFollowUps().addAll((Collection<? extends FollowUp>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -258,8 +232,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
       case MySurveyPackage.PAGE__QUESTIONS:
         getQuestions().clear();
         return;
-      case MySurveyPackage.PAGE__NEXT:
-        setNext((Page)null);
+      case MySurveyPackage.PAGE__FOLLOW_UPS:
+        getFollowUps().clear();
         return;
     }
     super.eUnset(featureID);
@@ -279,8 +253,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MySurveyPackage.PAGE__QUESTIONS:
         return questions != null && !questions.isEmpty();
-      case MySurveyPackage.PAGE__NEXT:
-        return next != null;
+      case MySurveyPackage.PAGE__FOLLOW_UPS:
+        return followUps != null && !followUps.isEmpty();
     }
     return super.eIsSet(featureID);
   }

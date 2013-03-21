@@ -3,6 +3,11 @@
  */
 package org.eclipse.xtext.tutorial.survey.scoping
 
+import org.eclipse.xtext.tutorial.survey.mySurvey.Guard
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+
 /**
  * This class contains custom scoping description.
  * 
@@ -12,4 +17,10 @@ package org.eclipse.xtext.tutorial.survey.scoping
  */
 class SurveyScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
 
+	def scope_Guard_answer(Guard guard, EReference ref) {
+		if(guard.question == null)
+			IScope::NULLSCOPE
+		else
+			Scopes::scopeFor(guard.question.choices) 
+	}
 }

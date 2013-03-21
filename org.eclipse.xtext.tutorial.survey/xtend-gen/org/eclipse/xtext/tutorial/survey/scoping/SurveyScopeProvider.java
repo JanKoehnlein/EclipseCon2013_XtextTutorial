@@ -3,7 +3,15 @@
  */
 package org.eclipse.xtext.tutorial.survey.scoping;
 
+import com.google.common.base.Objects;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
+import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +21,18 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 @SuppressWarnings("all")
 public class SurveyScopeProvider extends AbstractDeclarativeScopeProvider {
+  public IScope scope_Guard_answer(final Guard guard, final EReference ref) {
+    IScope _xifexpression = null;
+    ChoiceQuestion _question = guard.getQuestion();
+    boolean _equals = Objects.equal(_question, null);
+    if (_equals) {
+      _xifexpression = IScope.NULLSCOPE;
+    } else {
+      ChoiceQuestion _question_1 = guard.getQuestion();
+      EList<Choice> _choices = _question_1.getChoices();
+      IScope _scopeFor = Scopes.scopeFor(_choices);
+      _xifexpression = _scopeFor;
+    }
+    return _xifexpression;
+  }
 }

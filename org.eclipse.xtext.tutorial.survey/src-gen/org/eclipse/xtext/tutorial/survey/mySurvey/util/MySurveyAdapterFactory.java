@@ -85,6 +85,16 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
         return createPageAdapter();
       }
       @Override
+      public Adapter caseFollowUp(FollowUp object)
+      {
+        return createFollowUpAdapter();
+      }
+      @Override
+      public Adapter caseGuard(Guard object)
+      {
+        return createGuardAdapter();
+      }
+      @Override
       public Adapter caseQuestion(Question object)
       {
         return createQuestionAdapter();
@@ -152,6 +162,36 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp <em>Follow Up</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp
+   * @generated
+   */
+  public Adapter createFollowUpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Guard <em>Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Guard
+   * @generated
+   */
+  public Adapter createGuardAdapter()
   {
     return null;
   }

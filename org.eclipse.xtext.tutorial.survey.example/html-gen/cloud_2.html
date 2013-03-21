@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="cloud_2"/>
+					
+					<div class="control-group">
+						<label class="control-label">If you are or have plans to use a cloud infrastructure, which service are you likely to use?</label>
+						<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_0"/>Amazon
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_1"/>AT&T Synaptic Hosting or Compute
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_2"/>CloudBees
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_3"/>Cloud Foundry
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_4"/>EngineYard
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_5"/>Google AppEngine
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_6"/>Heroku
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_7"/>IBM
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_8"/>Joyent
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_9"/>Microsoft Azure
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_10"/>Rackspace Cloud
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_11"/>Red Hat OpenShift
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_12"/>Salesforce
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_13"/>Terremark, The Enterprise Cloud
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_14"/>Private cloud
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_15"/>None - I don't target a cloud-style service provider
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_16"/>Don't know
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="cloud_infrastructure" value="answer_17"/>Other (please specify)
+									&nbsp;<input type="text" name="cloud_infrastructure">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

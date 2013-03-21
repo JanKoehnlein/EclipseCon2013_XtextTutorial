@@ -15,7 +15,15 @@
     <genClasses ecoreClass="Survey.ecore#//Page">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Page/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Page/questions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Page/next"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Page/followUps"/>
+    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//FollowUp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//FollowUp/guard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//FollowUp/next"/>
+    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//Guard">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Guard/question"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Guard/answer"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Question/name"/>
@@ -27,6 +35,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//ChoiceQuestion/choices"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Choice/freetext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Choice/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Choice/text"/>
     </genClasses>

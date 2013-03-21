@@ -1,0 +1,28 @@
+survey tutorial "EclipseCon 2013 Tutorial Survey"
+
+page Start (
+	text name 'Your name'
+	single choice like "Do you like the tutorial?" (
+		yes "Yes"
+		no "No"
+	)
+	if like=yes -> Like
+	if like=no -> Dislike
+	-> Start
+)
+
+page Like (
+	choice particular "What do you like in particular?" (
+		xtext 'Xtext is awesome'
+		excercises 'The funny exercises'
+		tutors 'The attractive tutors'
+	)
+)
+
+page Dislike (
+	choice particular "What do you hate in particular?" (
+		xtext 'Xtext sucks'
+		excercises 'The boring exercises'
+		tutors 'The tutors stink'
+	)
+)

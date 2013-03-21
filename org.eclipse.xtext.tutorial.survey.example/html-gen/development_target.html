@@ -1,0 +1,183 @@
+<html>
+	<head>
+		<title>Eclipse Community Survey 2012</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/survey.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="/">Eclipse Community Survey 2012</a>
+					<ul class="nav pull-right">
+						<li><a href="/evaluate">Evaluate</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
+					<input name="survey" type="hidden" value="community"/>
+					<input name="page" type="hidden" value="development_target"/>
+					
+					<div class="control-group">
+						<label class="control-label">What is the <i>primary type</i> of software you are personally involved in developing?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_0"/>Desktop client applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_1"/>Embedded software
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_2"/>Mainframe applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_3"/>Mobile applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_4"/>Plug-ins for Eclipse
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_5"/>Research/scientific applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_6"/>Web applications & Rich Internet Applications
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_7"/>Server-centric & Middleware applications (client/server, CRM, database apps, ERP, Java EE applications)
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_8"/>None - I am not developing software
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_9"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="software_type" value="answer_10"/>Other (please specify)
+									&nbsp;<input type="text" name="software_type">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What is the <i>primary</i> server framework you use for deployed applications?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_0"/>Apache Struts
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_1"/>Apache Struts 2
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_2"/>Apache Tapestry
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_3"/>Drupal
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_4"/>EJBs
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_5"/>Equinox (or other OSGi runtime)
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_6"/>Grails
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_7"/>Java Server Faces (JSF)
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_8"/>Microsoft ASP .NET
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_9"/>node.js
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_10"/>Rails (Ruby on Rails)
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_11"/>Servlets
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_12"/>Spring
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_13"/>Wicket
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_14"/>Virgo
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_15"/>Zend Framework
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_16"/>None - I'm not using a server framework
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_17"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="server_framework" value="answer_18"/>Other (please specify)
+									&nbsp;<input type="text" name="server_framework">
+								</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">What is the <i>primary</i> application server you typically use for deployed applications?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_0"/>Apache Tomcat
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_1"/>Glassfish
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_2"/>IBM WebSphere
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_3"/>JBoss
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_4"/>Jetty
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_5"/>Oracle Application Server
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_6"/>Oracle WebLogic
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_7"/>SAP Netweaver
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_8"/>Virgo (Spring dm Server)
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_9"/>Zend Server
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_10"/>None - I don't use an application server
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_11"/>Don't know
+								</label>
+								<label class="radio">
+									<input type="radio" name="application_server" value="answer_12"/>Other (please specify)
+									&nbsp;<input type="text" name="application_server">
+								</label>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<input type="reset" class="btn" value="Reset">
+							<input type="submit" class="btn" value="Next">
+						</div>
+					</div>
+				</form>
+			</div>
+	</body>
+</html>

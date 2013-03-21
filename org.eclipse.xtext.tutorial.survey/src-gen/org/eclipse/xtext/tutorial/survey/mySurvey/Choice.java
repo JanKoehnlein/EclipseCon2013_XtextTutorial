@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext <em>Freetext</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getText <em>Text</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Choice extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Freetext</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Freetext</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Freetext</em>' attribute.
+   * @see #setFreetext(boolean)
+   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getChoice_Freetext()
+   * @model
+   * @generated
+   */
+  boolean isFreetext();
+
+  /**
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Freetext</em>' attribute.
+   * @see #isFreetext()
+   * @generated
+   */
+  void setFreetext(boolean value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
