@@ -1,4 +1,4 @@
-package org.eclipse.xtext.tutorial.example;
+package main;
 
 import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
 import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;

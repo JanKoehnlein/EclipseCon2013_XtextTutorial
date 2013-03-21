@@ -31,13 +31,13 @@ class SurveyGenerator implements IGenerator {
 	
 	protected def toHtml(Page it) '''
 		<html>
-			«header»
+			Â«headerÂ»
 			<body>
 				<script src="http://code.jquery.com/jquery.js"></script>
 				<script src="js/bootstrap.js"></script>
 				<div class="navbar">
 						<div class="navbar-inner">
-							<a class="brand" href="/">«survey.title»</a>
+							<a class="brand" href="/">Â«survey.titleÂ»</a>
 							<ul class="nav pull-right">
 								<li><a href="/evaluate">Evaluate</a></li>
 							</ul>
@@ -46,14 +46,14 @@ class SurveyGenerator implements IGenerator {
 					
 					<div class="container">
 						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
-							<input name="survey" type="hidden" value="«survey.name»"/>
-							<input name="page" type="hidden" value="«name»"/>
+							<input name="survey" type="hidden" value="Â«survey.nameÂ»"/>
+							<input name="page" type="hidden" value="Â«nameÂ»"/>
 							
-							«FOR question: questions»
-								«question.controlGroup»
-							«ENDFOR»
+							Â«FOR question: questionsÂ»
+								Â«question.controlGroupÂ»
+							Â«ENDFORÂ»
 							
-							«buttons»
+							Â«buttonsÂ»
 						</form>
 					</div>
 			</body>
@@ -62,7 +62,7 @@ class SurveyGenerator implements IGenerator {
 	
 	protected def header(Page it) '''
 		<head>
-			<title>«survey.title»</title>
+			<title>Â«survey.titleÂ»</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<!-- Bootstrap -->
 			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -72,9 +72,9 @@ class SurveyGenerator implements IGenerator {
 	
 	protected def dispatch controlGroup(FreeTextQuestion it) '''
 		<div class="control-group">
-			<label class="control-label">«text»</label>
+			<label class="control-label">Â«textÂ»</label>
 			<div class="controls">
-				<input type="text" name="«name»">
+				<input type="text" name="Â«nameÂ»">
 			</div>
 		</div>
 	'''
@@ -83,24 +83,24 @@ class SurveyGenerator implements IGenerator {
 		val buttonType = if(single) 'radio' else 'checkbox'
 		'''
 			<div class="control-group">
-				<label class="control-label">«text»</label>
+				<label class="control-label">Â«textÂ»</label>
 				<div class="controls">
-						«IF choices.size > 30»
-							<select name="«name»" «IF !single»multiple="multiple"«ENDIF»>
-								«FOR choice: choices»
-									<option vlaue="«choice.nameNotNull»">«choice.text»</option>
-								«ENDFOR»
+						Â«IF choices.size > 30Â»
+							<select name="Â«nameÂ»" Â«IF !singleÂ»multiple="multiple"Â«ENDIFÂ»>
+								Â«FOR choice: choicesÂ»
+									<option vlaue="Â«choice.nameNotNullÂ»">Â«choice.textÂ»</option>
+								Â«ENDFORÂ»
 							</select>
-						«ELSE»
-							«FOR choice: choices»
-								<label class="«buttonType»">
-									<input type="«buttonType»" name="«name»" value="«choice.nameNotNull»"/>«choice.text»
-									«IF choice.freetext»
-										&nbsp;<input type="text" name="«name»">
-									«ENDIF»
+						Â«ELSEÂ»
+							Â«FOR choice: choicesÂ»
+								<label class="Â«buttonTypeÂ»">
+									<input type="Â«buttonTypeÂ»" name="Â«nameÂ»" value="Â«choice.nameNotNullÂ»"/>Â«choice.textÂ»
+									Â«IF choice.freetextÂ»
+										&nbsp;<input type="text" name="Â«nameÂ»">
+									Â«ENDIFÂ»
 								</label>
-							«ENDFOR»
-						«ENDIF»
+							Â«ENDFORÂ»
+						Â«ENDIFÂ»
 				</div>
 			</div>
 		'''
@@ -124,45 +124,45 @@ class SurveyGenerator implements IGenerator {
 	}
 	
 	def toPageFlow(Survey it) '''
-		package «pageFlowClassName.javaPackageName»;
+		package Â«pageFlowClassName.javaPackageNameÂ»;
 		
 		import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
 		import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;
 		
-		public class «pageFlowClassName.simpleName» implements IPageFlow {
+		public class Â«pageFlowClassName.simpleNameÂ» implements IPageFlow {
 			
 			public String getFirstPage() {
-				return "«pages.head.name»";
+				return "Â«pages.head.nameÂ»";
 			}
 			
 			public String getNextPage(IFormState formState) {
 				String currentPage = formState.getCurrentPage();
 				if(currentPage == null)
 					return getFirstPage();
-				«FOR page: pages.filter[!followUps.empty]»
-				if("«page.name»".equals(currentPage)) {
-					«FOR followUp : page.followUps»
-						«IF followUp.guard != null»
-							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
-								return "«followUp.getNext().getName()»";
+				Â«FOR page: pages.filter[!followUps.empty]Â»
+				if("Â«page.nameÂ»".equals(currentPage)) {
+					Â«FOR followUp : page.followUpsÂ»
+						Â«IF followUp.guard != nullÂ»
+							if("Â«followUp.guard.answer.nameÂ»".equals(formState.getValue("Â«followUp.guard.question.nameÂ»"))) {
+								return "Â«followUp.getNext().getName()Â»";
 							}
-						«ELSE»
-							return "«followUp.getNext().getName()»";
-						«ENDIF»
-					«ENDFOR»
+						Â«ELSEÂ»
+							return "Â«followUp.getNext().getName()Â»";
+						Â«ENDIFÂ»
+					Â«ENDFORÂ»
 				}
-				«ENDFOR»
+				Â«ENDFORÂ»
 				return null;
 			}
 		}
 	'''
 	
 	def genrateStartServer() '''
-		package «startServerClassName.javaPackageName»;
+		package Â«startServerClassName.javaPackageNameÂ»;
 		
 		import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;
 		
-		public class «startServerClassName.simpleName» {
+		public class Â«startServerClassName.simpleNameÂ» {
 			
 			public static void main(final String... args) {
 				SurveyServer surveyServer = new SurveyServer();

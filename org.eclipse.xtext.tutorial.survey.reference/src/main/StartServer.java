@@ -1,4 +1,4 @@
-package org.eclipse.xtext.tutorial.example;
+package main;
 
 import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;
 
@@ -8,7 +8,7 @@ public class StartServer {
 		SurveyServer surveyServer = new SurveyServer();
 		surveyServer.setPort(8080);
 		surveyServer.setPageFlow(new PageFlow());
-		surveyServer.addWebroot("./html-gen");
+		surveyServer.addWebroot("./webroot");
 		surveyServer.addWebroot("../org.eclipse.xtext.tutorial.survey.runtime/webroot");
 		surveyServer.start();
 	}

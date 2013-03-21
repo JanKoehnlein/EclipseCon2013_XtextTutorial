@@ -33,19 +33,19 @@ class Evaluation {
 		    <div class="container">
 				<h1>Evaluation</h1>
 				<table class="table table-striped table-bordered table-condensed">
-					«val participants = dataStore.entryCount»
-					«FOR key: dataStore.keys.sort»
-						«val valueCounts = dataStore.getValueCounts(key)»
+					Â«val participants = dataStore.entryCountÂ»
+					Â«FOR key: dataStore.keys.sortÂ»
+						Â«val valueCounts = dataStore.getValueCounts(key)Â»
 						<tr>
-							<th colspan="2">«key»</th>
+							<th colspan="2">Â«keyÂ»</th>
 						<tr>
-						«FOR entry: valueCounts.entrySet.sortBy[-value]»
+						Â«FOR entry: valueCounts.entrySet.sortBy[-value]Â»
 							<tr>
-								<td>«entry.key»</td>
-								<td>«String::format(Locale::US, "%.1f", 100.0 * entry.value / participants)»%</td>
+								<td>Â«entry.keyÂ»</td>
+								<td>Â«String::format(Locale::US, "%.1f", 100.0 * entry.value / participants)Â»%</td>
 							</tr>
-						«ENDFOR»
-					«ENDFOR»
+						Â«ENDFORÂ»
+					Â«ENDFORÂ»
 				</table>
 			</div>
 		</body>

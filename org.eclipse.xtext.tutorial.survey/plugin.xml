@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.eclipse.org/xtext/tutorial/survey/Survey" 
-       class = "org.eclipse.xtext.tutorial.survey.mySurvey.SurveyPackage"
+       class = "org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage"
        genModel = "org/eclipse/xtext/tutorial/survey/Survey.genmodel" /> 
 	
   </extension>
