@@ -6,11 +6,11 @@ package org.eclipse.xtext.tutorial.survey.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion
-import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page
-import org.eclipse.xtext.tutorial.survey.mySurvey.Survey
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice
+import org.eclipse.xtext.tutorial.survey.survey.Choice
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion
+import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion
+import org.eclipse.xtext.tutorial.survey.survey.Page
+import org.eclipse.xtext.tutorial.survey.survey.Survey
 
 /**
  * Generates code from your model files on save.
@@ -20,18 +20,28 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Choice
 class SurveyGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		resource.allContents.filter(typeof(Page)).forEach[
+//		val allPages = resource.allContents.filter(typeof(Page)).toList
+//		for(page: allPages) {
+//			fsa.generateFile(page.getName() + '.html', SurveyOutputConfigurationProvider::htmlOutputConfig, toHtml(page))
+//		}
+		resource.allContents.filter(typeof(Page)).forEach [
 			fsa.generateFile(name + '.html', SurveyOutputConfigurationProvider::htmlOutputConfig, toHtml)
 		]
 		val survey = resource.contents.filter(typeof(Survey)).head
 		if(survey != null)
-			fsa.generateFile(pageFlowClassName.javaFilePath, survey.toPageFlow)
-		fsa.generateFile(startServerClassName.javaFilePath, genrateStartServer)
+			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
+		fsa.generateFile("main/StartServer.java", genrateStartServer)
 	}
 	
 	protected def toHtml(Page it) '''
 		<html>
-			«header»
+		<head>
+			<title>«survey.title»</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<!-- Bootstrap -->
+			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+			<link href="css/survey.css" rel="stylesheet" media="screen">
+		</head>
 			<body>
 				<script src="http://code.jquery.com/jquery.js"></script>
 				<script src="js/bootstrap.js"></script>
@@ -53,21 +63,16 @@ class SurveyGenerator implements IGenerator {
 								«question.controlGroup»
 							«ENDFOR»
 							
-							«buttons»
+							<div class="control-group">
+								<div class="controls">
+									<input type="reset" class="btn" value="Reset">
+									<input type="submit" class="btn" value="Next">
+								</div>
+							</div>
 						</form>
 					</div>
 			</body>
 		</html>
-	'''
-	
-	protected def header(Page it) '''
-		<head>
-			<title>«survey.title»</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<!-- Bootstrap -->
-			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-			<link href="css/survey.css" rel="stylesheet" media="screen">
-		</head>
 	'''
 	
 	protected def dispatch controlGroup(FreeTextQuestion it) '''
@@ -88,7 +93,7 @@ class SurveyGenerator implements IGenerator {
 						«IF choices.size > 30»
 							<select name="«name»" «IF !single»multiple="multiple"«ENDIF»>
 								«FOR choice: choices»
-									<option vlaue="«choice.nameNotNull»">«choice.text»</option>
+									<option value="«choice.nameNotNull»">«choice.text»</option>
 								«ENDFOR»
 							</select>
 						«ELSE»
@@ -110,26 +115,17 @@ class SurveyGenerator implements IGenerator {
 		choice.name ?: 'answer_' + (choice.eContainer as ChoiceQuestion).choices.indexOf(choice) 
 	}
 	
-	protected def buttons() '''
-		<div class="control-group">
-			<div class="controls">
-				<input type="reset" class="btn" value="Reset">
-				<input type="submit" class="btn" value="Next">
-			</div>
-		</div>
-	'''
-	
 	protected def getSurvey(Page it) {
 		eContainer as Survey
 	}
 	
 	def toPageFlow(Survey it) '''
-		package «pageFlowClassName.javaPackageName»;
+		package main;
 		
 		import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
 		import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;
 		
-		public class «pageFlowClassName.simpleName» implements IPageFlow {
+		public class PageFlow implements IPageFlow {
 			
 			public String getFirstPage() {
 				return "«pages.head.name»";
@@ -144,10 +140,10 @@ class SurveyGenerator implements IGenerator {
 					«FOR followUp : page.followUps»
 						«IF followUp.guard != null»
 							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
-								return "«followUp.getNext().getName()»";
+								return "«followUp.next.name»";
 							}
 						«ELSE»
-							return "«followUp.getNext().getName()»";
+							return "«followUp.next.name»";
 						«ENDIF»
 					«ENDFOR»
 				}
@@ -158,11 +154,11 @@ class SurveyGenerator implements IGenerator {
 	'''
 	
 	def genrateStartServer() '''
-		package «startServerClassName.javaPackageName»;
+		package main;
 		
 		import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;
 		
-		public class «startServerClassName.simpleName» {
+		public class StartServer {
 			
 			public static void main(final String... args) {
 				SurveyServer surveyServer = new SurveyServer();
@@ -175,23 +171,4 @@ class SurveyGenerator implements IGenerator {
 		}
 	'''
 
-	def protected getPageFlowClassName() {
-		'main.PageFlow'
-	}
-
-	def protected getStartServerClassName() {
-		'main.StartServer'
-	}
-	
-	def getJavaFilePath(String className) {
-		className.replace('.', '/') + '.java'
-	}
-	
-	def getJavaPackageName(String className) {
-		className.substring(0, pageFlowClassName.lastIndexOf('.'))
-	}
-	
-	def getSimpleName(String className) {
-		className.split('\\.').last
-	}
 }

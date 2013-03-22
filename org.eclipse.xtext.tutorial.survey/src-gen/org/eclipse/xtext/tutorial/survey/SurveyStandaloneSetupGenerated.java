@@ -30,7 +30,7 @@ public class SurveyStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 	if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/xtext/tutorial/survey/Survey")) {
-		EPackage.Registry.INSTANCE.put("http://www.eclipse.org/xtext/tutorial/survey/Survey", org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put("http://www.eclipse.org/xtext/tutorial/survey/Survey", org.eclipse.xtext.tutorial.survey.survey.SurveyPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

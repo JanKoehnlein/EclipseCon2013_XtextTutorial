@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -10,10 +10,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.Guard;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,8 +22,8 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl#getQuestion <em>Question</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.GuardImpl#getAnswer <em>Answer</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.GuardImpl#getQuestion <em>Question</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.GuardImpl#getAnswer <em>Answer</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,7 +69,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.GUARD;
+    return SurveyPackage.Literals.GUARD;
   }
 
   /**
@@ -86,7 +86,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
       if (question != oldQuestion)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MySurveyPackage.GUARD__QUESTION, oldQuestion, question));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.GUARD__QUESTION, oldQuestion, question));
       }
     }
     return question;
@@ -112,7 +112,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
     ChoiceQuestion oldQuestion = question;
     question = newQuestion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.GUARD__QUESTION, oldQuestion, question));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.GUARD__QUESTION, oldQuestion, question));
   }
 
   /**
@@ -129,7 +129,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
       if (answer != oldAnswer)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MySurveyPackage.GUARD__ANSWER, oldAnswer, answer));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.GUARD__ANSWER, oldAnswer, answer));
       }
     }
     return answer;
@@ -155,7 +155,7 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
     Choice oldAnswer = answer;
     answer = newAnswer;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.GUARD__ANSWER, oldAnswer, answer));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.GUARD__ANSWER, oldAnswer, answer));
   }
 
   /**
@@ -168,10 +168,10 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case MySurveyPackage.GUARD__QUESTION:
+      case SurveyPackage.GUARD__QUESTION:
         if (resolve) return getQuestion();
         return basicGetQuestion();
-      case MySurveyPackage.GUARD__ANSWER:
+      case SurveyPackage.GUARD__ANSWER:
         if (resolve) return getAnswer();
         return basicGetAnswer();
     }
@@ -188,10 +188,10 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case MySurveyPackage.GUARD__QUESTION:
+      case SurveyPackage.GUARD__QUESTION:
         setQuestion((ChoiceQuestion)newValue);
         return;
-      case MySurveyPackage.GUARD__ANSWER:
+      case SurveyPackage.GUARD__ANSWER:
         setAnswer((Choice)newValue);
         return;
     }
@@ -208,10 +208,10 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case MySurveyPackage.GUARD__QUESTION:
+      case SurveyPackage.GUARD__QUESTION:
         setQuestion((ChoiceQuestion)null);
         return;
-      case MySurveyPackage.GUARD__ANSWER:
+      case SurveyPackage.GUARD__ANSWER:
         setAnswer((Choice)null);
         return;
     }
@@ -228,9 +228,9 @@ public class GuardImpl extends MinimalEObjectImpl.Container implements Guard
   {
     switch (featureID)
     {
-      case MySurveyPackage.GUARD__QUESTION:
+      case SurveyPackage.GUARD__QUESTION:
         return question != null;
-      case MySurveyPackage.GUARD__ANSWER:
+      case SurveyPackage.GUARD__ANSWER:
         return answer != null;
     }
     return super.eIsSet(featureID);

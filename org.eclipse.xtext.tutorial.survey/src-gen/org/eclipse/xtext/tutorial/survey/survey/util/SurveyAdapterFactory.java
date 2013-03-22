@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.util;
+package org.eclipse.xtext.tutorial.survey.survey.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,17 +9,17 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.*;
+import org.eclipse.xtext.tutorial.survey.survey.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage
  * @generated
  */
-public class MySurveyAdapterFactory extends AdapterFactoryImpl
+public class SurveyAdapterFactory extends AdapterFactoryImpl
 {
   /**
    * The cached model package.
@@ -27,7 +27,7 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static MySurveyPackage modelPackage;
+  protected static SurveyPackage modelPackage;
 
   /**
    * Creates an instance of the adapter factory.
@@ -35,11 +35,11 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public MySurveyAdapterFactory()
+  public SurveyAdapterFactory()
   {
     if (modelPackage == null)
     {
-      modelPackage = MySurveyPackage.eINSTANCE;
+      modelPackage = SurveyPackage.eINSTANCE;
     }
   }
 
@@ -71,8 +71,8 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MySurveySwitch<Adapter> modelSwitch =
-    new MySurveySwitch<Adapter>()
+  protected SurveySwitch<Adapter> modelSwitch =
+    new SurveySwitch<Adapter>()
     {
       @Override
       public Adapter caseSurvey(Survey object)
@@ -137,13 +137,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Survey <em>Survey</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.Survey <em>Survey</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Survey
+   * @see org.eclipse.xtext.tutorial.survey.survey.Survey
    * @generated
    */
   public Adapter createSurveyAdapter()
@@ -152,13 +152,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page <em>Page</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.Page <em>Page</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Page
+   * @see org.eclipse.xtext.tutorial.survey.survey.Page
    * @generated
    */
   public Adapter createPageAdapter()
@@ -167,13 +167,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp <em>Follow Up</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.FollowUp <em>Follow Up</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp
+   * @see org.eclipse.xtext.tutorial.survey.survey.FollowUp
    * @generated
    */
   public Adapter createFollowUpAdapter()
@@ -182,13 +182,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Guard <em>Guard</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.Guard <em>Guard</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Guard
+   * @see org.eclipse.xtext.tutorial.survey.survey.Guard
    * @generated
    */
   public Adapter createGuardAdapter()
@@ -197,13 +197,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Question <em>Question</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.Question <em>Question</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Question
+   * @see org.eclipse.xtext.tutorial.survey.survey.Question
    * @generated
    */
   public Adapter createQuestionAdapter()
@@ -212,13 +212,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion <em>Free Text Question</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion <em>Free Text Question</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion
+   * @see org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion
    * @generated
    */
   public Adapter createFreeTextQuestionAdapter()
@@ -227,13 +227,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion <em>Choice Question</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion <em>Choice Question</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion
+   * @see org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion
    * @generated
    */
   public Adapter createChoiceQuestionAdapter()
@@ -242,13 +242,13 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice <em>Choice</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.xtext.tutorial.survey.survey.Choice <em>Choice</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.Choice
+   * @see org.eclipse.xtext.tutorial.survey.survey.Choice
    * @generated
    */
   public Adapter createChoiceAdapter()
@@ -269,4 +269,4 @@ public class MySurveyAdapterFactory extends AdapterFactoryImpl
     return null;
   }
 
-} //MySurveyAdapterFactory
+} //SurveyAdapterFactory

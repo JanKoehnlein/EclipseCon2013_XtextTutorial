@@ -12,7 +12,7 @@ public class AbstractSurveyValidator extends org.eclipse.xtext.validation.Abstra
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage.eINSTANCE);
+	    result.add(org.eclipse.xtext.tutorial.survey.survey.SurveyPackage.eINSTANCE);
 		return result;
 	}
 }

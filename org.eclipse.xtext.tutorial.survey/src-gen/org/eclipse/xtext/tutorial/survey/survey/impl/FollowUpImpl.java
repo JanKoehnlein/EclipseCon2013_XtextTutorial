@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
+import org.eclipse.xtext.tutorial.survey.survey.Guard;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,8 +23,8 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl#getGuard <em>Guard</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.FollowUpImpl#getNext <em>Next</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.FollowUpImpl#getGuard <em>Guard</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.FollowUpImpl#getNext <em>Next</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,7 +70,7 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.FOLLOW_UP;
+    return SurveyPackage.Literals.FOLLOW_UP;
   }
 
   /**
@@ -94,7 +94,7 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
     guard = newGuard;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MySurveyPackage.FOLLOW_UP__GUARD, oldGuard, newGuard);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SurveyPackage.FOLLOW_UP__GUARD, oldGuard, newGuard);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -111,14 +111,14 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
     {
       NotificationChain msgs = null;
       if (guard != null)
-        msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MySurveyPackage.FOLLOW_UP__GUARD, null, msgs);
+        msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SurveyPackage.FOLLOW_UP__GUARD, null, msgs);
       if (newGuard != null)
-        msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MySurveyPackage.FOLLOW_UP__GUARD, null, msgs);
+        msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SurveyPackage.FOLLOW_UP__GUARD, null, msgs);
       msgs = basicSetGuard(newGuard, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.FOLLOW_UP__GUARD, newGuard, newGuard));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.FOLLOW_UP__GUARD, newGuard, newGuard));
   }
 
   /**
@@ -135,7 +135,7 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
       if (next != oldNext)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MySurveyPackage.FOLLOW_UP__NEXT, oldNext, next));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.FOLLOW_UP__NEXT, oldNext, next));
       }
     }
     return next;
@@ -161,7 +161,7 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
     Page oldNext = next;
     next = newNext;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.FOLLOW_UP__NEXT, oldNext, next));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.FOLLOW_UP__NEXT, oldNext, next));
   }
 
   /**
@@ -174,7 +174,7 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   {
     switch (featureID)
     {
-      case MySurveyPackage.FOLLOW_UP__GUARD:
+      case SurveyPackage.FOLLOW_UP__GUARD:
         return basicSetGuard(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -190,9 +190,9 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   {
     switch (featureID)
     {
-      case MySurveyPackage.FOLLOW_UP__GUARD:
+      case SurveyPackage.FOLLOW_UP__GUARD:
         return getGuard();
-      case MySurveyPackage.FOLLOW_UP__NEXT:
+      case SurveyPackage.FOLLOW_UP__NEXT:
         if (resolve) return getNext();
         return basicGetNext();
     }
@@ -209,10 +209,10 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   {
     switch (featureID)
     {
-      case MySurveyPackage.FOLLOW_UP__GUARD:
+      case SurveyPackage.FOLLOW_UP__GUARD:
         setGuard((Guard)newValue);
         return;
-      case MySurveyPackage.FOLLOW_UP__NEXT:
+      case SurveyPackage.FOLLOW_UP__NEXT:
         setNext((Page)newValue);
         return;
     }
@@ -229,10 +229,10 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   {
     switch (featureID)
     {
-      case MySurveyPackage.FOLLOW_UP__GUARD:
+      case SurveyPackage.FOLLOW_UP__GUARD:
         setGuard((Guard)null);
         return;
-      case MySurveyPackage.FOLLOW_UP__NEXT:
+      case SurveyPackage.FOLLOW_UP__NEXT:
         setNext((Page)null);
         return;
     }
@@ -249,9 +249,9 @@ public class FollowUpImpl extends MinimalEObjectImpl.Container implements Follow
   {
     switch (featureID)
     {
-      case MySurveyPackage.FOLLOW_UP__GUARD:
+      case SurveyPackage.FOLLOW_UP__GUARD:
         return guard != null;
-      case MySurveyPackage.FOLLOW_UP__NEXT:
+      case SurveyPackage.FOLLOW_UP__NEXT:
         return next != null;
     }
     return super.eIsSet(featureID);

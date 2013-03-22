@@ -16,15 +16,14 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.tutorial.survey.generator.SurveyOutputConfigurationProvider;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
-import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
+import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.Guard;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.Survey;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -55,25 +54,40 @@ public class SurveyGenerator implements IGenerator {
     final Survey survey = IterableExtensions.<Survey>head(_filter_1);
     boolean _notEquals = (!Objects.equal(survey, null));
     if (_notEquals) {
-      String _pageFlowClassName = this.getPageFlowClassName();
-      String _javaFilePath = this.getJavaFilePath(_pageFlowClassName);
       CharSequence _pageFlow = this.toPageFlow(survey);
-      fsa.generateFile(_javaFilePath, _pageFlow);
+      fsa.generateFile("main/PageFlow.java", _pageFlow);
     }
-    String _startServerClassName = this.getStartServerClassName();
-    String _javaFilePath_1 = this.getJavaFilePath(_startServerClassName);
     CharSequence _genrateStartServer = this.genrateStartServer();
-    fsa.generateFile(_javaFilePath_1, _genrateStartServer);
+    fsa.generateFile("main/StartServer.java", _genrateStartServer);
   }
   
   protected CharSequence toHtml(final Page it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<html>");
     _builder.newLine();
+    _builder.append("<head>");
+    _builder.newLine();
     _builder.append("\t");
-    CharSequence _header = this.header(it);
-    _builder.append(_header, "	");
+    _builder.append("<title>");
+    Survey _survey = this.getSurvey(it);
+    String _title = _survey.getTitle();
+    _builder.append(_title, "	");
+    _builder.append("</title>");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<!-- Bootstrap -->");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
+    _builder.newLine();
+    _builder.append("</head>");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("<body>");
     _builder.newLine();
@@ -91,9 +105,9 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("<a class=\"brand\" href=\"/\">");
-    Survey _survey = this.getSurvey(it);
-    String _title = _survey.getTitle();
-    _builder.append(_title, "					");
+    Survey _survey_1 = this.getSurvey(it);
+    String _title_1 = _survey_1.getTitle();
+    _builder.append(_title_1, "					");
     _builder.append("</a>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t");
@@ -121,8 +135,8 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("<input name=\"survey\" type=\"hidden\" value=\"");
-    Survey _survey_1 = this.getSurvey(it);
-    String _name = _survey_1.getName();
+    Survey _survey_2 = this.getSurvey(it);
+    String _name = _survey_2.getName();
     _builder.append(_name, "					");
     _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
@@ -146,9 +160,23 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("\t\t\t\t\t");
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
-    CharSequence _buttons = this.buttons();
-    _builder.append(_buttons, "					");
-    _builder.newLineIfNotEmpty();
+    _builder.append("<div class=\"control-group\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("<div class=\"controls\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t\t");
+    _builder.append("<input type=\"reset\" class=\"btn\" value=\"Reset\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t\t");
+    _builder.append("<input type=\"submit\" class=\"btn\" value=\"Next\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("</div>");
+    _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("</form>");
     _builder.newLine();
@@ -159,34 +187,6 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("</body>");
     _builder.newLine();
     _builder.append("</html>");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  protected CharSequence header(final Page it) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<title>");
-    Survey _survey = this.getSurvey(it);
-    String _title = _survey.getTitle();
-    _builder.append(_title, "	");
-    _builder.append("</title>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<!-- Bootstrap -->");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/bootstrap.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<link href=\"css/survey.css\" rel=\"stylesheet\" media=\"screen\">");
-    _builder.newLine();
-    _builder.append("</head>");
     _builder.newLine();
     return _builder;
   }
@@ -265,7 +265,7 @@ public class SurveyGenerator implements IGenerator {
             for(final Choice choice : _choices_1) {
               _builder.append("\t\t\t");
               _builder.append("\t");
-              _builder.append("<option vlaue=\"");
+              _builder.append("<option value=\"");
               String _nameNotNull = this.getNameNotNull(choice);
               _builder.append(_nameNotNull, "				");
               _builder.append("\">");
@@ -345,27 +345,6 @@ public class SurveyGenerator implements IGenerator {
     return _elvis;
   }
   
-  protected CharSequence buttons() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<div class=\"control-group\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<div class=\"controls\">");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<input type=\"reset\" class=\"btn\" value=\"Reset\">");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<input type=\"submit\" class=\"btn\" value=\"Next\">");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("</div>");
-    _builder.newLine();
-    _builder.append("</div>");
-    _builder.newLine();
-    return _builder;
-  }
-  
   protected Survey getSurvey(final Page it) {
     EObject _eContainer = it.eContainer();
     return ((Survey) _eContainer);
@@ -373,24 +352,16 @@ public class SurveyGenerator implements IGenerator {
   
   public CharSequence toPageFlow(final Survey it) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
-    String _pageFlowClassName = this.getPageFlowClassName();
-    String _javaPackageName = this.getJavaPackageName(_pageFlowClassName);
-    _builder.append(_javaPackageName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    _builder.append("package main;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.tutorial.survey.runtime.IFormState;");
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class ");
-    String _pageFlowClassName_1 = this.getPageFlowClassName();
-    String _simpleName = this.getSimpleName(_pageFlowClassName_1);
-    _builder.append(_simpleName, "");
-    _builder.append(" implements IPageFlow {");
-    _builder.newLineIfNotEmpty();
+    _builder.append("public class PageFlow implements IPageFlow {");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -504,22 +475,14 @@ public class SurveyGenerator implements IGenerator {
   
   public CharSequence genrateStartServer() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
-    String _startServerClassName = this.getStartServerClassName();
-    String _javaPackageName = this.getJavaPackageName(_startServerClassName);
-    _builder.append(_javaPackageName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    _builder.append("package main;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class ");
-    String _startServerClassName_1 = this.getStartServerClassName();
-    String _simpleName = this.getSimpleName(_startServerClassName_1);
-    _builder.append(_simpleName, "");
-    _builder.append(" {");
-    _builder.newLineIfNotEmpty();
+    _builder.append("public class StartServer {");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -549,33 +512,6 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("}");
     _builder.newLine();
     return _builder;
-  }
-  
-  protected String getPageFlowClassName() {
-    return "main.PageFlow";
-  }
-  
-  protected String getStartServerClassName() {
-    return "main.StartServer";
-  }
-  
-  public String getJavaFilePath(final String className) {
-    String _replace = className.replace(".", "/");
-    String _plus = (_replace + ".java");
-    return _plus;
-  }
-  
-  public String getJavaPackageName(final String className) {
-    String _pageFlowClassName = this.getPageFlowClassName();
-    int _lastIndexOf = _pageFlowClassName.lastIndexOf(".");
-    String _substring = className.substring(0, _lastIndexOf);
-    return _substring;
-  }
-  
-  public String getSimpleName(final String className) {
-    String[] _split = className.split("\\.");
-    String _last = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(_split)));
-    return _last;
   }
   
   protected CharSequence controlGroup(final Question it) {

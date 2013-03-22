@@ -4,8 +4,8 @@
     editorDirectory="/org.eclipse.xtext.tutorial.survey.editor/src" modelPluginID="org.eclipse.xtext.tutorial.survey"
     forceOverwrite="true" modelName="Survey" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.xtext.tutorial.survey.edit"
-    editorPluginID="org.eclipse.xtext.tutorial.survey.editor" runtimeVersion="2.9">
-  <genPackages prefix="MySurvey" basePackage="org.eclipse.xtext.tutorial.survey" disposableProviderFactory="true"
+    editorPluginID="org.eclipse.xtext.tutorial.survey.editor" runtimeVersion="2.8">
+  <genPackages prefix="Survey" basePackage="org.eclipse.xtext.tutorial.survey" disposableProviderFactory="true"
       fileExtensions="survey" ecorePackage="Survey.ecore#/">
     <genClasses ecoreClass="Survey.ecore#//Survey">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Survey/name"/>

@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import java.util.Collection;
 
@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,9 +30,9 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getQuestions <em>Questions</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.PageImpl#getFollowUps <em>Follow Ups</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.PageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.PageImpl#getQuestions <em>Questions</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.PageImpl#getFollowUps <em>Follow Ups</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,7 +98,7 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.PAGE;
+    return SurveyPackage.Literals.PAGE;
   }
 
   /**
@@ -121,7 +121,7 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.PAGE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.PAGE__NAME, oldName, name));
   }
 
   /**
@@ -133,7 +133,7 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     if (questions == null)
     {
-      questions = new EObjectContainmentEList<Question>(Question.class, this, MySurveyPackage.PAGE__QUESTIONS);
+      questions = new EObjectContainmentEList<Question>(Question.class, this, SurveyPackage.PAGE__QUESTIONS);
     }
     return questions;
   }
@@ -147,7 +147,7 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     if (followUps == null)
     {
-      followUps = new EObjectContainmentEList<FollowUp>(FollowUp.class, this, MySurveyPackage.PAGE__FOLLOW_UPS);
+      followUps = new EObjectContainmentEList<FollowUp>(FollowUp.class, this, SurveyPackage.PAGE__FOLLOW_UPS);
     }
     return followUps;
   }
@@ -162,9 +162,9 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     switch (featureID)
     {
-      case MySurveyPackage.PAGE__QUESTIONS:
+      case SurveyPackage.PAGE__QUESTIONS:
         return ((InternalEList<?>)getQuestions()).basicRemove(otherEnd, msgs);
-      case MySurveyPackage.PAGE__FOLLOW_UPS:
+      case SurveyPackage.PAGE__FOLLOW_UPS:
         return ((InternalEList<?>)getFollowUps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -180,11 +180,11 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     switch (featureID)
     {
-      case MySurveyPackage.PAGE__NAME:
+      case SurveyPackage.PAGE__NAME:
         return getName();
-      case MySurveyPackage.PAGE__QUESTIONS:
+      case SurveyPackage.PAGE__QUESTIONS:
         return getQuestions();
-      case MySurveyPackage.PAGE__FOLLOW_UPS:
+      case SurveyPackage.PAGE__FOLLOW_UPS:
         return getFollowUps();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -201,14 +201,14 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     switch (featureID)
     {
-      case MySurveyPackage.PAGE__NAME:
+      case SurveyPackage.PAGE__NAME:
         setName((String)newValue);
         return;
-      case MySurveyPackage.PAGE__QUESTIONS:
+      case SurveyPackage.PAGE__QUESTIONS:
         getQuestions().clear();
         getQuestions().addAll((Collection<? extends Question>)newValue);
         return;
-      case MySurveyPackage.PAGE__FOLLOW_UPS:
+      case SurveyPackage.PAGE__FOLLOW_UPS:
         getFollowUps().clear();
         getFollowUps().addAll((Collection<? extends FollowUp>)newValue);
         return;
@@ -226,13 +226,13 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     switch (featureID)
     {
-      case MySurveyPackage.PAGE__NAME:
+      case SurveyPackage.PAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MySurveyPackage.PAGE__QUESTIONS:
+      case SurveyPackage.PAGE__QUESTIONS:
         getQuestions().clear();
         return;
-      case MySurveyPackage.PAGE__FOLLOW_UPS:
+      case SurveyPackage.PAGE__FOLLOW_UPS:
         getFollowUps().clear();
         return;
     }
@@ -249,11 +249,11 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   {
     switch (featureID)
     {
-      case MySurveyPackage.PAGE__NAME:
+      case SurveyPackage.PAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MySurveyPackage.PAGE__QUESTIONS:
+      case SurveyPackage.PAGE__QUESTIONS:
         return questions != null && !questions.isEmpty();
-      case MySurveyPackage.PAGE__FOLLOW_UPS:
+      case SurveyPackage.PAGE__FOLLOW_UPS:
         return followUps != null && !followUps.isEmpty();
     }
     return super.eIsSet(featureID);

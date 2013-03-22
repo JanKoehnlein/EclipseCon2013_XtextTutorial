@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey;
+package org.eclipse.xtext.tutorial.survey.survey;
 
 
 /**
@@ -9,7 +9,7 @@ package org.eclipse.xtext.tutorial.survey.mySurvey;
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getFreeTextQuestion()
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getFreeTextQuestion()
  * @model
  * @generated
  */

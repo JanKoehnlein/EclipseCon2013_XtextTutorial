@@ -1,11 +1,11 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
+import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public class FreeTextQuestionImpl extends QuestionImpl implements FreeTextQuesti
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.FREE_TEXT_QUESTION;
+    return SurveyPackage.Literals.FREE_TEXT_QUESTION;
   }
 
 } //FreeTextQuestionImpl

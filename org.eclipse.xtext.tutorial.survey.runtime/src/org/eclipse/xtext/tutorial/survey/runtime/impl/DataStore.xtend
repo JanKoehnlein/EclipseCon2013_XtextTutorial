@@ -16,7 +16,7 @@ class DataStore {
 			val value = state.getValue(field)
 			if(value instanceof List<?>)
 				map.putAll(field, value as List<String>)
-			else 
+			else if(value != null && !value.toString.empty)
 				map.put(field, value.toString)
 		}
 		storage.add(map)

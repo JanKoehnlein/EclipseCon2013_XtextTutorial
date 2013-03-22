@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import java.util.Collection;
 
@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,8 +28,8 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.ChoiceQuestionImpl#isSingle <em>Single</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.ChoiceQuestionImpl#getChoices <em>Choices</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.ChoiceQuestionImpl#isSingle <em>Single</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.ChoiceQuestionImpl#getChoices <em>Choices</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,7 +85,7 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.CHOICE_QUESTION;
+    return SurveyPackage.Literals.CHOICE_QUESTION;
   }
 
   /**
@@ -108,7 +108,7 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
     boolean oldSingle = single;
     single = newSingle;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.CHOICE_QUESTION__SINGLE, oldSingle, single));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.CHOICE_QUESTION__SINGLE, oldSingle, single));
   }
 
   /**
@@ -120,7 +120,7 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     if (choices == null)
     {
-      choices = new EObjectContainmentEList<Choice>(Choice.class, this, MySurveyPackage.CHOICE_QUESTION__CHOICES);
+      choices = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.CHOICE_QUESTION__CHOICES);
     }
     return choices;
   }
@@ -135,7 +135,7 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     switch (featureID)
     {
-      case MySurveyPackage.CHOICE_QUESTION__CHOICES:
+      case SurveyPackage.CHOICE_QUESTION__CHOICES:
         return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -151,9 +151,9 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     switch (featureID)
     {
-      case MySurveyPackage.CHOICE_QUESTION__SINGLE:
+      case SurveyPackage.CHOICE_QUESTION__SINGLE:
         return isSingle();
-      case MySurveyPackage.CHOICE_QUESTION__CHOICES:
+      case SurveyPackage.CHOICE_QUESTION__CHOICES:
         return getChoices();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -170,10 +170,10 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     switch (featureID)
     {
-      case MySurveyPackage.CHOICE_QUESTION__SINGLE:
+      case SurveyPackage.CHOICE_QUESTION__SINGLE:
         setSingle((Boolean)newValue);
         return;
-      case MySurveyPackage.CHOICE_QUESTION__CHOICES:
+      case SurveyPackage.CHOICE_QUESTION__CHOICES:
         getChoices().clear();
         getChoices().addAll((Collection<? extends Choice>)newValue);
         return;
@@ -191,10 +191,10 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     switch (featureID)
     {
-      case MySurveyPackage.CHOICE_QUESTION__SINGLE:
+      case SurveyPackage.CHOICE_QUESTION__SINGLE:
         setSingle(SINGLE_EDEFAULT);
         return;
-      case MySurveyPackage.CHOICE_QUESTION__CHOICES:
+      case SurveyPackage.CHOICE_QUESTION__CHOICES:
         getChoices().clear();
         return;
     }
@@ -211,9 +211,9 @@ public class ChoiceQuestionImpl extends QuestionImpl implements ChoiceQuestion
   {
     switch (featureID)
     {
-      case MySurveyPackage.CHOICE_QUESTION__SINGLE:
+      case SurveyPackage.CHOICE_QUESTION__SINGLE:
         return single != SINGLE_EDEFAULT;
-      case MySurveyPackage.CHOICE_QUESTION__CHOICES:
+      case SurveyPackage.CHOICE_QUESTION__CHOICES:
         return choices != null && !choices.isEmpty();
     }
     return super.eIsSet(featureID);

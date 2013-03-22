@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -9,25 +9,46 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Question</b></em>'.
+ * An implementation of the model object '<em><b>Choice</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.QuestionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.QuestionImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.ChoiceImpl#isFreetext <em>Freetext</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.ChoiceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.ChoiceImpl#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class QuestionImpl extends MinimalEObjectImpl.Container implements Question
+public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
 {
+  /**
+   * The default value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FREETEXT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected boolean freetext = FREETEXT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -73,7 +94,7 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
    * <!-- end-user-doc -->
    * @generated
    */
-  protected QuestionImpl()
+  protected ChoiceImpl()
   {
     super();
   }
@@ -86,7 +107,30 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.QUESTION;
+    return SurveyPackage.Literals.CHOICE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isFreetext()
+  {
+    return freetext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFreetext(boolean newFreetext)
+  {
+    boolean oldFreetext = freetext;
+    freetext = newFreetext;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.CHOICE__FREETEXT, oldFreetext, freetext));
   }
 
   /**
@@ -109,7 +153,7 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.QUESTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.CHOICE__NAME, oldName, name));
   }
 
   /**
@@ -132,7 +176,7 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     String oldText = text;
     text = newText;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.QUESTION__TEXT, oldText, text));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.CHOICE__TEXT, oldText, text));
   }
 
   /**
@@ -145,9 +189,11 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   {
     switch (featureID)
     {
-      case MySurveyPackage.QUESTION__NAME:
+      case SurveyPackage.CHOICE__FREETEXT:
+        return isFreetext();
+      case SurveyPackage.CHOICE__NAME:
         return getName();
-      case MySurveyPackage.QUESTION__TEXT:
+      case SurveyPackage.CHOICE__TEXT:
         return getText();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -163,10 +209,13 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   {
     switch (featureID)
     {
-      case MySurveyPackage.QUESTION__NAME:
+      case SurveyPackage.CHOICE__FREETEXT:
+        setFreetext((Boolean)newValue);
+        return;
+      case SurveyPackage.CHOICE__NAME:
         setName((String)newValue);
         return;
-      case MySurveyPackage.QUESTION__TEXT:
+      case SurveyPackage.CHOICE__TEXT:
         setText((String)newValue);
         return;
     }
@@ -183,10 +232,13 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   {
     switch (featureID)
     {
-      case MySurveyPackage.QUESTION__NAME:
+      case SurveyPackage.CHOICE__FREETEXT:
+        setFreetext(FREETEXT_EDEFAULT);
+        return;
+      case SurveyPackage.CHOICE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MySurveyPackage.QUESTION__TEXT:
+      case SurveyPackage.CHOICE__TEXT:
         setText(TEXT_EDEFAULT);
         return;
     }
@@ -203,9 +255,11 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   {
     switch (featureID)
     {
-      case MySurveyPackage.QUESTION__NAME:
+      case SurveyPackage.CHOICE__FREETEXT:
+        return freetext != FREETEXT_EDEFAULT;
+      case SurveyPackage.CHOICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MySurveyPackage.QUESTION__TEXT:
+      case SurveyPackage.CHOICE__TEXT:
         return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
     }
     return super.eIsSet(featureID);
@@ -222,7 +276,9 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (freetext: ");
+    result.append(freetext);
+    result.append(", name: ");
     result.append(name);
     result.append(", text: ");
     result.append(text);
@@ -230,4 +286,4 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     return result.toString();
   }
 
-} //QuestionImpl
+} //ChoiceImpl

@@ -3,7 +3,16 @@
  */
 package org.eclipse.xtext.tutorial.survey.validation;
 
+import com.google.common.base.Objects;
+import java.util.HashMap;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage.Literals;
 import org.eclipse.xtext.tutorial.survey.validation.AbstractSurveyValidator;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 /**
  * Custom validation rules.
@@ -12,4 +21,38 @@ import org.eclipse.xtext.tutorial.survey.validation.AbstractSurveyValidator;
  */
 @SuppressWarnings("all")
 public class SurveyValidator extends AbstractSurveyValidator {
+  @Check
+  public void textMustNotBeEmpty(final Question question) {
+    String _text = question.getText();
+    boolean _isEmpty = _text.isEmpty();
+    if (_isEmpty) {
+      this.error("Empty question is illegal", Literals.QUESTION__TEXT);
+    }
+  }
+  
+  @Check
+  public void textMustNotBeEmpty(final Choice choice) {
+    String _text = choice.getText();
+    boolean _isEmpty = _text.isEmpty();
+    if (_isEmpty) {
+      this.error("Empty choice is illegal", Literals.CHOICE__TEXT);
+    }
+  }
+  
+  @Check
+  public void duplicateChoiceText(final ChoiceQuestion question) {
+    HashMap<String,Choice> nameToChoice = CollectionLiterals.<String, Choice>newHashMap();
+    EList<Choice> _choices = question.getChoices();
+    for (final Choice choice : _choices) {
+      {
+        String _text = choice.getText();
+        final Choice choiceWithSameName = nameToChoice.put(_text, choice);
+        boolean _notEquals = (!Objects.equal(choiceWithSameName, null));
+        if (_notEquals) {
+          this.error("Duplicate choice text", choice, Literals.CHOICE__TEXT);
+          this.error("Duplicate choice text", choiceWithSameName, Literals.CHOICE__TEXT);
+        }
+      }
+    }
+  }
 }

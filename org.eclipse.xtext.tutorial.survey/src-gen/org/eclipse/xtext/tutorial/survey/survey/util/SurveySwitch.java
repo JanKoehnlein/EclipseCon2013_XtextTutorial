@@ -1,13 +1,13 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.util;
+package org.eclipse.xtext.tutorial.survey.survey.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.*;
+import org.eclipse.xtext.tutorial.survey.survey.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +19,10 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage
  * @generated
  */
-public class MySurveySwitch<T> extends Switch<T>
+public class SurveySwitch<T> extends Switch<T>
 {
   /**
    * The cached model package
@@ -30,7 +30,7 @@ public class MySurveySwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static MySurveyPackage modelPackage;
+  protected static SurveyPackage modelPackage;
 
   /**
    * Creates an instance of the switch.
@@ -38,11 +38,11 @@ public class MySurveySwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  public MySurveySwitch()
+  public SurveySwitch()
   {
     if (modelPackage == null)
     {
-      modelPackage = MySurveyPackage.eINSTANCE;
+      modelPackage = SurveyPackage.eINSTANCE;
     }
   }
 
@@ -72,42 +72,42 @@ public class MySurveySwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case MySurveyPackage.SURVEY:
+      case SurveyPackage.SURVEY:
       {
         Survey survey = (Survey)theEObject;
         T result = caseSurvey(survey);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.PAGE:
+      case SurveyPackage.PAGE:
       {
         Page page = (Page)theEObject;
         T result = casePage(page);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.FOLLOW_UP:
+      case SurveyPackage.FOLLOW_UP:
       {
         FollowUp followUp = (FollowUp)theEObject;
         T result = caseFollowUp(followUp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.GUARD:
+      case SurveyPackage.GUARD:
       {
         Guard guard = (Guard)theEObject;
         T result = caseGuard(guard);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.QUESTION:
+      case SurveyPackage.QUESTION:
       {
         Question question = (Question)theEObject;
         T result = caseQuestion(question);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.FREE_TEXT_QUESTION:
+      case SurveyPackage.FREE_TEXT_QUESTION:
       {
         FreeTextQuestion freeTextQuestion = (FreeTextQuestion)theEObject;
         T result = caseFreeTextQuestion(freeTextQuestion);
@@ -115,7 +115,7 @@ public class MySurveySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.CHOICE_QUESTION:
+      case SurveyPackage.CHOICE_QUESTION:
       {
         ChoiceQuestion choiceQuestion = (ChoiceQuestion)theEObject;
         T result = caseChoiceQuestion(choiceQuestion);
@@ -123,7 +123,7 @@ public class MySurveySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MySurveyPackage.CHOICE:
+      case SurveyPackage.CHOICE:
       {
         Choice choice = (Choice)theEObject;
         T result = caseChoice(choice);
@@ -279,4 +279,4 @@ public class MySurveySwitch<T> extends Switch<T>
     return null;
   }
 
-} //MySurveySwitch
+} //SurveySwitch

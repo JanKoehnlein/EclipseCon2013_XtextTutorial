@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey;
+package org.eclipse.xtext.tutorial.survey.survey;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -12,13 +12,13 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext <em>Freetext</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getText <em>Text</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Choice#isFreetext <em>Freetext</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Choice#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Choice#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getChoice()
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getChoice()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface Choice extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Freetext</em>' attribute.
    * @see #setFreetext(boolean)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getChoice_Freetext()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getChoice_Freetext()
    * @model
    * @generated
    */
   boolean isFreetext();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#isFreetext <em>Freetext</em>}' attribute.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.Choice#isFreetext <em>Freetext</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Freetext</em>' attribute.
@@ -60,14 +60,14 @@ public interface Choice extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getChoice_Name()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getChoice_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.Choice#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -86,14 +86,14 @@ public interface Choice extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Text</em>' attribute.
    * @see #setText(String)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getChoice_Text()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getChoice_Text()
    * @model
    * @generated
    */
   String getText();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Choice#getText <em>Text</em>}' attribute.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.Choice#getText <em>Text</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Text</em>' attribute.

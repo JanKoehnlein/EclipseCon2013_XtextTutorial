@@ -38,8 +38,20 @@ public class DataStore {
           if ((value instanceof List<?>)) {
             map.putAll(field, ((List<String>) value));
           } else {
-            String _string = value.toString();
-            map.put(field, _string);
+            boolean _and = false;
+            boolean _notEquals = (!Objects.equal(value, null));
+            if (!_notEquals) {
+              _and = false;
+            } else {
+              String _string = value.toString();
+              boolean _isEmpty = _string.isEmpty();
+              boolean _not = (!_isEmpty);
+              _and = (_notEquals && _not);
+            }
+            if (_and) {
+              String _string_1 = value.toString();
+              map.put(field, _string_1);
+            }
           }
         }
       }

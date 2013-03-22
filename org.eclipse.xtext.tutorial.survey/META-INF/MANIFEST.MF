@@ -22,13 +22,13 @@ Import-Package: org.apache.log4j,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.xtext.tutorial.survey,
  org.eclipse.xtext.tutorial.survey.services,
- org.eclipse.xtext.tutorial.survey.mySurvey,
- org.eclipse.xtext.tutorial.survey.mySurvey.impl,
- org.eclipse.xtext.tutorial.survey.mySurvey.util,
  org.eclipse.xtext.tutorial.survey.serializer,
  org.eclipse.xtext.tutorial.survey.parser.antlr,
  org.eclipse.xtext.tutorial.survey.parser.antlr.internal,
  org.eclipse.xtext.tutorial.survey.validation,
  org.eclipse.xtext.tutorial.survey.scoping,
- org.eclipse.xtext.tutorial.survey.generator
+ org.eclipse.xtext.tutorial.survey.generator,
+ org.eclipse.xtext.tutorial.survey.survey,
+ org.eclipse.xtext.tutorial.survey.survey.impl,
+ org.eclipse.xtext.tutorial.survey.survey.util
 

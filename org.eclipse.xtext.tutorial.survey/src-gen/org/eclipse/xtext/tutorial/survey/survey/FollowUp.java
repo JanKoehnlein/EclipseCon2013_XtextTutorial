@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey;
+package org.eclipse.xtext.tutorial.survey.survey;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -12,12 +12,12 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getGuard <em>Guard</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getNext <em>Next</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.FollowUp#getGuard <em>Guard</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.FollowUp#getNext <em>Next</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getFollowUp()
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getFollowUp()
  * @model
  * @generated
  */
@@ -33,14 +33,14 @@ public interface FollowUp extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Guard</em>' containment reference.
    * @see #setGuard(Guard)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getFollowUp_Guard()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getFollowUp_Guard()
    * @model containment="true"
    * @generated
    */
   Guard getGuard();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getGuard <em>Guard</em>}' containment reference.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.FollowUp#getGuard <em>Guard</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Guard</em>' containment reference.
@@ -59,14 +59,14 @@ public interface FollowUp extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Next</em>' reference.
    * @see #setNext(Page)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getFollowUp_Next()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getFollowUp_Next()
    * @model
    * @generated
    */
   Page getNext();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp#getNext <em>Next</em>}' reference.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.FollowUp#getNext <em>Next</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Next</em>' reference.

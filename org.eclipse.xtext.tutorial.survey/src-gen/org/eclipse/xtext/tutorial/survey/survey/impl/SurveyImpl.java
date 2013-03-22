@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import java.util.Collection;
 
@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.Survey;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,9 +29,9 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.SurveyImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.SurveyImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.impl.SurveyImpl#getPages <em>Pages</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.SurveyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.SurveyImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.impl.SurveyImpl#getPages <em>Pages</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,7 +107,7 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   @Override
   protected EClass eStaticClass()
   {
-    return MySurveyPackage.Literals.SURVEY;
+    return SurveyPackage.Literals.SURVEY;
   }
 
   /**
@@ -130,7 +130,7 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.SURVEY__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SURVEY__NAME, oldName, name));
   }
 
   /**
@@ -153,7 +153,7 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
     String oldTitle = title;
     title = newTitle;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MySurveyPackage.SURVEY__TITLE, oldTitle, title));
+      eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SURVEY__TITLE, oldTitle, title));
   }
 
   /**
@@ -165,7 +165,7 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     if (pages == null)
     {
-      pages = new EObjectContainmentEList<Page>(Page.class, this, MySurveyPackage.SURVEY__PAGES);
+      pages = new EObjectContainmentEList<Page>(Page.class, this, SurveyPackage.SURVEY__PAGES);
     }
     return pages;
   }
@@ -180,7 +180,7 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case MySurveyPackage.SURVEY__PAGES:
+      case SurveyPackage.SURVEY__PAGES:
         return ((InternalEList<?>)getPages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -196,11 +196,11 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case MySurveyPackage.SURVEY__NAME:
+      case SurveyPackage.SURVEY__NAME:
         return getName();
-      case MySurveyPackage.SURVEY__TITLE:
+      case SurveyPackage.SURVEY__TITLE:
         return getTitle();
-      case MySurveyPackage.SURVEY__PAGES:
+      case SurveyPackage.SURVEY__PAGES:
         return getPages();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -217,13 +217,13 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case MySurveyPackage.SURVEY__NAME:
+      case SurveyPackage.SURVEY__NAME:
         setName((String)newValue);
         return;
-      case MySurveyPackage.SURVEY__TITLE:
+      case SurveyPackage.SURVEY__TITLE:
         setTitle((String)newValue);
         return;
-      case MySurveyPackage.SURVEY__PAGES:
+      case SurveyPackage.SURVEY__PAGES:
         getPages().clear();
         getPages().addAll((Collection<? extends Page>)newValue);
         return;
@@ -241,13 +241,13 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case MySurveyPackage.SURVEY__NAME:
+      case SurveyPackage.SURVEY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MySurveyPackage.SURVEY__TITLE:
+      case SurveyPackage.SURVEY__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
-      case MySurveyPackage.SURVEY__PAGES:
+      case SurveyPackage.SURVEY__PAGES:
         getPages().clear();
         return;
     }
@@ -264,11 +264,11 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case MySurveyPackage.SURVEY__NAME:
+      case SurveyPackage.SURVEY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MySurveyPackage.SURVEY__TITLE:
+      case SurveyPackage.SURVEY__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-      case MySurveyPackage.SURVEY__PAGES:
+      case SurveyPackage.SURVEY__PAGES:
         return pages != null && !pages.isEmpty();
     }
     return super.eIsSet(featureID);

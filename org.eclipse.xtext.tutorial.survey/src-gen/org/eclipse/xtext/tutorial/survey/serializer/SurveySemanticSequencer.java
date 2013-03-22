@@ -13,15 +13,15 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
 import org.eclipse.xtext.tutorial.survey.services.SurveyGrammarAccess;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
+import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.Guard;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.Survey;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 @SuppressWarnings("all")
 public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -30,46 +30,46 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	private SurveyGrammarAccess grammarAccess;
 	
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == MySurveyPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case MySurveyPackage.CHOICE:
+		if(semanticObject.eClass().getEPackage() == SurveyPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case SurveyPackage.CHOICE:
 				if(context == grammarAccess.getChoiceRule()) {
 					sequence_Choice(context, (Choice) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.CHOICE_QUESTION:
+			case SurveyPackage.CHOICE_QUESTION:
 				if(context == grammarAccess.getChoiceQuestionRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_ChoiceQuestion(context, (ChoiceQuestion) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.FOLLOW_UP:
+			case SurveyPackage.FOLLOW_UP:
 				if(context == grammarAccess.getFollowUpRule()) {
 					sequence_FollowUp(context, (FollowUp) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.FREE_TEXT_QUESTION:
+			case SurveyPackage.FREE_TEXT_QUESTION:
 				if(context == grammarAccess.getFreeTextQuestionRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_FreeTextQuestion(context, (FreeTextQuestion) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.GUARD:
+			case SurveyPackage.GUARD:
 				if(context == grammarAccess.getGuardRule()) {
 					sequence_Guard(context, (Guard) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.PAGE:
+			case SurveyPackage.PAGE:
 				if(context == grammarAccess.getPageRule()) {
 					sequence_Page(context, (Page) semanticObject); 
 					return; 
 				}
 				else break;
-			case MySurveyPackage.SURVEY:
+			case SurveyPackage.SURVEY:
 				if(context == grammarAccess.getSurveyRule()) {
 					sequence_Survey(context, (Survey) semanticObject); 
 					return; 
@@ -112,10 +112,10 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 */
 	protected void sequence_FreeTextQuestion(EObject context, FreeTextQuestion semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.QUESTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.QUESTION__NAME));
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.QUESTION__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.QUESTION__TEXT));
+			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.QUESTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.QUESTION__NAME));
+			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.QUESTION__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.QUESTION__TEXT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -131,10 +131,10 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 */
 	protected void sequence_Guard(EObject context, Guard semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.GUARD__QUESTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.GUARD__QUESTION));
-			if(transientValues.isValueTransient(semanticObject, MySurveyPackage.Literals.GUARD__ANSWER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MySurveyPackage.Literals.GUARD__ANSWER));
+			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.GUARD__QUESTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.GUARD__QUESTION));
+			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.GUARD__ANSWER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.GUARD__ANSWER));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);

@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -9,16 +9,16 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.Choice;
-import org.eclipse.xtext.tutorial.survey.mySurvey.ChoiceQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp;
-import org.eclipse.xtext.tutorial.survey.mySurvey.FreeTextQuestion;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Guard;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyFactory;
-import org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Page;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Question;
-import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
+import org.eclipse.xtext.tutorial.survey.survey.Choice;
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
+import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion;
+import org.eclipse.xtext.tutorial.survey.survey.Guard;
+import org.eclipse.xtext.tutorial.survey.survey.Page;
+import org.eclipse.xtext.tutorial.survey.survey.Question;
+import org.eclipse.xtext.tutorial.survey.survey.Survey;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyFactory;
+import org.eclipse.xtext.tutorial.survey.survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +26,7 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.Survey;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
+public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage
 {
   /**
    * <!-- begin-user-doc -->
@@ -95,13 +95,13 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#eNS_URI
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private MySurveyPackageImpl()
+  private SurveyPackageImpl()
   {
-    super(eNS_URI, MySurveyFactory.eINSTANCE);
+    super(eNS_URI, SurveyFactory.eINSTANCE);
   }
 
   /**
@@ -114,7 +114,7 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
-   * <p>This method is used to initialize {@link MySurveyPackage#eINSTANCE} when that field is accessed.
+   * <p>This method is used to initialize {@link SurveyPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -123,28 +123,28 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * @see #initializePackageContents()
    * @generated
    */
-  public static MySurveyPackage init()
+  public static SurveyPackage init()
   {
-    if (isInited) return (MySurveyPackage)EPackage.Registry.INSTANCE.getEPackage(MySurveyPackage.eNS_URI);
+    if (isInited) return (SurveyPackage)EPackage.Registry.INSTANCE.getEPackage(SurveyPackage.eNS_URI);
 
     // Obtain or create and register package
-    MySurveyPackageImpl theMySurveyPackage = (MySurveyPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MySurveyPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MySurveyPackageImpl());
+    SurveyPackageImpl theSurveyPackage = (SurveyPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SurveyPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SurveyPackageImpl());
 
     isInited = true;
 
     // Create package meta-data objects
-    theMySurveyPackage.createPackageContents();
+    theSurveyPackage.createPackageContents();
 
     // Initialize created meta-data
-    theMySurveyPackage.initializePackageContents();
+    theSurveyPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
-    theMySurveyPackage.freeze();
+    theSurveyPackage.freeze();
 
   
     // Update the registry and return the package
-    EPackage.Registry.INSTANCE.put(MySurveyPackage.eNS_URI, theMySurveyPackage);
-    return theMySurveyPackage;
+    EPackage.Registry.INSTANCE.put(SurveyPackage.eNS_URI, theSurveyPackage);
+    return theSurveyPackage;
   }
 
   /**
@@ -402,9 +402,9 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public MySurveyFactory getMySurveyFactory()
+  public SurveyFactory getSurveyFactory()
   {
-    return (MySurveyFactory)getEFactoryInstance();
+    return (SurveyFactory)getEFactoryInstance();
   }
 
   /**
@@ -531,4 +531,4 @@ public class MySurveyPackageImpl extends EPackageImpl implements MySurveyPackage
     createResource(eNS_URI);
   }
 
-} //MySurveyPackageImpl
+} //SurveyPackageImpl

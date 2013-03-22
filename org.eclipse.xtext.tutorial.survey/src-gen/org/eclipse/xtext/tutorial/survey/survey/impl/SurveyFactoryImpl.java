@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey.impl;
+package org.eclipse.xtext.tutorial.survey.survey.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.eclipse.xtext.tutorial.survey.mySurvey.*;
+import org.eclipse.xtext.tutorial.survey.survey.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ import org.eclipse.xtext.tutorial.survey.mySurvey.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
+public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory
 {
   /**
    * Creates the default factory implementation.
@@ -26,21 +26,21 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public static MySurveyFactory init()
+  public static SurveyFactory init()
   {
     try
     {
-      MySurveyFactory theMySurveyFactory = (MySurveyFactory)EPackage.Registry.INSTANCE.getEFactory(MySurveyPackage.eNS_URI);
-      if (theMySurveyFactory != null)
+      SurveyFactory theSurveyFactory = (SurveyFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/xtext/tutorial/survey/Survey"); 
+      if (theSurveyFactory != null)
       {
-        return theMySurveyFactory;
+        return theSurveyFactory;
       }
     }
     catch (Exception exception)
     {
       EcorePlugin.INSTANCE.log(exception);
     }
-    return new MySurveyFactoryImpl();
+    return new SurveyFactoryImpl();
   }
 
   /**
@@ -49,7 +49,7 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MySurveyFactoryImpl()
+  public SurveyFactoryImpl()
   {
     super();
   }
@@ -64,14 +64,14 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
   {
     switch (eClass.getClassifierID())
     {
-      case MySurveyPackage.SURVEY: return createSurvey();
-      case MySurveyPackage.PAGE: return createPage();
-      case MySurveyPackage.FOLLOW_UP: return createFollowUp();
-      case MySurveyPackage.GUARD: return createGuard();
-      case MySurveyPackage.QUESTION: return createQuestion();
-      case MySurveyPackage.FREE_TEXT_QUESTION: return createFreeTextQuestion();
-      case MySurveyPackage.CHOICE_QUESTION: return createChoiceQuestion();
-      case MySurveyPackage.CHOICE: return createChoice();
+      case SurveyPackage.SURVEY: return createSurvey();
+      case SurveyPackage.PAGE: return createPage();
+      case SurveyPackage.FOLLOW_UP: return createFollowUp();
+      case SurveyPackage.GUARD: return createGuard();
+      case SurveyPackage.QUESTION: return createQuestion();
+      case SurveyPackage.FREE_TEXT_QUESTION: return createFreeTextQuestion();
+      case SurveyPackage.CHOICE_QUESTION: return createChoiceQuestion();
+      case SurveyPackage.CHOICE: return createChoice();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -170,9 +170,9 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MySurveyPackage getMySurveyPackage()
+  public SurveyPackage getSurveyPackage()
   {
-    return (MySurveyPackage)getEPackage();
+    return (SurveyPackage)getEPackage();
   }
 
   /**
@@ -182,9 +182,9 @@ public class MySurveyFactoryImpl extends EFactoryImpl implements MySurveyFactory
    * @generated
    */
   @Deprecated
-  public static MySurveyPackage getPackage()
+  public static SurveyPackage getPackage()
   {
-    return MySurveyPackage.eINSTANCE;
+    return SurveyPackage.eINSTANCE;
   }
 
-} //MySurveyFactoryImpl
+} //SurveyFactoryImpl

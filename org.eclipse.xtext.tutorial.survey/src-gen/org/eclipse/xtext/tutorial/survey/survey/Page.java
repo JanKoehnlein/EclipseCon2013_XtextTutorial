@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.xtext.tutorial.survey.mySurvey;
+package org.eclipse.xtext.tutorial.survey.survey;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getQuestions <em>Questions</em>}</li>
- *   <li>{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getFollowUps <em>Follow Ups</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Page#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Page#getQuestions <em>Questions</em>}</li>
+ *   <li>{@link org.eclipse.xtext.tutorial.survey.survey.Page#getFollowUps <em>Follow Ups</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage()
+ * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getPage()
  * @model
  * @generated
  */
@@ -36,14 +36,14 @@ public interface Page extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage_Name()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getPage_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.mySurvey.Page#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.eclipse.xtext.tutorial.survey.survey.Page#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -54,7 +54,7 @@ public interface Page extends EObject
 
   /**
    * Returns the value of the '<em><b>Questions</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.xtext.tutorial.survey.mySurvey.Question}.
+   * The list contents are of type {@link org.eclipse.xtext.tutorial.survey.survey.Question}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Questions</em>' containment reference list isn't clear,
@@ -62,7 +62,7 @@ public interface Page extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Questions</em>' containment reference list.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage_Questions()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getPage_Questions()
    * @model containment="true"
    * @generated
    */
@@ -70,7 +70,7 @@ public interface Page extends EObject
 
   /**
    * Returns the value of the '<em><b>Follow Ups</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.xtext.tutorial.survey.mySurvey.FollowUp}.
+   * The list contents are of type {@link org.eclipse.xtext.tutorial.survey.survey.FollowUp}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Follow Ups</em>' containment reference list isn't clear,
@@ -78,7 +78,7 @@ public interface Page extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Follow Ups</em>' containment reference list.
-   * @see org.eclipse.xtext.tutorial.survey.mySurvey.MySurveyPackage#getPage_FollowUps()
+   * @see org.eclipse.xtext.tutorial.survey.survey.SurveyPackage#getPage_FollowUps()
    * @model containment="true"
    * @generated
    */
