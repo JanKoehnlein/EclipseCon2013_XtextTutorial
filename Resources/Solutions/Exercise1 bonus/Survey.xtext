@@ -11,11 +11,8 @@ Survey:
 Page:
 	'page' name=ID '('
 		questions+=Question*
-		followUps+=FollowUp*
+		'->' next=[Page]
 	')';
-
-FollowUp:
-	'->' next=[Page];
 
 Question:
 	FreeTextQuestion | ChoiceQuestion;

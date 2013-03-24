@@ -23,7 +23,10 @@ class SurveyGenerator implements IGenerator {
 		val survey = resource.getContents().head as Survey
 		if(survey != null) {
 			for(page: survey.getPages()) {
-				fsa.generateFile(page.getName() + '.html', toHtml(survey, page))
+				fsa.generateFile(page.getName() + '.html', 
+					SurveyOutputConfigurationProvider::htmlOutputConfig, 
+					toHtml(survey, page)
+				)
 			}
 			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
 		}
@@ -89,7 +92,7 @@ class SurveyGenerator implements IGenerator {
 						«IF question.getChoices().size() > 30»
 							<select name="«question.getName()»" «IF !question.isSingle()»multiple="multiple"«ENDIF»>
 								«FOR choice: question.getChoices()»
-									<option value="«choice.getNameNotNull()»">«choice.text»</option>
+									<option value="«choice.getNameNotNull()»">«choice.getText()»</option>
 								«ENDFOR»
 							</select>
 						«ELSE»
@@ -97,7 +100,7 @@ class SurveyGenerator implements IGenerator {
 								<label class="«buttonType»">
 									<input type="«buttonType»" name="«question.getName()»" value="«choice.getNameNotNull()»"/>«choice.text»
 									«IF choice.isFreetext()»
-										&nbsp;<input type="text" name="«choice.getNameNotNull()»">
+										&nbsp;<input type="text" name="«question.getName()»">
 									«ENDIF»
 								</label>
 							«ENDFOR»

@@ -18,15 +18,27 @@ class SurveyValidator extends AbstractSurveyValidator {
 
 	@Check
 	def textMustNotBeEmpty(Question question) {
-		if(question.text.empty) {
+		if(question.getText().isEmpty()) {
 			error("Empty question is illegal", QUESTION__TEXT)
 		}
 	}
 
 	@Check
 	def textMustNotBeEmpty(Choice choice) {
-		if(choice.text.empty) {
+		if(choice.getText().isEmpty()) {
 			error("Empty choice is illegal", CHOICE__TEXT)
+		}
+	}
+
+	@Check 
+	def duplicateChoiceText(ChoiceQuestion question) {
+		var nameToChoice = <String, Choice> newHashMap
+		for(choice: question.getChoices()) {
+			val choiceWithSameName = nameToChoice.put(choice.getText(), choice)
+			if(choiceWithSameName != null) {
+				error("Duplicate choice text", choice, CHOICE__TEXT)
+				error("Duplicate choice text", choiceWithSameName, CHOICE__TEXT)
+			}
 		}
 	}
 }

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.tutorial.survey.generator.SurveyOutputConfigurationProvider;
 import org.eclipse.xtext.tutorial.survey.survey.Choice;
 import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
 import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
@@ -41,7 +42,8 @@ public class SurveyGenerator implements IGenerator {
         String _name = page.getName();
         String _plus = (_name + ".html");
         CharSequence _html = this.toHtml(survey, page);
-        fsa.generateFile(_plus, _html);
+        fsa.generateFile(_plus, 
+          SurveyOutputConfigurationProvider.htmlOutputConfig, _html);
       }
       CharSequence _pageFlow = this.toPageFlow(survey);
       fsa.generateFile("main/PageFlow.java", _pageFlow);
@@ -291,8 +293,8 @@ public class SurveyGenerator implements IGenerator {
                   _builder.append("\t\t\t");
                   _builder.append("\t");
                   _builder.append("&nbsp;<input type=\"text\" name=\"");
-                  String _nameNotNull_2 = this.getNameNotNull(choice_1);
-                  _builder.append(_nameNotNull_2, "				");
+                  String _name_2 = question.getName();
+                  _builder.append(_name_2, "				");
                   _builder.append("\">");
                   _builder.newLineIfNotEmpty();
                 }

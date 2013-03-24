@@ -88,15 +88,15 @@ class SurveyGenerator implements IGenerator {
 						«IF question.getChoices().size() > 30»
 							<select name="«question.getName()»" «IF !question.isSingle()»multiple="multiple"«ENDIF»>
 								«FOR choice: question.getChoices()»
-									<option value="«choice.getNameNotNull()»">«choice.text»</option>
+									<option value="«choice.getName()»">«choice.getText()»</option>
 								«ENDFOR»
 							</select>
 						«ELSE»
 							«FOR choice: question.getChoices()»
 								<label class="«buttonType»">
-									<input type="«buttonType»" name="«question.getName()»" value="«choice.getNameNotNull()»"/>«choice.text»
+									<input type="«buttonType»" name="«question.getName()»" value="«choice.getName()»"/>«choice.getText()»
 									«IF choice.isFreetext()»
-										&nbsp;<input type="text" name="«choice.getNameNotNull()»">
+										&nbsp;<input type="text" name="«choice.getName()»">
 									«ENDIF»
 								</label>
 							«ENDFOR»
@@ -104,9 +104,5 @@ class SurveyGenerator implements IGenerator {
 				</div>
 			</div>
 		'''
-	}
-
-	protected def getNameNotNull(Choice choice) {
-		choice.name ?: 'answer_' + (choice.eContainer as ChoiceQuestion).choices.indexOf(choice) 
 	}
 }
