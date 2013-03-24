@@ -46,8 +46,6 @@ public class SurveyGenerator implements IGenerator {
       CharSequence _pageFlow = this.toPageFlow(survey);
       fsa.generateFile("main/PageFlow.java", _pageFlow);
     }
-    CharSequence _genrateStartServer = this.genrateStartServer();
-    fsa.generateFile("main/StartServer.java", _genrateStartServer);
   }
   
   protected CharSequence toHtml(final Survey survey, final Page page) {
@@ -445,50 +443,6 @@ public class SurveyGenerator implements IGenerator {
     }
     _builder.append("\t\t");
     _builder.append("return null;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence genrateStartServer() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package main;");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("public class StartServer {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public static void main(final String... args) {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("SurveyServer surveyServer = new SurveyServer();");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.setPort(8080);");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.setPageFlow(new PageFlow());");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.addWebroot(\"./src-gen\");");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.addWebroot(\"./html-gen\");");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.addWebroot(\"../org.eclipse.xtext.tutorial.survey.runtime/webroot\");");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("surveyServer.start();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

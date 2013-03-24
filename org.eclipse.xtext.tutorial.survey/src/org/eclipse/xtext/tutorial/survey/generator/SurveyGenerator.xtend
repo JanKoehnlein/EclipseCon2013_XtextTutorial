@@ -27,7 +27,6 @@ class SurveyGenerator implements IGenerator {
 			}
 			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
 		}
-		fsa.generateFile("main/StartServer.java", genrateStartServer)
 	}
 	
 	protected def toHtml(Survey survey, Page page) '''
@@ -145,24 +144,4 @@ class SurveyGenerator implements IGenerator {
 			}
 		}
 	'''
-	
-	def genrateStartServer() '''
-		package main;
-		
-		import org.eclipse.xtext.tutorial.survey.runtime.impl.SurveyServer;
-		
-		public class StartServer {
-			
-			public static void main(final String... args) {
-				SurveyServer surveyServer = new SurveyServer();
-				surveyServer.setPort(8080);
-				surveyServer.setPageFlow(new PageFlow());
-				surveyServer.addWebroot("./src-gen");
-				surveyServer.addWebroot("./html-gen");
-				surveyServer.addWebroot("../org.eclipse.xtext.tutorial.survey.runtime/webroot");
-				surveyServer.start();
-			}
-		}
-	'''
-
 }
