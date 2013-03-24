@@ -19,9 +19,9 @@ import org.eclipse.xtext.tutorial.survey.survey.Guard
 class SurveyScopeProvider extends AbstractDeclarativeScopeProvider {
 
 	def scope_Guard_answer(Guard guard, EReference ref) {
-		if(guard.question == null)
+		if(guard.getQuestion() == null)
 			IScope::NULLSCOPE
 		else
-			Scopes::scopeFor(guard.question.choices) 
+			Scopes::scopeFor(guard.getQuestion().getChoices()) 
 	}
 }

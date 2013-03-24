@@ -20,23 +20,20 @@ import org.eclipse.xtext.tutorial.survey.survey.Survey
 class SurveyGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		val allPages = resource.allContents.filter(typeof(Page)).toList
-//		for(page: allPages) {
-//			fsa.generateFile(page.getName() + '.html', SurveyOutputConfigurationProvider::htmlOutputConfig, toHtml(page))
-//		}
-		resource.allContents.filter(typeof(Page)).forEach [
-			fsa.generateFile(name + '.html', SurveyOutputConfigurationProvider::htmlOutputConfig, toHtml)
-		]
-		val survey = resource.contents.filter(typeof(Survey)).head
-		if(survey != null)
+		val survey = resource.getContents().head as Survey
+		if(survey != null) {
+			for(page: survey.getPages()) {
+				fsa.generateFile(page.getName() + '.html', toHtml(survey, page))
+			}
 			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
+		}
 		fsa.generateFile("main/StartServer.java", genrateStartServer)
 	}
 	
-	protected def toHtml(Page it) '''
+	protected def toHtml(Survey survey, Page page) '''
 		<html>
 		<head>
-			<title>«survey.title»</title>
+			<title>«survey.getTitle()»</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<!-- Bootstrap -->
 			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -47,7 +44,7 @@ class SurveyGenerator implements IGenerator {
 				<script src="js/bootstrap.js"></script>
 				<div class="navbar">
 						<div class="navbar-inner">
-							<a class="brand" href="/">«survey.title»</a>
+							<a class="brand" href="/">«survey.getTitle()»</a>
 							<ul class="nav pull-right">
 								<li><a href="/evaluate">Evaluate</a></li>
 							</ul>
@@ -56,11 +53,11 @@ class SurveyGenerator implements IGenerator {
 					
 					<div class="container">
 						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
-							<input name="survey" type="hidden" value="«survey.name»"/>
-							<input name="page" type="hidden" value="«name»"/>
+							<input name="survey" type="hidden" value="«survey.getName()»"/>
+							<input name="page" type="hidden" value="«page.getName()»"/>
 							
-							«FOR question: questions»
-								«question.controlGroup»
+							«FOR question: page.getQuestions()»
+								«controlGroup(question)»
 							«ENDFOR»
 							
 							<div class="control-group">
@@ -75,33 +72,33 @@ class SurveyGenerator implements IGenerator {
 		</html>
 	'''
 	
-	protected def dispatch controlGroup(FreeTextQuestion it) '''
+	protected def dispatch controlGroup(FreeTextQuestion question) '''
 		<div class="control-group">
-			<label class="control-label">«text»</label>
+			<label class="control-label">«question.getText()»</label>
 			<div class="controls">
-				<input type="text" name="«name»">
+				<input type="text" name="«question.getName()»">
 			</div>
 		</div>
 	'''
 	
-	protected def dispatch controlGroup(ChoiceQuestion it) {
-		val buttonType = if(single) 'radio' else 'checkbox'
+	protected def dispatch controlGroup(ChoiceQuestion question) {
+		val buttonType = if(question.isSingle()) 'radio' else 'checkbox'
 		'''
 			<div class="control-group">
-				<label class="control-label">«text»</label>
+				<label class="control-label">«question.getText()»</label>
 				<div class="controls">
-						«IF choices.size > 30»
-							<select name="«name»" «IF !single»multiple="multiple"«ENDIF»>
-								«FOR choice: choices»
-									<option value="«choice.nameNotNull»">«choice.text»</option>
+						«IF question.getChoices().size() > 30»
+							<select name="«question.getName()»" «IF !question.isSingle()»multiple="multiple"«ENDIF»>
+								«FOR choice: question.getChoices()»
+									<option value="«choice.getNameNotNull()»">«choice.text»</option>
 								«ENDFOR»
 							</select>
 						«ELSE»
-							«FOR choice: choices»
+							«FOR choice: question.getChoices()»
 								<label class="«buttonType»">
-									<input type="«buttonType»" name="«name»" value="«choice.nameNotNull»"/>«choice.text»
-									«IF choice.freetext»
-										&nbsp;<input type="text" name="«name»">
+									<input type="«buttonType»" name="«question.getName()»" value="«choice.getNameNotNull()»"/>«choice.text»
+									«IF choice.isFreetext()»
+										&nbsp;<input type="text" name="«choice.getNameNotNull()»">
 									«ENDIF»
 								</label>
 							«ENDFOR»
@@ -115,11 +112,7 @@ class SurveyGenerator implements IGenerator {
 		choice.name ?: 'answer_' + (choice.eContainer as ChoiceQuestion).choices.indexOf(choice) 
 	}
 	
-	protected def getSurvey(Page it) {
-		eContainer as Survey
-	}
-	
-	def toPageFlow(Survey it) '''
+	def toPageFlow(Survey survey) '''
 		package main;
 		
 		import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
@@ -128,14 +121,14 @@ class SurveyGenerator implements IGenerator {
 		public class PageFlow implements IPageFlow {
 			
 			public String getFirstPage() {
-				return "«pages.head.name»";
+				return "«survey.getPages().head.name»";
 			}
 			
 			public String getNextPage(IFormState formState) {
 				String currentPage = formState.getCurrentPage();
 				if(currentPage == null)
 					return getFirstPage();
-				«FOR page: pages.filter[!followUps.empty]»
+				«FOR page: survey.getPages().filter[!followUps.empty]»
 				if("«page.name»".equals(currentPage)) {
 					«FOR followUp : page.followUps»
 						«IF followUp.guard != null»
@@ -164,6 +157,7 @@ class SurveyGenerator implements IGenerator {
 				SurveyServer surveyServer = new SurveyServer();
 				surveyServer.setPort(8080);
 				surveyServer.setPageFlow(new PageFlow());
+				surveyServer.addWebroot("./src-gen");
 				surveyServer.addWebroot("./html-gen");
 				surveyServer.addWebroot("../org.eclipse.xtext.tutorial.survey.runtime/webroot");
 				surveyServer.start();

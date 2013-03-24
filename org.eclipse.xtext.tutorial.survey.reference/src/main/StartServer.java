@@ -8,6 +8,7 @@ public class StartServer {
 		SurveyServer surveyServer = new SurveyServer();
 		surveyServer.setPort(8080);
 		surveyServer.setPageFlow(new PageFlow());
+		surveyServer.addWebroot("./src-gen");
 		surveyServer.addWebroot("./webroot");
 		surveyServer.addWebroot("../org.eclipse.xtext.tutorial.survey.runtime/webroot");
 		surveyServer.start();

@@ -4,18 +4,13 @@
 package org.eclipse.xtext.tutorial.survey.generator;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Iterators;
 import java.util.Arrays;
-import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
-import org.eclipse.xtext.tutorial.survey.generator.SurveyOutputConfigurationProvider;
 import org.eclipse.xtext.tutorial.survey.survey.Choice;
 import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion;
 import org.eclipse.xtext.tutorial.survey.survey.FollowUp;
@@ -26,9 +21,7 @@ import org.eclipse.xtext.tutorial.survey.survey.Question;
 import org.eclipse.xtext.tutorial.survey.survey.Survey;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * Generates code from your model files on save.
@@ -38,22 +31,18 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 @SuppressWarnings("all")
 public class SurveyGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    TreeIterator<EObject> _allContents = resource.getAllContents();
-    Iterator<Page> _filter = Iterators.<Page>filter(_allContents, Page.class);
-    final Procedure1<Page> _function = new Procedure1<Page>() {
-        public void apply(final Page it) {
-          String _name = it.getName();
-          String _plus = (_name + ".html");
-          CharSequence _html = SurveyGenerator.this.toHtml(it);
-          fsa.generateFile(_plus, SurveyOutputConfigurationProvider.htmlOutputConfig, _html);
-        }
-      };
-    IteratorExtensions.<Page>forEach(_filter, _function);
     EList<EObject> _contents = resource.getContents();
-    Iterable<Survey> _filter_1 = Iterables.<Survey>filter(_contents, Survey.class);
-    final Survey survey = IterableExtensions.<Survey>head(_filter_1);
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    final Survey survey = ((Survey) _head);
     boolean _notEquals = (!Objects.equal(survey, null));
     if (_notEquals) {
+      EList<Page> _pages = survey.getPages();
+      for (final Page page : _pages) {
+        String _name = page.getName();
+        String _plus = (_name + ".html");
+        CharSequence _html = this.toHtml(survey, page);
+        fsa.generateFile(_plus, _html);
+      }
       CharSequence _pageFlow = this.toPageFlow(survey);
       fsa.generateFile("main/PageFlow.java", _pageFlow);
     }
@@ -61,7 +50,7 @@ public class SurveyGenerator implements IGenerator {
     fsa.generateFile("main/StartServer.java", _genrateStartServer);
   }
   
-  protected CharSequence toHtml(final Page it) {
+  protected CharSequence toHtml(final Survey survey, final Page page) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<html>");
     _builder.newLine();
@@ -69,8 +58,7 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<title>");
-    Survey _survey = this.getSurvey(it);
-    String _title = _survey.getTitle();
+    String _title = survey.getTitle();
     _builder.append(_title, "	");
     _builder.append("</title>");
     _builder.newLineIfNotEmpty();
@@ -105,8 +93,7 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("<a class=\"brand\" href=\"/\">");
-    Survey _survey_1 = this.getSurvey(it);
-    String _title_1 = _survey_1.getTitle();
+    String _title_1 = survey.getTitle();
     _builder.append(_title_1, "					");
     _builder.append("</a>");
     _builder.newLineIfNotEmpty();
@@ -135,21 +122,20 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("<input name=\"survey\" type=\"hidden\" value=\"");
-    Survey _survey_2 = this.getSurvey(it);
-    String _name = _survey_2.getName();
+    String _name = survey.getName();
     _builder.append(_name, "					");
     _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t");
     _builder.append("<input name=\"page\" type=\"hidden\" value=\"");
-    String _name_1 = it.getName();
+    String _name_1 = page.getName();
     _builder.append(_name_1, "					");
     _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t");
     _builder.newLine();
     {
-      EList<Question> _questions = it.getQuestions();
+      EList<Question> _questions = page.getQuestions();
       for(final Question question : _questions) {
         _builder.append("\t\t\t\t\t");
         CharSequence _controlGroup = this.controlGroup(question);
@@ -191,13 +177,13 @@ public class SurveyGenerator implements IGenerator {
     return _builder;
   }
   
-  protected CharSequence _controlGroup(final FreeTextQuestion it) {
+  protected CharSequence _controlGroup(final FreeTextQuestion question) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<div class=\"control-group\">");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<label class=\"control-label\">");
-    String _text = it.getText();
+    String _text = question.getText();
     _builder.append(_text, "	");
     _builder.append("</label>");
     _builder.newLineIfNotEmpty();
@@ -206,7 +192,7 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("<input type=\"text\" name=\"");
-    String _name = it.getName();
+    String _name = question.getName();
     _builder.append(_name, "		");
     _builder.append("\">");
     _builder.newLineIfNotEmpty();
@@ -218,11 +204,11 @@ public class SurveyGenerator implements IGenerator {
     return _builder;
   }
   
-  protected CharSequence _controlGroup(final ChoiceQuestion it) {
+  protected CharSequence _controlGroup(final ChoiceQuestion question) {
     CharSequence _xblockexpression = null;
     {
       String _xifexpression = null;
-      boolean _isSingle = it.isSingle();
+      boolean _isSingle = question.isSingle();
       if (_isSingle) {
         _xifexpression = "radio";
       } else {
@@ -234,7 +220,7 @@ public class SurveyGenerator implements IGenerator {
       _builder.newLine();
       _builder.append("\t");
       _builder.append("<label class=\"control-label\">");
-      String _text = it.getText();
+      String _text = question.getText();
       _builder.append(_text, "	");
       _builder.append("</label>");
       _builder.newLineIfNotEmpty();
@@ -242,17 +228,17 @@ public class SurveyGenerator implements IGenerator {
       _builder.append("<div class=\"controls\">");
       _builder.newLine();
       {
-        EList<Choice> _choices = it.getChoices();
+        EList<Choice> _choices = question.getChoices();
         int _size = _choices.size();
         boolean _greaterThan = (_size > 30);
         if (_greaterThan) {
           _builder.append("\t\t\t");
           _builder.append("<select name=\"");
-          String _name = it.getName();
+          String _name = question.getName();
           _builder.append(_name, "			");
           _builder.append("\" ");
           {
-            boolean _isSingle_1 = it.isSingle();
+            boolean _isSingle_1 = question.isSingle();
             boolean _not = (!_isSingle_1);
             if (_not) {
               _builder.append("multiple=\"multiple\"");
@@ -261,7 +247,7 @@ public class SurveyGenerator implements IGenerator {
           _builder.append(">");
           _builder.newLineIfNotEmpty();
           {
-            EList<Choice> _choices_1 = it.getChoices();
+            EList<Choice> _choices_1 = question.getChoices();
             for(final Choice choice : _choices_1) {
               _builder.append("\t\t\t");
               _builder.append("\t");
@@ -280,7 +266,7 @@ public class SurveyGenerator implements IGenerator {
           _builder.newLine();
         } else {
           {
-            EList<Choice> _choices_2 = it.getChoices();
+            EList<Choice> _choices_2 = question.getChoices();
             for(final Choice choice_1 : _choices_2) {
               _builder.append("\t\t\t");
               _builder.append("<label class=\"");
@@ -292,7 +278,7 @@ public class SurveyGenerator implements IGenerator {
               _builder.append("<input type=\"");
               _builder.append(buttonType, "				");
               _builder.append("\" name=\"");
-              String _name_1 = it.getName();
+              String _name_1 = question.getName();
               _builder.append(_name_1, "				");
               _builder.append("\" value=\"");
               String _nameNotNull_1 = this.getNameNotNull(choice_1);
@@ -307,8 +293,8 @@ public class SurveyGenerator implements IGenerator {
                   _builder.append("\t\t\t");
                   _builder.append("\t");
                   _builder.append("&nbsp;<input type=\"text\" name=\"");
-                  String _name_2 = it.getName();
-                  _builder.append(_name_2, "				");
+                  String _nameNotNull_2 = this.getNameNotNull(choice_1);
+                  _builder.append(_nameNotNull_2, "				");
                   _builder.append("\">");
                   _builder.newLineIfNotEmpty();
                 }
@@ -345,12 +331,7 @@ public class SurveyGenerator implements IGenerator {
     return _elvis;
   }
   
-  protected Survey getSurvey(final Page it) {
-    EObject _eContainer = it.eContainer();
-    return ((Survey) _eContainer);
-  }
-  
-  public CharSequence toPageFlow(final Survey it) {
+  public CharSequence toPageFlow(final Survey survey) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package main;");
     _builder.newLine();
@@ -369,7 +350,7 @@ public class SurveyGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return \"");
-    EList<Page> _pages = it.getPages();
+    EList<Page> _pages = survey.getPages();
     Page _head = IterableExtensions.<Page>head(_pages);
     String _name = _head.getName();
     _builder.append(_name, "		");
@@ -393,7 +374,7 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("return getFirstPage();");
     _builder.newLine();
     {
-      EList<Page> _pages_1 = it.getPages();
+      EList<Page> _pages_1 = survey.getPages();
       final Function1<Page,Boolean> _function = new Function1<Page,Boolean>() {
           public Boolean apply(final Page it) {
             EList<FollowUp> _followUps = it.getFollowUps();
@@ -498,6 +479,9 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("surveyServer.setPageFlow(new PageFlow());");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("surveyServer.addWebroot(\"./src-gen\");");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.append("surveyServer.addWebroot(\"./html-gen\");");
     _builder.newLine();
     _builder.append("\t\t");
@@ -514,14 +498,14 @@ public class SurveyGenerator implements IGenerator {
     return _builder;
   }
   
-  protected CharSequence controlGroup(final Question it) {
-    if (it instanceof ChoiceQuestion) {
-      return _controlGroup((ChoiceQuestion)it);
-    } else if (it instanceof FreeTextQuestion) {
-      return _controlGroup((FreeTextQuestion)it);
+  protected CharSequence controlGroup(final Question question) {
+    if (question instanceof ChoiceQuestion) {
+      return _controlGroup((ChoiceQuestion)question);
+    } else if (question instanceof FreeTextQuestion) {
+      return _controlGroup((FreeTextQuestion)question);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(it).toString());
+        Arrays.<Object>asList(question).toString());
     }
   }
 }
