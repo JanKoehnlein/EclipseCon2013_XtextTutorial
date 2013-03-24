@@ -86,22 +86,14 @@ class SurveyGenerator implements IGenerator {
 			<div class="control-group">
 				<label class="control-label">«question.getText()»</label>
 				<div class="controls">
-						«IF question.getChoices().size() > 30»
-							<select name="«question.getName()»" «IF !question.isSingle()»multiple="multiple"«ENDIF»>
-								«FOR choice: question.getChoices()»
-									<option value="«choice.getName()»">«choice.getText()»</option>
-								«ENDFOR»
-							</select>
-						«ELSE»
-							«FOR choice: question.getChoices()»
-								<label class="«buttonType»">
-									<input type="«buttonType»" name="«question.getName()»" value="«choice.getName()»"/>«choice.getText()»
-									«IF choice.isFreetext()»
-										&nbsp;<input type="text" name="«choice.getName()»">
-									«ENDIF»
-								</label>
-							«ENDFOR»
-						«ENDIF»
+					«FOR choice: question.getChoices()»
+						<label class="«buttonType»">
+							<input type="«buttonType»" name="«question.getName()»" value="«choice.getName()»"/>«choice.getText()»
+							«IF choice.isFreetext()»
+								&nbsp;<input type="text" name="«choice.getName()»">
+							«ENDIF»
+						</label>
+					«ENDFOR»
 				</div>
 			</div>
 		'''
