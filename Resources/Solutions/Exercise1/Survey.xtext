@@ -2,27 +2,93 @@ grammar org.eclipse.xtext.tutorial.survey.Survey with org.eclipse.xtext.common.T
 
 generate survey "http://www.eclipse.org/xtext/tutorial/survey/Survey"
 
+// The entry rule. Creates an Object of type 'Survey'
+// 
+// Example: 
+//   survey mySurvey "Hello Tutorial" 
+//   ...
 Survey:
+	// A survey starts with the keyword 'survey'. Keywords are specified in quotes. 
 	'survey'
+	// The property 'name' identifies a survey. Xtext uses names to refer to elements.
+	// The parsed value will be stored in a JavaBeans property 'name'.  
 	name=ID
+	// The title that is exposed to the user. STRING denotes that it is delimited by 
+	// quotes, thus can contain all characters including whitespaces.
 	title=STRING
+	// A survey consists of a couple pages whose syntax is defined in a separate rule.
+	// The property will be multi-valued ('+=') and there can be an arbitrary number 
+	// of pages (*).
 	pages+=Page*;
 
+
+// The Page rule. Creates an object of type 'Page'.
+//
+// Example:
+//   page myFirstpage (
+//     ... // a couple of questions
+//   ) 
 Page:
-	'page' name=ID '('
+	// A survey starts with the keyword 'page'...
+	'page' 
+	// .. folowed by its identifier (see above)
+	name=ID
+	// The parentheses are keywords. Note that by our definition they are mandatory 
+	'('
+		// The questions are once again a multi-valued property, whose construction
+		// is defined in a separate rule  
 		questions+=Question*
 	')';
 
+
+// The Question rule. Creates an object of type 'Question'.
+// This rule does not define any assignments, thus no Object will be created. It 
+// will just pass through the values form the rules called inside. In object-oriented
+// terminology, 'Question' is abstract. It doesn't define any syntax either. 
 Question:
+	// '|' denotes an alternative: A question is either a 'FreeTextQuestion' or a 
+	// 'ChoiceQuestion'. As a consequence both classes will inherit from 'Question'.
 	FreeTextQuestion | ChoiceQuestion;
 
+
+// Rule FreeTextQuestion. Creates an object of type 'FreeTextQuestion'.
+//
+// Example:
+//   text nameValue 'Enter your name'
 FreeTextQuestion:
+	// nothing new here: a keyword, and identifier and a string
 	'text' name=ID text=STRING;
 
+
+// Rule ChoiceQuestion. Creates an object of type 'ChoiceQuestion'.
+//
+// Examples:
+//   single choice gender 'What's your gender' (
+//      ... // some choices
+//   )
+//   choice favIde 'What is your favorite IDE?' (
+//      ... // some choices
+//   )
 ChoiceQuestion:
-	(single?='single')? 'choice' name=ID text=STRING '('
+	// If the optional ('?') keyword 'single' is specified, a boolean flag 'single' is
+	// set 
+	(single?='single')?
+	// The rest shows nothing new. 
+	'choice' name=ID text=STRING '('
 	  choices+=Choice+
 	')';
 
+
+// Rule Choice. Creates an object of type 'Choice'.
+//
+// Examples:
+//   eclipse 'Eclipse'
+//   text 'Other (please specify)'
 Choice:
-	(freetext?='text')? (name=ID)? text=STRING;
+	// Another boolaan assignment (see ChoiceQuestion).
+	(freetext?='text')? 
+	// The identifier of a choice is optional. If not specified, we can derive a 
+	// technical one. 
+	(name=ID)? 
+	// And finally the question as presented to the user.
+	text=STRING;

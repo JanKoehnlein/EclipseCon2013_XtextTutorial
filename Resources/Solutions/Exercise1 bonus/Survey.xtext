@@ -11,6 +11,8 @@ Survey:
 Page:
 	'page' name=ID '('
 		questions+=Question*
+		// A page can specify the next page. We use a cross-reference here
+		// ('[]') as the referred page is actually defined somewhere else.  
 		'->' next=[Page]
 	')';
 
