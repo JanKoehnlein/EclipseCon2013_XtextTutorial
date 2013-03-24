@@ -1,0 +1,32 @@
+grammar org.eclipse.xtext.tutorial.survey.Survey with org.eclipse.xtext.common.Terminals
+
+generate survey "http://www.eclipse.org/xtext/tutorial/survey/Survey"
+
+Survey:
+	'survey'
+	name=ID
+	title=STRING
+	pages+=Page*;
+
+Page:
+	'page' name=ID '('
+		questions+=Question*
+		followUps+=FollowUp*
+	')';
+
+FollowUp:
+	'->' next=[Page];
+
+Question:
+	FreeTextQuestion | ChoiceQuestion;
+
+FreeTextQuestion:
+	'text' name=ID text=STRING;
+
+ChoiceQuestion:
+	(single?='single')? 'choice' name=ID text=STRING '('
+	  choices+=Choice+
+	')';
+
+Choice:
+	(freetext?='text')? (name=ID)? text=STRING;
