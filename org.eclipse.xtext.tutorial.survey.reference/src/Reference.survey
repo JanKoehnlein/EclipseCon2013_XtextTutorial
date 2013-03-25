@@ -6,9 +6,9 @@ page Start (
 		yes "Yes"
 		no "No"
 	)
-	if like=yes -> Like
-	if like=no -> Dislike
-	-> Start
+//	if like=yes -> Like
+//	if like=no -> Dislike
+//	-> Start
 )
 
 page Like (
