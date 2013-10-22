@@ -1,9 +1,9 @@
 package org.eclipse.xtext.tutorial.survey.runtime.impl;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSet.Builder;
+import com.google.common.collect.Sets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 
 @SuppressWarnings("all")
@@ -22,16 +21,7 @@ public class FormState implements IFormState {
   
   private final static String surveyAttribute = "survey";
   
-  private final static Set<String> transientAttribtutes = new Function0<Set<String>>() {
-    public Set<String> apply() {
-      Set<String> _xsetliteral = null;
-      Builder<String> _builder = ImmutableSet.builder();
-      _builder.add(FormState.pageAttribute);
-      _builder.add(FormState.surveyAttribute);
-      _xsetliteral = _builder.build();
-      return _xsetliteral;
-    }
-  }.apply();
+  private final static Set<String> transientAttribtutes = Collections.<String>unmodifiableSet(Sets.<String>newHashSet(FormState.pageAttribute, FormState.surveyAttribute));
   
   private HttpServletRequest request;
   
@@ -98,7 +88,10 @@ public class FormState implements IFormState {
   
   public String getCurrentPage() {
     String _parameter = this.request.getParameter(FormState.pageAttribute);
-    String _string = _parameter==null?(String)null:_parameter.toString();
+    String _string = null;
+    if (_parameter!=null) {
+      _string=_parameter.toString();
+    }
     return _string;
   }
   
@@ -123,7 +116,7 @@ public class FormState implements IFormState {
             String _key_1 = entry.getKey();
             String _plus = (prefix + _key_1);
             String[] _value_2 = entry.getValue();
-            String _get = _value_2[0];
+            Object _get = _value_2[0];
             _session.setAttribute(_plus, _get);
           } else {
             HttpSession _session_1 = request.getSession();

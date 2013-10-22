@@ -52,56 +52,56 @@ public class SurveyServer {
   public void start() {
     Server _server = new Server(8080);
     final Procedure1<Server> _function = new Procedure1<Server>() {
-        public void apply(final Server it) {
-          try {
-            HandlerList _handlerList = new HandlerList();
-            final HandlerList handlerList = _handlerList;
-            SessionHandler _sessionHandler = new SessionHandler();
-            handlerList.addHandler(_sessionHandler);
-            SurveyHandler _surveyHandler = new SurveyHandler();
-            final Procedure1<SurveyHandler> _function = new Procedure1<SurveyHandler>() {
-                public void apply(final SurveyHandler it) {
-                  IPageFlow _pageFlow = SurveyServer.this.getPageFlow();
-                  it.setPageFlow(_pageFlow);
-                }
-              };
-            SurveyHandler _doubleArrow = ObjectExtensions.<SurveyHandler>operator_doubleArrow(_surveyHandler, _function);
-            handlerList.addHandler(_doubleArrow);
-            for (final String webroot : SurveyServer.this.webroots) {
-              ResourceHandler _resourceHandler = new ResourceHandler();
-              final Procedure1<ResourceHandler> _function_1 = new Procedure1<ResourceHandler>() {
-                  public void apply(final ResourceHandler it) {
-                    it.setResourceBase(webroot);
-                  }
-                };
-              ResourceHandler _doubleArrow_1 = ObjectExtensions.<ResourceHandler>operator_doubleArrow(_resourceHandler, _function_1);
-              handlerList.addHandler(_doubleArrow_1);
+      public void apply(final Server it) {
+        try {
+          HandlerList _handlerList = new HandlerList();
+          final HandlerList handlerList = _handlerList;
+          SessionHandler _sessionHandler = new SessionHandler();
+          handlerList.addHandler(_sessionHandler);
+          SurveyHandler _surveyHandler = new SurveyHandler();
+          final Procedure1<SurveyHandler> _function = new Procedure1<SurveyHandler>() {
+            public void apply(final SurveyHandler it) {
+              IPageFlow _pageFlow = SurveyServer.this.getPageFlow();
+              it.setPageFlow(_pageFlow);
             }
-            it.setHandler(handlerList);
-            it.start();
-            it.join();
-          } catch (Throwable _e) {
-            throw Exceptions.sneakyThrow(_e);
+          };
+          SurveyHandler _doubleArrow = ObjectExtensions.<SurveyHandler>operator_doubleArrow(_surveyHandler, _function);
+          handlerList.addHandler(_doubleArrow);
+          for (final String webroot : SurveyServer.this.webroots) {
+            ResourceHandler _resourceHandler = new ResourceHandler();
+            final Procedure1<ResourceHandler> _function_1 = new Procedure1<ResourceHandler>() {
+              public void apply(final ResourceHandler it) {
+                it.setResourceBase(webroot);
+              }
+            };
+            ResourceHandler _doubleArrow_1 = ObjectExtensions.<ResourceHandler>operator_doubleArrow(_resourceHandler, _function_1);
+            handlerList.addHandler(_doubleArrow_1);
           }
+          it.setHandler(handlerList);
+          it.start();
+          it.join();
+        } catch (Throwable _e) {
+          throw Exceptions.sneakyThrow(_e);
         }
-      };
+      }
+    };
     ObjectExtensions.<Server>operator_doubleArrow(_server, _function);
   }
   
   protected ResourceHandler getResourceHandler() {
     ResourceHandler _resourceHandler = new ResourceHandler();
     final Procedure1<ResourceHandler> _function = new Procedure1<ResourceHandler>() {
-        public void apply(final ResourceHandler it) {
-          try {
-            File _file = new File(".");
-            final String current = _file.getCanonicalPath();
-            String _plus = (current + "/webroot/");
-            it.setResourceBase(_plus);
-          } catch (Throwable _e) {
-            throw Exceptions.sneakyThrow(_e);
-          }
+      public void apply(final ResourceHandler it) {
+        try {
+          File _file = new File(".");
+          final String current = _file.getCanonicalPath();
+          String _plus = (current + "/webroot/");
+          it.setResourceBase(_plus);
+        } catch (Throwable _e) {
+          throw Exceptions.sneakyThrow(_e);
         }
-      };
+      }
+    };
     ResourceHandler _doubleArrow = ObjectExtensions.<ResourceHandler>operator_doubleArrow(_resourceHandler, _function);
     return _doubleArrow;
   }

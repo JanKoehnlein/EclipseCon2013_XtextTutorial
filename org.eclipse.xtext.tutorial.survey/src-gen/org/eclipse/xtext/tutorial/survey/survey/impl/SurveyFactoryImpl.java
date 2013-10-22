@@ -30,7 +30,7 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory
   {
     try
     {
-      SurveyFactory theSurveyFactory = (SurveyFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/xtext/tutorial/survey/Survey"); 
+      SurveyFactory theSurveyFactory = (SurveyFactory)EPackage.Registry.INSTANCE.getEFactory(SurveyPackage.eNS_URI);
       if (theSurveyFactory != null)
       {
         return theSurveyFactory;

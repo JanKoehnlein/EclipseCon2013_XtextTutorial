@@ -117,14 +117,14 @@ public class Evaluation {
         {
           Set<Entry<String,Integer>> _entrySet = valueCounts.entrySet();
           final Function1<Entry<String,Integer>,Integer> _function = new Function1<Entry<String,Integer>,Integer>() {
-              public Integer apply(final Entry<String,Integer> it) {
-                Integer _value = it.getValue();
-                int _minus = (-(_value).intValue());
-                return Integer.valueOf(_minus);
-              }
-            };
+            public Integer apply(final Entry<String,Integer> it) {
+              Integer _value = it.getValue();
+              int _minus = (-(_value).intValue());
+              return Integer.valueOf(_minus);
+            }
+          };
           List<Entry<String,Integer>> _sortBy = IterableExtensions.<Entry<String,Integer>, Integer>sortBy(_entrySet, _function);
-          for(final Entry<String,Integer> entry : _sortBy) {
+          for(final Entry<String, Integer> entry : _sortBy) {
             _builder.append("\t\t\t");
             _builder.append("<tr>");
             _builder.newLine();

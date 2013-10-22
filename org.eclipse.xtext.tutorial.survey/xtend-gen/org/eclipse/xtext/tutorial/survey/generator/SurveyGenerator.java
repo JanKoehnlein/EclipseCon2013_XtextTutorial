@@ -376,13 +376,13 @@ public class SurveyGenerator implements IGenerator {
     {
       EList<Page> _pages_1 = survey.getPages();
       final Function1<Page,Boolean> _function = new Function1<Page,Boolean>() {
-          public Boolean apply(final Page it) {
-            EList<FollowUp> _followUps = it.getFollowUps();
-            boolean _isEmpty = _followUps.isEmpty();
-            boolean _not = (!_isEmpty);
-            return Boolean.valueOf(_not);
-          }
-        };
+        public Boolean apply(final Page it) {
+          EList<FollowUp> _followUps = it.getFollowUps();
+          boolean _isEmpty = _followUps.isEmpty();
+          boolean _not = (!_isEmpty);
+          return Boolean.valueOf(_not);
+        }
+      };
       Iterable<Page> _filter = IterableExtensions.<Page>filter(_pages_1, _function);
       for(final Page page : _filter) {
         _builder.append("\t\t");

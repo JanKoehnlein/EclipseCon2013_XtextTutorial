@@ -63,11 +63,11 @@ public class DataStore {
   
   public LinkedHashSet<String> getKeys() {
     final Function1<Multimap<String,String>,Set<String>> _function = new Function1<Multimap<String,String>,Set<String>>() {
-        public Set<String> apply(final Multimap<String,String> it) {
-          Set<String> _keySet = it.keySet();
-          return _keySet;
-        }
-      };
+      public Set<String> apply(final Multimap<String,String> it) {
+        Set<String> _keySet = it.keySet();
+        return _keySet;
+      }
+    };
     List<Set<String>> _map = ListExtensions.<Multimap<String,String>, Set<String>>map(this.storage, _function);
     Iterable<String> _flatten = Iterables.<String>concat(_map);
     LinkedHashSet<String> _newLinkedHashSet = Sets.<String>newLinkedHashSet(_flatten);
@@ -78,22 +78,22 @@ public class DataStore {
     HashMap<String,Integer> _xblockexpression = null;
     {
       final Function1<Multimap<String,String>,Collection<String>> _function = new Function1<Multimap<String,String>,Collection<String>>() {
-          public Collection<String> apply(final Multimap<String,String> it) {
-            Collection<String> _get = it.get(key);
-            return _get;
-          }
-        };
+        public Collection<String> apply(final Multimap<String,String> it) {
+          Collection<String> _get = it.get(key);
+          return _get;
+        }
+      };
       List<Collection<String>> _map = ListExtensions.<Multimap<String,String>, Collection<String>>map(this.storage, _function);
       final Iterable<String> allValues = Iterables.<String>concat(_map);
       final HashMap<String,Integer> result = CollectionLiterals.<String, Integer>newHashMap();
       Set<String> _set = IterableExtensions.<String>toSet(allValues);
       for (final String value : _set) {
         final Function1<String,Boolean> _function_1 = new Function1<String,Boolean>() {
-            public Boolean apply(final String it) {
-              boolean _equals = Objects.equal(it, value);
-              return Boolean.valueOf(_equals);
-            }
-          };
+          public Boolean apply(final String it) {
+            boolean _equals = Objects.equal(it, value);
+            return Boolean.valueOf(_equals);
+          }
+        };
         Iterable<String> _filter = IterableExtensions.<String>filter(allValues, _function_1);
         int _size = IterableExtensions.size(_filter);
         result.put(value, Integer.valueOf(_size));
