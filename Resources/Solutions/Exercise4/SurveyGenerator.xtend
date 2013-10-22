@@ -6,6 +6,7 @@ package org.eclipse.xtext.tutorial.survey.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import org.eclipse.xtext.tutorial.survey.survey.Choice
 import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion
 import org.eclipse.xtext.tutorial.survey.survey.FreeTextQuestion
 import org.eclipse.xtext.tutorial.survey.survey.Page
@@ -24,6 +25,7 @@ class SurveyGenerator implements IGenerator {
 			for(page: survey.getPages()) {
 				fsa.generateFile(page.getName() + '.html', toHtml(survey, page))
 			}
+			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
 		}
 	}
 	
@@ -96,4 +98,42 @@ class SurveyGenerator implements IGenerator {
 			</div>
 		'''
 	}
+
+	protected def getName(Choice choice) {
+		choice.name ?: 'answer_' + (choice.eContainer as ChoiceQuestion).choices.indexOf(choice) 
+	}
+	
+	def toPageFlow(Survey survey) '''
+		package main;
+		
+		import org.eclipse.xtext.tutorial.survey.runtime.IFormState;
+		import org.eclipse.xtext.tutorial.survey.runtime.IPageFlow;
+		
+		public class PageFlow implements IPageFlow {
+			
+			public String getFirstPage() {
+				return "«survey.getPages().head.name»";
+			}
+			
+			public String getNextPage(IFormState formState) {
+				String currentPage = formState.getCurrentPage();
+				if(currentPage == null)
+					return getFirstPage();
+				«FOR page: survey.getPages().filter[!followUps.empty]»
+				if("«page.name»".equals(currentPage)) {
+					«FOR followUp : page.followUps»
+						«IF followUp.guard != null»
+							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+								return "«followUp.next.name»";
+							}
+						«ELSE»
+							return "«followUp.next.name»";
+						«ENDIF»
+					«ENDFOR»
+				}
+				«ENDFOR»
+				return null;
+			}
+		}
+	'''
 }

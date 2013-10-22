@@ -8,6 +8,7 @@ import org.eclipse.xtext.tutorial.survey.survey.Question
 import org.eclipse.xtext.validation.Check
 
 import static org.eclipse.xtext.tutorial.survey.survey.SurveyPackage$Literals.*
+import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion
 
 /**
  * Custom validation rules. 

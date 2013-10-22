@@ -119,17 +119,9 @@ class SurveyGenerator implements IGenerator {
 				String currentPage = formState.getCurrentPage();
 				if(currentPage == null)
 					return getFirstPage();
-				«FOR page: survey.getPages().filter[!followUps.empty]»
+				«FOR page: survey.getPages().filter[next != null]»
 				if("«page.name»".equals(currentPage)) {
-					«FOR followUp : page.followUps»
-						«IF followUp.guard != null»
-							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
-								return "«followUp.next.name»";
-							}
-						«ELSE»
-							return "«followUp.next.name»";
-						«ENDIF»
-					«ENDFOR»
+					return "«page.next.name»";
 				}
 				«ENDFOR»
 				return null;
