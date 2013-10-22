@@ -469,7 +469,9 @@ page eclipse (
 			'Eclipse 3.5 (Galileo)'
 			'Eclipse 3.6 (Helios)'
 			'Eclipse 3.7 (Indigo)'
-			'Eclipse 4.2 (Juno Milestone Builds)'
+			'Eclipse 4.2 (Juno)'
+			'Eclipse 4.3 (Kepler)'
+			'Eclipse 4.4 (Luna Milestone Builds)'
 			"None - Don't use Eclipse"
 			"Don't know"
 			text 'Other (please specify)'

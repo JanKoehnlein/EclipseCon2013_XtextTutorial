@@ -66,6 +66,9 @@ public class SurveyGenerator implements IGenerator {
     _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("<!-- Bootstrap -->");
     _builder.newLine();
     _builder.append("\t");
