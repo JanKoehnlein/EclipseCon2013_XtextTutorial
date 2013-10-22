@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Eclipse Community Survey 2013</title>
+	<title>EclipseCon 2013 Tutorial Survey</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -11,7 +11,7 @@
 		<script src="js/bootstrap.js"></script>
 		<div class="navbar">
 				<div class="navbar-inner">
-					<a class="brand" href="/">Eclipse Community Survey 2013</a>
+					<a class="brand" href="/">EclipseCon 2013 Tutorial Survey</a>
 					<ul class="nav pull-right">
 						<li><a href="/evaluate">Evaluate</a></li>
 					</ul>
@@ -20,13 +20,24 @@
 			
 			<div class="container">
 				<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
-					<input name="survey" type="hidden" value="community"/>
-					<input name="page" type="hidden" value="comments"/>
+					<input name="survey" type="hidden" value="tutorial"/>
+					<input name="page" type="hidden" value="Start"/>
 					
 					<div class="control-group">
-						<label class="control-label">Please leave any other comments or suggestions you have for the Eclipse Foundation.</label>
+						<label class="control-label">Your name</label>
 						<div class="controls">
-							<input type="text" name="comments">
+							<input type="text" name="name">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Do you like the tutorial?</label>
+						<div class="controls">
+								<label class="radio">
+									<input type="radio" name="like" value="yes"/>Yes
+								</label>
+								<label class="radio">
+									<input type="radio" name="like" value="no"/>No
+								</label>
 						</div>
 					</div>
 					
