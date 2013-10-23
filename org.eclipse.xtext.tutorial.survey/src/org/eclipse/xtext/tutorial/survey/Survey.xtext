@@ -21,7 +21,7 @@ Guard:
 	'if'
 	question=[ChoiceQuestion|QualifiedName]
 	'='
-	answer=[Choice|QualifiedName];
+	answer=[Choice];
 
 QualifiedName:
 	ID ('.' ID)*;
