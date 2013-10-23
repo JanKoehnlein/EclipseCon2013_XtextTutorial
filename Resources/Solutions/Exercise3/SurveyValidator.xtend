@@ -7,7 +7,7 @@ import org.eclipse.xtext.tutorial.survey.survey.Choice
 import org.eclipse.xtext.tutorial.survey.survey.Question
 import org.eclipse.xtext.validation.Check
 
-import static org.eclipse.xtext.tutorial.survey.survey.SurveyPackage$Literals.*
+import static org.eclipse.xtext.tutorial.survey.survey.SurveyPackage.Literals.*
 import org.eclipse.xtext.tutorial.survey.survey.ChoiceQuestion
 
 /**
@@ -19,23 +19,23 @@ class SurveyValidator extends AbstractSurveyValidator {
 
 	@Check
 	def textMustNotBeEmpty(Question question) {
-		if(question.getText().isEmpty()) {
+		if(question.text.isEmpty {
 			error("Empty question is illegal", QUESTION__TEXT)
 		}
 	}
 
 	@Check
 	def textMustNotBeEmpty(Choice choice) {
-		if(choice.getText().isEmpty()) {
+		if(choice.text.isEmpty {
 			error("Empty choice is illegal", CHOICE__TEXT)
 		}
 	}
 
 	@Check 
 	def duplicateChoiceText(ChoiceQuestion question) {
-		var nameToChoice = <String, Choice> newHashMap
-		for(choice: question.getChoices()) {
-			val choiceWithSameName = nameToChoice.put(choice.getText(), choice)
+		var nameToChoice = newHashMap
+		for(choice: question.choices) {
+			val choiceWithSameName = nameToChoice.put(choice.text, choice)
 			if(choiceWithSameName != null) {
 				error("Duplicate choice text", choice, CHOICE__TEXT)
 				error("Duplicate choice text", choiceWithSameName, CHOICE__TEXT)
