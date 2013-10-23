@@ -329,12 +329,10 @@ ruleGuard returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getGuardRule());
 	        }
         }
-		{ 
-	        newCompositeNode(grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); 
+	}
 
 )
 ))

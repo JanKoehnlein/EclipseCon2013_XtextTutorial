@@ -127,7 +127,7 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (question=[ChoiceQuestion|QualifiedName] answer=[Choice|QualifiedName])
+	 *     (question=[ChoiceQuestion|QualifiedName] answer=[Choice|ID])
 	 */
 	protected void sequence_Guard(EObject context, Guard semanticObject) {
 		if(errorAcceptor != null) {
@@ -139,7 +139,7 @@ public class SurveySemanticSequencer extends AbstractDelegatingSemanticSequencer
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getGuardAccess().getQuestionChoiceQuestionQualifiedNameParserRuleCall_1_0_1(), semanticObject.getQuestion());
-		feeder.accept(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1(), semanticObject.getAnswer());
+		feeder.accept(grammarAccess.getGuardAccess().getAnswerChoiceIDTerminalRuleCall_3_0_1(), semanticObject.getAnswer());
 		feeder.finish();
 	}
 	

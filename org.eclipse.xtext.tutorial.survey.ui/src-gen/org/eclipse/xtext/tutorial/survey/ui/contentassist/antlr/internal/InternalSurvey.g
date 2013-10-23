@@ -1561,8 +1561,8 @@ rule__Guard__AnswerAssignment_3
 (
 { before(grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); }
 (
-{ before(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1()); }
+{ before(grammarAccess.getGuardAccess().getAnswerChoiceIDTerminalRuleCall_3_0_1()); }
+	RULE_ID{ after(grammarAccess.getGuardAccess().getAnswerChoiceIDTerminalRuleCall_3_0_1()); }
 )
 { after(grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); }
 )

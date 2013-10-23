@@ -152,13 +152,13 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cAnswerAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cAnswerChoiceCrossReference_3_0 = (CrossReference)cAnswerAssignment_3.eContents().get(0);
-		private final RuleCall cAnswerChoiceQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cAnswerChoiceCrossReference_3_0.eContents().get(1);
+		private final RuleCall cAnswerChoiceIDTerminalRuleCall_3_0_1 = (RuleCall)cAnswerChoiceCrossReference_3_0.eContents().get(1);
 		
 		//Guard:
-		//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName];
+		//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice];
 		public ParserRule getRule() { return rule; }
 
-		//"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName]
+		//"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice]
 		public Group getGroup() { return cGroup; }
 
 		//"if"
@@ -176,14 +176,14 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//answer=[Choice|QualifiedName]
+		//answer=[Choice]
 		public Assignment getAnswerAssignment_3() { return cAnswerAssignment_3; }
 
-		//[Choice|QualifiedName]
+		//[Choice]
 		public CrossReference getAnswerChoiceCrossReference_3_0() { return cAnswerChoiceCrossReference_3_0; }
 
-		//QualifiedName
-		public RuleCall getAnswerChoiceQualifiedNameParserRuleCall_3_0_1() { return cAnswerChoiceQualifiedNameParserRuleCall_3_0_1; }
+		//ID
+		public RuleCall getAnswerChoiceIDTerminalRuleCall_3_0_1() { return cAnswerChoiceIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
@@ -438,7 +438,7 @@ public class SurveyGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Guard:
-	//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice|QualifiedName];
+	//	"if" question=[ChoiceQuestion|QualifiedName] "=" answer=[Choice];
 	public GuardElements getGuardAccess() {
 		return (pGuard != null) ? pGuard : (pGuard = new GuardElements());
 	}

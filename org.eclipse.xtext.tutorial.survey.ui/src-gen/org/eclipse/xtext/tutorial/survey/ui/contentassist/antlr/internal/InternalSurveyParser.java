@@ -28,8 +28,8 @@ public class InternalSurveyParser extends AbstractInternalContentAssistParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__21=21;
     public static final int T__20=20;
-    public static final int RULE_SL_COMMENT=8;
     public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=8;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__19=19;
     public static final int RULE_STRING=5;
@@ -4087,29 +4087,25 @@ public class InternalSurveyParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Guard__AnswerAssignment_3"
-    // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1556:1: rule__Guard__AnswerAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1556:1: rule__Guard__AnswerAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__Guard__AnswerAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1560:1: ( ( ( ruleQualifiedName ) ) )
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1561:1: ( ( ruleQualifiedName ) )
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1560:1: ( ( ( RULE_ID ) ) )
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1561:1: ( ( RULE_ID ) )
             {
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1561:1: ( ( ruleQualifiedName ) )
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1562:1: ( ruleQualifiedName )
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1561:1: ( ( RULE_ID ) )
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1562:1: ( RULE_ID )
             {
              before(grammarAccess.getGuardAccess().getAnswerChoiceCrossReference_3_0()); 
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1563:1: ( ruleQualifiedName )
-            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1564:1: ruleQualifiedName
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1563:1: ( RULE_ID )
+            // ../org.eclipse.xtext.tutorial.survey.ui/src-gen/org/eclipse/xtext/tutorial/survey/ui/contentassist/antlr/internal/InternalSurvey.g:1564:1: RULE_ID
             {
-             before(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Guard__AnswerAssignment_33089);
-            ruleQualifiedName();
-
-            state._fsp--;
-
-             after(grammarAccess.getGuardAccess().getAnswerChoiceQualifiedNameParserRuleCall_3_0_1()); 
+             before(grammarAccess.getGuardAccess().getAnswerChoiceIDTerminalRuleCall_3_0_1()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Guard__AnswerAssignment_33089); 
+             after(grammarAccess.getGuardAccess().getAnswerChoiceIDTerminalRuleCall_3_0_1()); 
 
             }
 
@@ -4624,7 +4620,7 @@ public class InternalSurveyParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleGuard_in_rule__FollowUp__GuardAssignment_02976 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__FollowUp__NextAssignment_23011 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Guard__QuestionAssignment_13050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Guard__AnswerAssignment_33089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Guard__AnswerAssignment_33089 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__FreeTextQuestion__NameAssignment_13124 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__FreeTextQuestion__TextAssignment_23155 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_21_in_rule__ChoiceQuestion__SingleAssignment_03191 = new BitSet(new long[]{0x0000000000000002L});
