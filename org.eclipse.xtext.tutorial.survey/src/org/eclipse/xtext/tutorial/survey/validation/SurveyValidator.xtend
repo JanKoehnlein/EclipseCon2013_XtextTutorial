@@ -18,14 +18,14 @@ class SurveyValidator extends AbstractSurveyValidator {
 
 	@Check
 	def textMustNotBeEmpty(Question question) {
-		if(question.text.isEmpty()) {
+		if(question.text.isEmpty) {
 			error("Empty question is illegal", QUESTION__TEXT)
 		}
 	}
 
 	@Check
 	def textMustNotBeEmpty(Choice choice) {
-		if(choice.text.isEmpty()) {
+		if(choice.text.isEmpty) {
 			error("Empty choice is illegal", CHOICE__TEXT)
 		}
 	}

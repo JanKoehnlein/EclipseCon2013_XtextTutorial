@@ -90,22 +90,22 @@ class SurveyGenerator implements IGenerator {
 			<div class="control-group">
 				<label class="control-label">«question.text»</label>
 				<div class="controls">
-						«IF question.choices.size > 30»
-							<select name="«question.name»" «IF !question.isSingle»multiple="multiple"«ENDIF»>
-								«FOR choice: question.choices»
-									<option value="«choice.getNameNotNull()»">«choice.text»</option>
-								«ENDFOR»
-							</select>
-						«ELSE»
+					«IF question.choices.size > 30»
+						<select name="«question.name»" «IF !question.isSingle»multiple="multiple"«ENDIF»>
 							«FOR choice: question.choices»
-								<label class="«buttonType»">
-									<input type="«buttonType»" name="«question.name»" value="«choice.getNameNotNull()»"/>«choice.text»
-									«IF choice.isFreetext»
-										&nbsp;<input type="text" name="«question.name»">
-									«ENDIF»
-								</label>
+								<option value="«choice.getNameNotNull()»">«choice.text»</option>
 							«ENDFOR»
-						«ENDIF»
+						</select>
+					«ELSE»
+						«FOR choice: question.choices»
+							<label class="«buttonType»">
+								<input type="«buttonType»" name="«question.name»" value="«choice.getNameNotNull()»"/>«choice.text»
+								«IF choice.isFreetext»
+									&nbsp;<input type="text" name="«question.name»">
+								«ENDIF»
+							</label>
+						«ENDFOR»
+					«ENDIF»
 				</div>
 			</div>
 		'''
@@ -132,17 +132,17 @@ class SurveyGenerator implements IGenerator {
 				if(currentPage == null)
 					return getFirstPage();
 				«FOR page: survey.pages.filter[!followUps.empty]»
-				if("«page.name»".equals(currentPage)) {
-					«FOR followUp : page.followUps»
-						«IF followUp.guard != null»
-							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+					if("«page.name»".equals(currentPage)) {
+						«FOR followUp : page.followUps»
+							«IF followUp.guard != null»
+								if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+									return "«followUp.next.name»";
+								}
+							«ELSE»
 								return "«followUp.next.name»";
-							}
-						«ELSE»
-							return "«followUp.next.name»";
-						«ENDIF»
-					«ENDFOR»
-				}
+							«ENDIF»
+						«ENDFOR»
+					}
 				«ENDFOR»
 				return null;
 			}

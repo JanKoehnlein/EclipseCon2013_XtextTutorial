@@ -235,10 +235,10 @@ public class SurveyGenerator implements IGenerator {
         int _size = _choices.size();
         boolean _greaterThan = (_size > 30);
         if (_greaterThan) {
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("<select name=\"");
           String _name = question.getName();
-          _builder.append(_name, "			");
+          _builder.append(_name, "		");
           _builder.append("\" ");
           {
             boolean _isSingle_1 = question.isSingle();
@@ -252,57 +252,57 @@ public class SurveyGenerator implements IGenerator {
           {
             EList<Choice> _choices_1 = question.getChoices();
             for(final Choice choice : _choices_1) {
-              _builder.append("\t\t\t");
+              _builder.append("\t\t");
               _builder.append("\t");
               _builder.append("<option value=\"");
               String _nameNotNull = this.getNameNotNull(choice);
-              _builder.append(_nameNotNull, "				");
+              _builder.append(_nameNotNull, "			");
               _builder.append("\">");
               String _text_1 = choice.getText();
-              _builder.append(_text_1, "				");
+              _builder.append(_text_1, "			");
               _builder.append("</option>");
               _builder.newLineIfNotEmpty();
             }
           }
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("</select>");
           _builder.newLine();
         } else {
           {
             EList<Choice> _choices_2 = question.getChoices();
             for(final Choice choice_1 : _choices_2) {
-              _builder.append("\t\t\t");
+              _builder.append("\t\t");
               _builder.append("<label class=\"");
-              _builder.append(buttonType, "			");
+              _builder.append(buttonType, "		");
               _builder.append("\">");
               _builder.newLineIfNotEmpty();
-              _builder.append("\t\t\t");
+              _builder.append("\t\t");
               _builder.append("\t");
               _builder.append("<input type=\"");
-              _builder.append(buttonType, "				");
+              _builder.append(buttonType, "			");
               _builder.append("\" name=\"");
               String _name_1 = question.getName();
-              _builder.append(_name_1, "				");
+              _builder.append(_name_1, "			");
               _builder.append("\" value=\"");
               String _nameNotNull_1 = this.getNameNotNull(choice_1);
-              _builder.append(_nameNotNull_1, "				");
+              _builder.append(_nameNotNull_1, "			");
               _builder.append("\"/>");
               String _text_2 = choice_1.getText();
-              _builder.append(_text_2, "				");
+              _builder.append(_text_2, "			");
               _builder.newLineIfNotEmpty();
               {
                 boolean _isFreetext = choice_1.isFreetext();
                 if (_isFreetext) {
-                  _builder.append("\t\t\t");
+                  _builder.append("\t\t");
                   _builder.append("\t");
                   _builder.append("&nbsp;<input type=\"text\" name=\"");
                   String _name_2 = question.getName();
-                  _builder.append(_name_2, "				");
+                  _builder.append(_name_2, "			");
                   _builder.append("\">");
                   _builder.newLineIfNotEmpty();
                 }
               }
-              _builder.append("\t\t\t");
+              _builder.append("\t\t");
               _builder.append("</label>");
               _builder.newLine();
             }

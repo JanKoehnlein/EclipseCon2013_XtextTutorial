@@ -20,10 +20,10 @@ import org.eclipse.xtext.tutorial.survey.survey.Survey
 class SurveyGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		val survey = resource.getContents().head as Survey
+		val survey = resource.contents.head as Survey
 		if(survey != null) {
-			for(page: survey.getPages()) {
-				fsa.generateFile(page.getName() + '.html', toHtml(survey, page))
+			for(page: survey.pages) {
+				fsa.generateFile(page.name + '.html', toHtml(survey, page))
 			}
 			fsa.generateFile("main/PageFlow.java", survey.toPageFlow)
 		}
@@ -32,7 +32,7 @@ class SurveyGenerator implements IGenerator {
 	protected def toHtml(Survey survey, Page page) '''
 		<html>
 		<head>
-			<title>«survey.getTitle()»</title>
+			<title>«survey.title»</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<!-- Bootstrap -->
 			<link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -43,7 +43,7 @@ class SurveyGenerator implements IGenerator {
 				<script src="js/bootstrap.js"></script>
 				<div class="navbar">
 						<div class="navbar-inner">
-							<a class="brand" href="/">«survey.getTitle()»</a>
+							<a class="brand" href="/">«survey.title»</a>
 							<ul class="nav pull-right">
 								<li><a href="/evaluate">Evaluate</a></li>
 							</ul>
@@ -52,10 +52,10 @@ class SurveyGenerator implements IGenerator {
 					
 					<div class="container">
 						<form class="form-horizontal" method="POST" action="dispatch" class="form-horizontal">
-							<input name="survey" type="hidden" value="«survey.getName()»"/>
-							<input name="page" type="hidden" value="«page.getName()»"/>
+							<input name="survey" type="hidden" value="«survey.name»"/>
+							<input name="page" type="hidden" value="«page.name»"/>
 							
-							«FOR question: page.getQuestions()»
+							«FOR question: page.questions»
 								«controlGroup(question)»
 							«ENDFOR»
 							
@@ -73,24 +73,24 @@ class SurveyGenerator implements IGenerator {
 	
 	protected def dispatch controlGroup(FreeTextQuestion question) '''
 		<div class="control-group">
-			<label class="control-label">«question.getText()»</label>
+			<label class="control-label">«question.text»</label>
 			<div class="controls">
-				<input type="text" name="«question.getName()»">
+				<input type="text" name="«question.name»">
 			</div>
 		</div>
 	'''
 	
 	protected def dispatch controlGroup(ChoiceQuestion question) {
-		val buttonType = if(question.isSingle()) 'radio' else 'checkbox'
+		val buttonType = if(question.isSingle) 'radio' else 'checkbox'
 		'''
 			<div class="control-group">
-				<label class="control-label">«question.getText()»</label>
+				<label class="control-label">«question.text»</label>
 				<div class="controls">
-					«FOR choice: question.getChoices()»
+					«FOR choice: question.choices»
 						<label class="«buttonType»">
-							<input type="«buttonType»" name="«question.getName()»" value="«choice.getName()»"/>«choice.getText()»
-							«IF choice.isFreetext()»
-								&nbsp;<input type="text" name="«choice.getName()»">
+							<input type="«buttonType»" name="«question.name»" value="«choice.name»"/>«choice.text»
+							«IF choice.isFreetext»
+								&nbsp;<input type="text" name="«choice.name»">
 							«ENDIF»
 						</label>
 					«ENDFOR»
@@ -112,25 +112,25 @@ class SurveyGenerator implements IGenerator {
 		public class PageFlow implements IPageFlow {
 			
 			public String getFirstPage() {
-				return "«survey.getPages().head.name»";
+				return "«survey.pages.head.name»";
 			}
 			
 			public String getNextPage(IFormState formState) {
 				String currentPage = formState.getCurrentPage();
 				if(currentPage == null)
 					return getFirstPage();
-				«FOR page: survey.getPages().filter[!followUps.empty]»
-				if("«page.name»".equals(currentPage)) {
-					«FOR followUp : page.followUps»
-						«IF followUp.guard != null»
-							if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+				«FOR page: survey.pages.filter[!followUps.empty]»
+					if("«page.name»".equals(currentPage)) {
+						«FOR followUp : page.followUps»
+							«IF followUp.guard != null»
+								if("«followUp.guard.answer.name»".equals(formState.getValue("«followUp.guard.question.name»"))) {
+									return "«followUp.next.name»";
+								}
+							«ELSE»
 								return "«followUp.next.name»";
-							}
-						«ELSE»
-							return "«followUp.next.name»";
-						«ENDIF»
-					«ENDFOR»
-				}
+							«ENDIF»
+						«ENDFOR»
+					}
 				«ENDFOR»
 				return null;
 			}
