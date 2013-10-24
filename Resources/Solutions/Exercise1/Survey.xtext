@@ -31,7 +31,7 @@ Survey:
 Page:
 	// A survey starts with the keyword 'page'...
 	'page' 
-	// .. folowed by its identifier (see above)
+	// .. followed by its identifier (see above)
 	name=ID
 	// The parentheses are keywords. Note that by our definition they are mandatory 
 	'('
@@ -85,10 +85,10 @@ ChoiceQuestion:
 //   eclipse 'Eclipse'
 //   text 'Other (please specify)'
 Choice:
-	// Another boolaan assignment (see ChoiceQuestion).
+	// Another boolean assignment (see ChoiceQuestion).
 	(freetext?='text')? 
 	// The identifier of a choice is optional. If not specified, we can derive a 
 	// technical one. 
 	(name=ID)? 
-	// And finally the question as presented to the user.
+	// And finally the answer as presented to the user.
 	text=STRING;
