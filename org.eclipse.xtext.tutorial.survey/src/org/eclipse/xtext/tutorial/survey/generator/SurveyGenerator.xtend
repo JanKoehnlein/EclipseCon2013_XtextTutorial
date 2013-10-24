@@ -24,7 +24,7 @@ class SurveyGenerator implements IGenerator {
 		if(survey != null) {
 			for(page: survey.pages) {
 				fsa.generateFile(page.name + '.html', 
-					SurveyOutputConfigurationProvider::htmlOutputConfig, 
+					SurveyOutputConfigurationProvider.htmlOutputConfig, 
 					toHtml(survey, page)
 				)
 			}

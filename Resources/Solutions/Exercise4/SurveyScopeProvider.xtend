@@ -20,8 +20,8 @@ class SurveyScopeProvider extends AbstractDeclarativeScopeProvider {
 
 	def scope_Guard_answer(Guard guard, EReference ref) {
 		if(guard.question == null)
-			IScope::NULLSCOPE
+			IScope.NULLSCOPE
 		else
-			Scopes::scopeFor(guard.question.choices) 
+			Scopes.scopeFor(guard.question.choices) 
 	}
 }

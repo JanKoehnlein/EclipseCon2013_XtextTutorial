@@ -42,7 +42,7 @@ class Evaluation {
 						«FOR entry: valueCounts.entrySet.sortBy[-value]»
 							<tr>
 								<td>«entry.key»</td>
-								<td>«String::format(Locale::US, "%.1f", 100.0 * entry.value / participants)»%</td>
+								<td>«String.format(Locale.US, "%.1f", 100.0 * entry.value / participants)»%</td>
 							</tr>
 						«ENDFOR»
 					«ENDFOR»

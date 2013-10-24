@@ -24,7 +24,7 @@ class SurveyServer {
 			val handlerList = new HandlerList
 			handlerList.addHandler(new SessionHandler)
 			handlerList.addHandler(new SurveyHandler => [
-				it.setPageFlow(this.pageFlow)
+				it.pageFlow = this.pageFlow
 			]) 
 			for(webroot: webroots) 
 				handlerList.addHandler(new ResourceHandler() => [

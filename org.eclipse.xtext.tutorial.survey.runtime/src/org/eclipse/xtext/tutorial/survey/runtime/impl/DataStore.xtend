@@ -11,7 +11,7 @@ class DataStore {
 	val storage = <Multimap<String, String>>newArrayList()
 	
 	def store(IFormState state) {
-		val map = HashMultimap::<String, String>create
+		val map = HashMultimap.create
 		for(field: state.fields) {
 			val value = state.getValue(field)
 			if(value instanceof List<?>)
@@ -23,12 +23,12 @@ class DataStore {
 	}
 	
 	def getKeys() {
-		Sets::newLinkedHashSet(storage.map[keySet].flatten)
+		Sets.newLinkedHashSet(storage.map[keySet].flatten)
 	}
 	
 	def getValueCounts(String key) {
 		val allValues = storage.map[get(key)].flatten
-		val result = <String, Integer> newHashMap
+		val result = newHashMap
 		for(value: allValues.toSet) {
 			result.put(value, allValues.filter[it==value].size)
 		}
