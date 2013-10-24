@@ -1,0 +1,532 @@
+survey community "Eclipse Community Survey 2013"
+
+page country (
+	single choice country "What country do you reside in?" (
+		'Ascension Island' 'Andorra' 'United Arab Emirates' 'Afghanistan'
+		'Antigua and Barbuda' 'Anguillaal' 'Albania' 'Armenia' 'Netherlands Antilles'
+		'Angola' 'Antarctica' 'Argentina' 'American Samoa' 'Austria' 'Australia'
+		'Aruba' 'Aland Islands' 'Azerbaijan' 'Bosnia and Herzegovina' 'Barbados'
+		'Bangladesh' 'Belgium' 'Burkina Faso' 'Bulgaria' 'Bahrain' 'Burundi' 'Benin'
+		'Bermuda' 'Brunei Darussalam' 'Bolivia' 'Brazil' 'Bahamas' 'Bhutan'
+		'Bouvet Island' 'Botswana' 'Belarus' 'Belize' 'Canada'
+		'Cocos (Keeling) Islands' 'Central African Republic' 'Congo' 'Switzerland'
+		'Cote d\'Ivoire' 'Cook Islands' 'Chile' 'Cameroon' 'China' 'Colombia'
+		'Costa Rica' 'Cuba' 'Cape Verde' 'Christmas Island' 'Cyprus' 'Czech Republic'
+		'Germany' 'Djibouti' 'Denmark' 'Dominica' 'Dominican Republic' 'Algeria'
+		'Ecuador' 'Estonia' 'Egypt' 'Western Sahara' 'Eritrea' 'Spain' 'Ethiopia'
+		'European Union' 'Finland' 'Fiji' 'Falkland Islands (Malvinas)' 'Micronesia'
+		'Faroe Islands' 'France' 'Gabon' 'Grenada' 'Georgia'
+		'French Guiana' 'Guernsey' 'Ghana' 'Gibraltar' 'Greenland' 'Gambia' 'Guinea'
+		'Guadeloupe' 'Equatorial Guinea' 'Greece'
+		'South Georgia and the South Sandwich Islands' 'Guatemala' 'Guam'
+		'Guinea-Bissau' 'Guyana' 'Hong Kong' 'Heard and McDonald Islands' 'Honduras'
+		'Croatia/Hrvatska' 'Haiti' 'Hungary' 'Indonesia' 'Ireland' 'Israel'
+		'Isle of Man' 'India' 'British Indian Ocean Territory' 'Iraq' 'Iran'
+		'Iceland' 'Italy' 'Jersey' 'Jamaica' 'Jordan' 'Japan' 'Kenya' 'Kyrgyzstan'
+		'Cambodia' 'Kiribati' 'Comoros' 'Saint Kitts and Nevis' 'Korea' 'Kuwait'
+		'Cayman Islands' 'Kazakhstan' 'Lao People\'s Democratic Republic' 'Lebanon'
+		'Saint Lucia' 'Liechtenstein' 'Sri Lanka' 'Liberia' 'Lesotho' 'Lithuania'
+		'Luxembourg' 'Latvia' 'Libyan Arab Jamahiriya' 'Morocco' 'Monaco' 'Moldova'
+		'Montenegro' 'Madagascar' 'Marshall Islands' 'Macedonia' 'Mali' 'Myanmar'
+		'Mongolia' 'Macao' 'Northern Mariana Islands' 'Martinique' 'Mauritania'
+		'Montserrat' 'Malta' 'Mauritius' 'Maldives' 'Malawi' 'Mexico' 'Malaysia'
+		'Mozambique' 'Namibia' 'New Caledonia' 'Niger' 'Norfolk Island' 'Nigeria'
+		'Nicaragua' 'Netherlands' 'Norway' 'Nepal' 'Nauru' 'Niue' 'New Zealand'
+		'Oman' 'Panama' 'Peru' 'French Polynesia' 'Papua New Guinea' 'Philippines'
+		'Pakistan' 'Poland' 'Saint Pierre and Miquelon' 'Pitcairn Island'
+		'Puerto Rico' 'Palestinian Territory' 'Portugal' 'Palau' 'Paraguay' 'Qatar'
+		'Reunion Island' 'Romania' 'Serbia' 'Russian Federation' 'Rwanda'
+		'Saudi Arabia' 'Solomon Islands' 'Seychelles' 'Sudan' 'Sweden' 'Singapore'
+		'Saint Helena' 'Slovenia' 'Svalbard and Jan Mayen Islands' 'Slovak Republic'
+		'Sierra Leone' 'San Marino' 'Senegal' 'Somalia' 'Suriname'
+		'Sao Tome and Principe' 'Soviet Union' 'El Salvador' 'Syrian Arab Republic'
+		'Swaziland' 'Turks and Caicos Islands' 'Chad' 'French Southern Territories'
+		'Togo' 'Thailand' 'Tajikistan' 'Tokelau' 'Timor-Leste' 'Turkmenistan'
+		'Tunisia' 'Tonga' 'East Timor' 'Turkey' 'Trinidad and Tobago' 'Tuvalu'
+		'Taiwan' 'Tanzania' 'Ukraine' 'Uganda' 'United Kingdom' 'United States'
+		'Uruguay' 'Uzbekistan' 'Holy See (Vatican City State)'
+		'Saint Vincent and the Grenadines' 'Venezuela' 'Virgin Islands, British'
+		'Virgin Islands, U.S.' 'Vietnam' 'Vanuatu' 'Wallis and Futuna Islands'
+		'Samoa' 'Yemen' 'Mayotte' 'Yugoslavia' 'South Africa' 'Zambia' 'Zimbabwe'
+	)
+	-> experience
+)
+
+page experience  (
+	single choice experience 
+		'How many years have you spent writing code in a professional capacity?' (
+			'Just learning to code'
+			'Less than 2 years'
+			'2-5 years'
+			'6-10 years'
+			'11-15 years'
+			'16-20 years'
+			'More than 20 years'
+	)
+	-> organization
+)
+
+
+page organization (
+	single choice industry 
+		"Which of the following most closely describes your industry?" ( 
+			'Chemical and petroleum manufacturing'
+			'Construction and engineering'
+			'Consumer products manufacturing (consumer packaged goods, pharma/biotech)'
+			'Financial services'
+			'Government (federal, state, local)'
+			'High-tech products  (software, computer hardware, aerospace, industrial electronics)'
+			'Industrial products manufacturing (automotive, machinery, equipment)'
+			'Insurance'
+			'Media, entertainment and leisure (advertising, publishing, recreation)'
+			'Primary products manufacturing (agriculture, metals)'
+			'Professional services (consulting, outsourcing, legal)'
+			'Public services (healthcare, nonprofit, private education)'
+			'Retail (food and beverage, general merchandise)'
+			'Telecom carriers'
+			'Transportation and logistics (shipping and transport, warehousing)'
+			'Utilities (electricity, water and waste)'
+			'Wholesale'
+			'Individual - not affiliated with an industry'
+			'Researcher'
+			'Student'
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	single choice size 
+		"What is your best estimate of how many employees work at your organization?" (
+			'Individual, not affiliated with an organization'
+			'Fewer than 100'
+			'100 to 999'
+			'1,000 to 4,999'
+			'5,000 to 19,999'
+			'20,000 or more'
+			"Don't know"
+	)
+	single choice role 
+		"Which of these titles best fits your role in the organization?" (
+			'Development manager'
+			'Product/marketing manager'
+			'Programmer/Developer'
+			'Software quality assurance person (including testers)'
+			'Systems architect'
+			'Mid-manager (Director, Senior Manager)'
+			'Executive manager (CEO, CFO, CMO, COO, CTO, Executive Vice President, Senior Vice President, Vice President)'
+			'Other line function (line function means you are directly involved in producing and selling your products/services)'
+			'Other staff function (staff function means you provide an internal support function to the line function employees)'
+			'Consultant'
+			'Individual, not affiliated with an organization'
+			'Student'
+	)
+	-> operating_system
+)
+
+
+page operating_system (
+	single choice development 
+		"What is your primary operating system for software <i>development</i>?" (
+			'Linux - Debian'
+			'Linux - Fedora'
+			'Linux - RHEL'
+			'Linux - SUSE'
+			'Linux - Ubuntu'
+			'Linux - Other'
+			'Mac OSX'
+			'Microsoft Windows (any version of Server or Client)'
+			'Oracle Solaris'
+			'Unix (AIX, HP-UX)'
+			"Don't know"
+			text 'Other operating system platform  (specify)'
+	)
+	choice deployment 
+		"What are your primary operating systems for software <i>deployment</i>? (Based on importance, choose up to 5)" (
+			'Embedded OS (ex. Embedded Linux, QNX, VxWorks)'
+			'Linux - Debian' 
+			'Linux - Fedora'
+			'Linux - RHEL' 
+			'Linux - SUSE'
+			'Linux - Ubuntu'
+			'Linux - Other' 
+			'Mac OSX' 
+			'Microsoft Windows (any version of Server or Client)' 
+			'Android' 
+			'Apple iOS' 
+			'Windows Phone' 
+			'RIM Blackberry' 
+			'Samsung Bada' 
+			'Oracle Solaris' 
+			'Unix (AIX, HP-UX)' 
+			"Don't know" 
+			'Not Applicable' 
+			text 'Other (please specify)' 
+	)
+	-> programming_language
+)
+
+
+page programming_language (
+	single choice primary 
+		"What is the <i>primary</i> computer language you typically use to develop software?" (
+			'C/C++'
+			'C'
+			'Lua'
+			'Groovy'
+			'Java'
+			'Java Script'
+			'Objective-C'
+			'Perl'
+			'PHP'
+			'Python'
+			'Ruby'
+			'Scala'
+			'Visual Basic/Visual Basic .Net'
+			"None - I don't use a computer language for software development"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	choice others 
+		"How do you allocate the time you spend writing code across the following programming languages?" (
+			'Assembler' 
+			'C/C++'
+			'C#'
+			'COBOL'
+			'FORTRAN'
+			'Groovy'
+			'Java'
+			'Java Script'
+			'Objective-C'
+			'Perl'
+			'PHP'
+			'Python'
+			'Ruby'
+			'Scala'
+			'Visual Basic .NET'
+			'Other(s)'
+			"None - I don't use a computer language for software development"
+	)
+	-> development_target
+)
+
+
+page development_target (
+	single choice software_type 
+		"What is the <i>primary type</i> of software you are personally involved in developing?" (
+			'Desktop client applications'
+			'Embedded software'
+			'Mainframe applications'
+			'Mobile applications'
+			'Plug-ins for Eclipse'
+			'Research/scientific applications'
+			'Web applications & Rich Internet Applications'
+			'Server-centric & Middleware applications (client/server, CRM, database apps, ERP, Java EE applications)'
+			'None - I am not developing software'
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	single choice server_framework 
+		"What is the <i>primary</i> server framework you use for deployed applications?" (
+			'Apache Struts'
+			'Apache Struts 2'
+			'Apache Tapestry'
+			'Drupal' 
+			'EJBs'
+			'Equinox (or other OSGi runtime)'
+			'Grails'
+			'Java Server Faces (JSF)'
+			'Microsoft ASP .NET'
+			'node.js'
+			'Rails (Ruby on Rails)'
+			'Servlets'
+			'Spring'
+			'Wicket'
+			'Virgo'
+			'Zend Framework'
+			"None - I'm not using a server framework"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	single choice application_server 
+		"What is the <i>primary</i> application server you typically use for deployed applications?" (
+			'Apache Tomcat'
+			'Glassfish'
+			'IBM WebSphere'
+			'JBoss'
+			'Jetty'
+			'Oracle Application Server'
+			'Oracle WebLogic'
+			'SAP Netweaver'
+			'Virgo (Spring dm Server)'
+			'Zend Server'
+			"None - I don't use an application server"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	-> development_tools
+)
+
+
+page development_tools (
+	single choice scm
+		"What is the <i>primary</i> source code management system you typically use?" (
+			'BitBucket'
+			'CVS'
+			'CollabNet TeamForge'
+			'Git'
+			'GitHub'
+			'IBM Rational ClearCase'
+			'IBM Rational Team Concert'
+			'Mercurial'
+			'Microsoft Team Foundation Server'
+			'Microsoft Visual SourceSafe'
+			'Perforce'
+			'Subversion'
+			"None - I don't use a source code management system"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	choice release_mgmt 
+		"What build and release management products do you typically use? (Select all that apply.)" (
+			'Apache Ivy'
+			'Ant'
+			'Anthill Professional'
+			'Atlassian Bamboo'
+			'Artifactory'
+			'Buckminster'
+			'CMake'
+			'CruiseControl'
+			'Electric Cloud'
+			'Gradle'
+			'Hudson'
+			'Jenkins'
+			'IBM Build Forge'
+			'Make'
+			'Maven'
+			'Microsoft Team Foundation Server (TFS)'
+			'PDE Build'
+			'Pulse'
+			'Sonatype Nexus'
+			'TeamCity'
+			'Custom/in-house'
+			"None - I don't use a build and release management product"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	-> cloud
+)
+
+
+page cloud (
+	single choice intent "Are you or your organization deploying applications to a cloud infrastructure?" (
+			'Yes, we deploy the majority of our applications to a cloud infrastructure'
+			'Yes, we deploy a minority of our applications to a cloud infrastructure'
+			'No, but we have plans to deploy some applications to a cloud infrastructure in the next 6 months'
+			'No, but we have plans to deploy some applications to a cloud infrastructure in the next 7-18 months'
+			no 'No plans to use cloud infrastructures'
+			don_t_know "Don't know"
+	)
+	if intent=no -> mobile
+	if intent=don_t_know -> mobile
+	-> cloud_2
+)
+
+page cloud_2 (
+	choice cloud_infrastructure
+		"If you are or have plans to use a cloud infrastructure, which service are you likely to use?" (
+			'Amazon'
+			'AT&T Synaptic Hosting or Compute'
+			'CloudBees'
+			'Cloud Foundry'
+			'EngineYard'
+			'Google AppEngine'
+			'Heroku'
+			'IBM'
+			'Joyent'
+			'Microsoft Azure'
+			'Rackspace Cloud'
+			'Red Hat OpenShift'
+			'Salesforce'
+			'Terremark, The Enterprise Cloud'
+			'Private cloud'
+			"None - I don't target a cloud-style service provider"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	-> mobile
+)
+
+
+page mobile (
+	single choice intent 
+		"Are you or your organization planning to create applications for mobile devices (smartphones, tablets, etc.)" (
+			internal 'Yes, we have developed mobile application(s) for our internal users'
+			external 'Yes, we have developed mobile application(s) for external users'
+			'Yes, we have developed mobile applications for internal and external users'
+			'No, but we have plans to develop mobile applications in the next 6 months'
+			'No, but we have plans to develop mobile applications in the next 7-18 months'
+			no 'No plans to develop mobile applications'
+			don_t_know "Don't know"
+	)
+	if intent=no -> open_source
+	if intent=don_t_know -> open_source
+	-> mobile_2
+)
+
+page mobile_2 (
+	choice platforms 
+		"What platforms are your targeting for your mobile applications?  (Choose all that apply)" (
+			'Android'
+			'Apple iOS'
+			'HP Palm WebOS'
+			'MS Windows Phone'
+			'RIM Blackberry'
+			'Symbian'
+			'Samsung Bada'
+			'We optimize our web site for mobile devices'
+	)
+	choice frameworks 
+		"What mobile frameworks and platforms do you use? (Choose all that apply)" (
+			'Appcelerator'
+			'Corona SDK'
+			'Dojo Mobile'
+			'jQuery Mobile'
+			'Marmalade'
+			'PhoneGap'
+			'Sencha Touch'
+			'Unity'
+			'Unreal Engine'
+			'None, only use the Mobile OS SDK'
+			text 'Other (please specify)'
+	)
+	-> open_source
+)
+
+
+page open_source (
+	single choice policy 
+		"What best describes your organization's policy towards the use of open source software?" (
+			'Does not allow the use of any open source software'
+			'Uses open source software, but does not interact with open source project communities in any way'
+			'Uses open source software and contributes back (through bug reports, code, resources) to at least one open source project community to help improve the quality of the projects we consume'
+			'Contributes significant development resources (contributors, committers and/or maintainers, project leaders) to at least one open source project community in order to help influence the evolution of the projects we consume'
+			'Has a business model that relies on open source software for its success'
+			'Individual, not affiliated with an organization'
+			"Don't know"
+	)
+	choice motivation 
+		"Why do <strong>you</strong> contribute or participate in an open source project? NOTE: Contribute and participate means you have done something substantial for a project, like open bugs, answering a questions on a forum post, contributing a patch, helping with test, writing documentation or article, being a committer, etc. (Choose all that apply)" (
+			"I'm paid to contribute"
+			'It is important for my career development and resume'
+			'I like to give back and support  open source projects'
+			'I enjoy the interaction with my peers working on the open source project'
+			'It is a great way to learn about new technologies'
+			'I needed a feature or bug fix in an open source project, so I did it myself'
+			'A good way to promote my consulting services'
+			'I believe in the FOSS ethos/philosophy'
+			"I don't contribute to any open source projects"
+			text 'Other (please specify)'
+	)
+	-> hobby
+)
+
+
+page hobby (
+	single choice time_spent 
+		"Do you spend time developing software/applications on your own personal time? If so, how many hours a month do you spend involved in personal programming or side projects not related to your day job?" (
+			none 'I do not program or develop applications on my own time outside my day job.'
+			'I spend less than 20 hours a month programming for personal reasons.'
+			'I spend between 20-40 hours a month programming for personal reasons.'
+			'I spend less than 40-80 hours a month programming for personal reasons.'
+			'I spend more than 80 hours a month programming for personal reasons.'
+	)
+	if time_spent=none -> eclipse
+	-> hobby_2
+)
+
+
+page hobby_2 (
+	choice motivation 
+		"Why do you spend your own time developing software/applications? (Choose all that apply)" ( 
+			'To improve my own productivity at work.'
+			'To improve the productivity of others I work with.'
+			'As part of a personal hobby or pastime (e.g. home automation, robotics).'
+			'I want to get a job as a professional developer someday.'
+			'I’m looking to keep my skills sharp by learning new technologies.'
+			'I’m developing an idea that could result in starting my own company.'
+			'I generally enjoy programming and learning about new technologies.'
+			'I like the idea of creating an application, selling it, and making money on the side.'
+			'I contribute my time and talent to a civic organization or charity.'
+			'I contribute to open source projects.'
+			text 'Other (please specify)'
+	)
+	-> eclipse
+)
+
+
+page eclipse (
+	single choice version 
+		"What is the version of Eclipse you use most often?" (
+			'Eclipse 3.4 (Ganymede)'
+			'Eclipse 3.5 (Galileo)'
+			'Eclipse 3.6 (Helios)'
+			'Eclipse 3.7 (Indigo)'
+			'Eclipse 4.2 (Juno)'
+			'Eclipse 4.3 (Kepler)'
+			'Eclipse 4.4 (Luna Milestone Builds)'
+			"None - Don't use Eclipse"
+			"Don't know"
+			text 'Other (please specify)'
+	)
+	choice community 
+		"In the last year, how have you participated in the Eclipse community? (Select all that apply.)" (
+			'I was an active committer on a project and submitted code'
+			'I entered at least one bug into Bugzilla'
+			'I entered at least one patch into Bugzilla'
+			'I responded to forum posts'
+			'I wrote an article or blog post about Eclipse'
+			'I made an Eclipse-oriented presentation at a conference'
+			'I wrote some documentation for an Eclipse project'
+			'I helped with testing/QA of an Eclipse project'
+			'I helped other Eclipse users via Facebook, IRC, LinkedIn, Twitter or other online networking site'
+			'I developed a plug-in for Eclipse'
+			"I used Eclipse but didn't actively participate in the community"
+			"I didn't use Eclipse"
+			text 'Other (please specify)'
+	)
+	choice source_of_information 
+		"Where do you typically go to find Eclipse-related information? (Select all that apply.)" (
+			'Eclipse Live'
+			'Eclipse Marketplace'
+			'EclipseCon  (including EclipseCon Europe)'
+			'Eclipse forums'
+			'Eclipse mailing lists'
+			'Eclipsepedia, the Eclipse wiki'
+			'Eclipse.org home page (including RSS feed)'
+			'Google  (and other search engines)'
+			'Online networks like Facebook, IRC, Twitter, LinkedIn and Xing'
+			'PlanetEclipse (including RSS feed)'
+			'Stack Overflow'
+			"I don't look for Eclipse information."
+			text 'Other conferences, portals or sources (specify)'
+	)
+	choice satisfaction
+		"Overall, how satisfied are you with Eclipse?" (
+			'Very satisfied'
+			'Satisified'
+			'Neutral'
+			'Unsatisfied'
+			'Very Unsatisified'
+	)
+	choice member 
+		"Are you or the organization you work for a member of the Eclipse Foundation?" (
+			'Yes, the organization I work for is a member'
+			"Yes, I'm an individual committer member"
+			'No'
+			"Don't know"
+	)
+	-> comments
+)
+
+
+page comments (
+	text comments "Please leave any other comments or suggestions you have for the Eclipse Foundation."
+)
